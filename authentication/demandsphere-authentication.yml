@@ -1,0 +1,15 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/demandsphere-openapi-original.json
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - query
+schemes:
+- name: ApiKey
+  type: apiKey
+  in: query
+  parameter: api_key
+  sources:
+  - openapi/demandsphere-openapi-original.json
