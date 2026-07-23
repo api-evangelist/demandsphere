@@ -1,0 +1,478 @@
+openapi: 3.0.0
+info:
+  version: 5.0.0
+  title: DemandSphere API v5.0 Documentation Keywords SearchEngines API
+  description: ''
+servers:
+- url: https://api.demandsphere.com
+  description: Production API Server
+security:
+- ApiKey: []
+tags:
+- name: SearchEngines
+paths:
+  /search_engines/summary/list:
+    post:
+      summary: Get a list of search engines summary
+      operationId: SearchEngines_Summary
+      tags:
+      - SearchEngines
+      parameters:
+      - $ref: '#/components/parameters/From'
+      - $ref: '#/components/parameters/To'
+      - $ref: '#/components/parameters/Granularity'
+      - $ref: '#/components/parameters/SearchEngines'
+      - $ref: '#/components/parameters/SiteGlobalKey'
+      responses:
+        '200':
+          $ref: '#/components/responses/Response200Summary'
+        '400':
+          $ref: '#/components/responses/Response400'
+components:
+  parameters:
+    SiteGlobalKey:
+      name: site_global_key
+      in: query
+      required: true
+      schema:
+        type: string
+        description: Your site ID
+      description: Your site ID
+    To:
+      name: to
+      in: query
+      required: true
+      schema:
+        type: string
+        description: YYYY-MM-DD
+      description: YYYY-MM-DD
+    Granularity:
+      name: granularity
+      in: query
+      required: true
+      schema:
+        type: string
+        default: daily
+        enum:
+        - daily
+        - weekly
+        - monthly
+    From:
+      name: from
+      in: query
+      required: true
+      schema:
+        type: string
+        description: YYYY-MM-DD
+      description: YYYY-MM-DD
+    SearchEngines:
+      name: search_engines
+      in: query
+      required: true
+      schema:
+        type: string
+        enum:
+        - google_japan
+        - yahoo_japan
+        - google_us
+        - yahoo_us
+        - google_mx
+        - yahoo_mx
+        - google_ar
+        - yahoo_ar
+        - google_uk
+        - yahoo_uk
+        - google_au
+        - yahoo_au
+        - google_nz
+        - yahoo_nz
+        - google_fr
+        - yahoo_fr
+        - google_de
+        - yahoo_de
+        - google_es
+        - yahoo_es
+        - google_ch
+        - yahoo_ch
+        - google_in
+        - yahoo_in
+        - google_ca
+        - yahoo_ca
+        - google_tr
+        - yahoo_tr
+        - google_br
+        - yahoo_br
+        - google_dk
+        - yahoo_dk
+        - google_it
+        - yahoo_it
+        - google_se
+        - yahoo_se
+        - google_ie
+        - yahoo_ie
+        - google_nl
+        - yahoo_nl
+        - google_pt
+        - yahoo_pt
+        - google_gr
+        - yahoo_gr
+        - bing_us
+        - bing_ar
+        - bing_au
+        - bing_br
+        - bing_ca
+        - bing_ch
+        - bing_de
+        - bing_dk
+        - bing_es
+        - bing_fr
+        - bing_ie
+        - bing_in
+        - bing_it
+        - bing_japan
+        - bing_mx
+        - bing_nl
+        - bing_nz
+        - bing_pt
+        - bing_se
+        - bing_uk
+        - bing_tr
+        - bing_gr
+        - google_tw
+        - yahoo_tw
+        - baidu_tw
+        - google_id
+        - google_us_id
+        - yahoo_id
+        - google_th
+        - yahoo_th
+        - bing_th
+        - google_sg
+        - yahoo_sg
+        - bing_sg
+        - google_hk
+        - yahoo_hk
+        - bing_hk
+        - google_pl
+        - yahoo_pl
+        - bing_pl
+        - google_ve
+        - yahoo_ve
+        - bing_ve
+        - google_za
+        - yahoo_za
+        - bing_za
+        - google_vn
+        - yahoo_vn
+        - bing_vn
+        - google_il
+        - yahoo_il
+        - bing_il
+        - google_ro
+        - yahoo_ro
+        - bing_ro
+        - google_my
+        - yahoo_my
+        - bing_my
+        - yandex_ru
+        - mail_ru
+        - google_ru
+        - yahoo_cz
+        - yahoo_cy
+        - yahoo_co
+        - bing_hu
+        - yahoo_qa
+        - google_jo
+        - bing_om
+        - bing_eg
+        - yahoo_no
+        - google_ae
+        - bing_bh
+        - yahoo_kw
+        - yahoo_eg
+        - google_om
+        - bing_jo
+        - yahoo_sa
+        - yahoo_hu
+        - yahoo_bh
+        - google_lb
+        - google_fi
+        - bing_qa
+        - yahoo_ps
+        - yahoo_ph
+        - yahoo_pe
+        - google_cz
+        - google_cy
+        - google_co
+        - bing_no
+        - google_qa
+        - bing_lb
+        - bing_ae
+        - yahoo_jo
+        - google_no
+        - bing_sa
+        - yahoo_ae
+        - google_kw
+        - google_eg
+        - bing_ps
+        - bing_ph
+        - bing_pe
+        - bing_fi
+        - yahoo_om
+        - google_sa
+        - google_hu
+        - google_bh
+        - bing_cz
+        - bing_cy
+        - bing_co
+        - yahoo_lb
+        - yahoo_fi
+        - google_ps
+        - google_ph
+        - google_pe
+        - bing_kw
+        - google_cn
+        - baidu_cn
+        - sogou_cn
+        - google_us__iphone
+        - google_us__ipad
+        - google_japan__iphone
+        - google_japan__ipad
+        - google_au__iphone
+        - google_au__ipad
+        - so_360
+        - google_us__nexus5
+        - google_us__galaxytab
+        - google_au__nexus5
+        - google_au__galaxytab
+        - google_japan__nexus5
+        - google_japan__galaxytab
+        - naver_kr
+        - daum_kr
+        - google_kr
+        - google_sg__iphone
+        - google_sg__ipad
+        - google_sg__nexus5
+        - google_sg__galaxytab
+        - google_th__iphone
+        - google_th__ipad
+        - google_th__nexus5
+        - google_th__galaxytab
+        - google_id__iphone
+        - google_id__ipad
+        - google_id__nexus5
+        - google_id__galaxytab
+        - google_pg
+        - google_tw__iphone
+        - google_tw__ipad
+        - google_tw__nexus5
+        - google_tw__galaxytab
+        - google_hk__iphone
+        - google_hk__ipad
+        - google_hk__nexus5
+        - google_hk__galaxytab
+        - google_ca__iphone
+        - google_ca__ipad
+        - google_ca__nexus5
+        - google_ca__galaxytab
+        - google_uk__iphone
+        - google_uk__ipad
+        - google_uk__nexus5
+        - google_uk__galaxytab
+        - google_cl
+        - google_cl__iphone
+        - google_cl__ipad
+        - google_cl__nexus5
+        - google_cl__galaxytab
+        - google_at
+        - google_at__iphone
+        - google_de__iphone
+        - google_it__iphone
+        - google_be
+        - google_be__iphone
+        - google_ph__iphone
+        - google_ph__nexus5
+        - amazon_us
+        - amazon_japan
+        - google_ru__iphone
+        - google_ru__nexus5
+        - google_es__iphone
+        - google_es__nexus5
+        - google_fr__iphone
+        - google_fr__nexus5
+        - google_de__nexus5
+        - google_it__nexus5
+        - google_br__iphone
+        - google_br__nexus5
+        - google_ae__iphone
+        - google_ae__nexus5
+        - google_eg__iphone
+        - google_eg__nexus5
+        - google_kw__iphone
+        - google_kw__nexus5
+        - google_qa__iphone
+        - google_qa__nexus5
+        - google_sa__iphone
+        - google_sa__nexus5
+        - google_pl__iphone
+        - google_pl__nexus5
+        - google_sg_en
+        - google_sg_en__iphone
+        - google_sg_en__nexus5
+        - google_sg_en__galaxytab
+        - google_my__iphone
+        - google_my__nexus5
+        - google_my__galaxytab
+        - google_my__ipad
+        - google_hk_en
+        - google_hk_en__iphone
+        - google_hk_en__nexus5
+        - google_hk_en__galaxytab
+        - google_hk_en__ipad
+        - googleimages_us
+        - googleimages_us__iphone
+        - googleimages_us__nexus5
+        - google_kr__iphone
+        - google_kr__nexus5
+        - yahoo_japan__iphone
+        - google_mx__iphone
+        - google_mx__nexus5
+        - google_mx__galaxytab
+        - google_mx__ipad
+  responses:
+    Response400:
+      description: Error
+      content:
+        application/json:
+          schema:
+            type: object
+    Response200Summary:
+      description: success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              tabularData:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    site:
+                      type: string
+                    search_engines:
+                      type: array
+                      items:
+                        type: string
+                    from:
+                      type: string
+                    to:
+                      type: string
+                    sort_col:
+                      type: array
+                      items:
+                        type: string
+                    sort_dir:
+                      type: array
+                      items:
+                        type: string
+                    application_brand:
+                      type: string
+                    page_info:
+                      type: object
+                      properties:
+                        returned_count:
+                          type: integer
+                        total_count:
+                          type: integer
+                    results:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          search_engine:
+                            type: object
+                            properties:
+                              label:
+                                type: string
+                              value:
+                                type: string
+                              dataType:
+                                type: string
+                          rank:
+                            type: object
+                            properties:
+                              label:
+                                type: string
+                              value:
+                                type: integer
+                              dataType:
+                                type: string
+                          rank_change:
+                            type: object
+                            properties:
+                              label:
+                                type: string
+                              value:
+                                type: integer
+                              dataType:
+                                type: string
+                          tracked_visits:
+                            type: object
+                            properties:
+                              label:
+                                type: string
+                              value:
+                                type: integer
+                              dataType:
+                                type: string
+                          tracked_conversions:
+                            type: object
+                            properties:
+                              label:
+                                type: string
+                              value:
+                                type: integer
+                              dataType:
+                                type: string
+                          tracked_revenue:
+                            type: object
+                            properties:
+                              label:
+                                type: string
+                              value:
+                                type: integer
+                              dataType:
+                                type: string
+                          organic_visits:
+                            type: object
+                            properties:
+                              label:
+                                type: string
+                              value:
+                                type: integer
+                              dataType:
+                                type: string
+                          organic_conversions:
+                            type: object
+                            properties:
+                              label:
+                                type: string
+                              value:
+                                type: integer
+                              dataType:
+                                type: string
+                          organic_revenue:
+                            type: object
+                            properties:
+                              label:
+                                type: string
+                              value:
+                                type: integer
+                              dataType:
+                                type: string
+  securitySchemes:
+    ApiKey:
+      type: apiKey
+      name: api_key
+      in: query

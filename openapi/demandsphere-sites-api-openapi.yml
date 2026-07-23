@@ -1,0 +1,191 @@
+openapi: 3.0.0
+info:
+  version: 5.0.0
+  title: DemandSphere API v5.0 Documentation Keywords Sites API
+  description: ''
+servers:
+- url: https://api.demandsphere.com
+  description: Production API Server
+security:
+- ApiKey: []
+tags:
+- name: Sites
+paths:
+  /sites/hierarchy/list:
+    post:
+      summary: Get a list of hierarchy properties
+      operationId: Sites_HierarchyList
+      tags:
+      - Sites
+      responses:
+        '200':
+          $ref: '#/components/responses/Response200Hierarchy'
+        '400':
+          $ref: '#/components/responses/Response400'
+  /sites/properties/list:
+    post:
+      summary: Get a list of properties
+      operationId: Sites_PropertiesList
+      tags:
+      - Sites
+      responses:
+        '200':
+          $ref: '#/components/responses/Response200Properties'
+        '400':
+          $ref: '#/components/responses/Response400'
+components:
+  responses:
+    Response200Hierarchy:
+      description: success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              hierarchyList:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    siteName:
+                      type: string
+                    organizationName:
+                      type: string
+                    accountName:
+                      type: string
+                    url:
+                      type: string
+                    numUsers:
+                      type: integer
+                    keywords:
+                      type: integer
+                    image:
+                      type: string
+                    ownership:
+                      type: string
+              meta:
+                type: object
+                properties:
+                  api_version:
+                    type: string
+    Response200Properties:
+      description: success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              propertyList:
+                type: object
+                properties:
+                  organizations:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                        id:
+                          type: string
+                        accounts:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              name:
+                                type: string
+                              id:
+                                type: string
+                              sites:
+                                type: array
+                                items:
+                                  type: object
+                                  properties:
+                                    id:
+                                      type: string
+                                    siteName:
+                                      type: string
+                                    organizationId:
+                                      type: string
+                                    organizationName:
+                                      type: string
+                                    accountId:
+                                      type: string
+                                    accountName:
+                                      type: string
+                                    url:
+                                      type: string
+                                    numUsers:
+                                      type: integer
+                                    keywords:
+                                      type: integer
+                                    image:
+                                      type: string
+                                    ownership:
+                                      type: string
+                                    favicon:
+                                      type: string
+                                    countryCode:
+                                      type: string
+                                    geoname:
+                                      type: string
+                  accounts:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                        id:
+                          type: string
+                        sites:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              id:
+                                type: string
+                              siteName:
+                                type: string
+                              organizationId:
+                                type: string
+                              organizationName:
+                                type: string
+                              accountId:
+                                type: string
+                              accountName:
+                                type: string
+                              url:
+                                type: string
+                              numUsers:
+                                type: integer
+                              keywords:
+                                type: integer
+                              image:
+                                type: string
+                              ownership:
+                                type: string
+                              favicon:
+                                type: string
+                              countryCode:
+                                type: string
+                              geoname:
+                                type: string
+              meta:
+                type: object
+                properties:
+                  api_version:
+                    type: string
+    Response400:
+      description: Error
+      content:
+        application/json:
+          schema:
+            type: object
+  securitySchemes:
+    ApiKey:
+      type: apiKey
+      name: api_key
+      in: query
