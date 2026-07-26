@@ -1,0 +1,17 @@
+generated: '2026-07-18'
+method: searched
+source: https://github.com/DemandSphereDev
+note: >-
+  DemandSphere marketing references Python & Node SDKs, but no first-party client
+  library was found published on npm, PyPI, or any other public registry as of
+  this run. The only published, installable first-party package is the MCP
+  server, distributed as a git-installable Python package (not yet on PyPI).
+packages:
+- language: python
+  registry: github
+  name: demandsphere-mcp
+  url: https://github.com/DemandSphereDev/demandsphere-mcp
+  install: git clone https://github.com/DemandSphereDev/demandsphere-mcp.git && pip install -e .
+  official: true
+  kind: mcp-server
+  license: MIT

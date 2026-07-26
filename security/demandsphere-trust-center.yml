@@ -1,0 +1,12 @@
+generated: '2026-07-18'
+method: searched
+probe: true
+source: https://www.demandsphere.com/security/
+url: https://www.demandsphere.com/security/
+certifications:
+- GDPR
+evidence:
+- source: https://www.demandsphere.com/security/
+  keywords:
+  - trust center
+  - gdpr

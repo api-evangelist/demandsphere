@@ -1,0 +1,12 @@
+generated: '2026-07-18'
+method: generated
+source: openapi/demandsphere-openapi-original.json
+skills:
+- file: demandsphere-track-ranking-trends.md
+  name: Track keyword ranking trends
+  api: openapi/demandsphere-openapi-original.json
+  operations:
+  - Sites_PropertiesList
+  - Keywords_RankingTrends
+  - Keywords_KeywordsPerformanceDetail
+  - Keywords_LandingMatches

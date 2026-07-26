@@ -1,0 +1,15 @@
+generated: '2026-07-18'
+method: searched
+source: https://www.demandsphere.com/platform/apis/rest-apis/
+versioning:
+  scheme: uri-path
+  current: v5.0
+  docs: https://www.demandsphere.com/platform/apis/rest-apis/
+  note: MCP server tracks two API generations - v5.0 (SERP analytics) and v5.1 (GenAI visibility).
+status_page: https://status.demandsphere.com/
+changelog: https://help.demandsphere.com/changelog
+deprecation:
+  policy_url: null
+  sunset_header: null
+  note: No published deprecation/sunset policy found; no operations flagged deprecated in the OpenAPI.
+deprecated_operations: []

@@ -1,0 +1,104 @@
+# DemandSphere
+
+> Unified AI search visibility platform. SERP analytics, AI search engine tracking (ChatGPT, Gemini, Perplexity, AI Overviews), log analytics, and BigQuery data warehouse for enterprise search teams.
+
+## Company
+
+- Founded: 2010, Y Combinator S10
+- CEO: Ray Grieselhuber
+- Headquarters: Columbus, Ohio, USA + Tokyo, Japan
+
+## Products
+
+- [DemandMetrics](https://www.demandsphere.com/demandmetrics/): SERP analytics platform - rank tracking, competitor insights, keyword research, share of voice
+- [DemandMetrics for Gen AI](https://www.demandsphere.com/demandmetrics-genai/): AI search visibility - track brand presence across ChatGPT, Gemini, Perplexity, AI Overviews, and AI Mode
+- [Analytics AX](https://www.demandsphere.com/analytics-ax/): Log file analytics - crawl analytics, AI bot detection, query fanout analysis
+- [Search Intelligence](https://www.demandsphere.com/search-intelligence/): BigQuery data warehouse - custom BI dashboards, data connectors, exports
+- [APIs](https://www.demandsphere.com/apis/): REST APIs for all platform data
+
+## Feature Pages
+
+- [SERP Analytics](https://www.demandsphere.com/serp-analytics/): Search engine results page tracking and analysis
+- [AI Visibility](https://www.demandsphere.com/ai-visibility/): Monitor brand mentions across AI search engines
+- [LLM Tracking](https://www.demandsphere.com/llm-tracking/): Track how AI models reference your brand
+- [Citation Analytics](https://www.demandsphere.com/citation-analytics/): Analyze citations in AI-generated responses
+- [Prompt Research](https://www.demandsphere.com/prompt-research/): Discover prompts that surface your brand
+- [Brand Mention Tracking](https://www.demandsphere.com/brand-mention-tracking/): Monitor brand mentions across AI platforms
+- [Agentic Search](https://www.demandsphere.com/agentic-search/): Track agentic AI search behavior
+- [Competitor Insights](https://www.demandsphere.com/competitor-insights/): Competitive share of voice analysis
+- [Keyword Research](https://www.demandsphere.com/keyword-research/): Enterprise keyword discovery and grouping
+- [SEO Reporting](https://www.demandsphere.com/seo-reporting/): Automated search performance reports
+- [Log File Analytics](https://www.demandsphere.com/log-file-analytics/): Server log analysis for crawl intelligence
+- [AI Bot Detection](https://www.demandsphere.com/ai-bot-detection/): Detect and analyze AI crawler activity
+- [BigQuery Warehouse](https://www.demandsphere.com/bigquery-warehouse/): Direct BigQuery access to all search data
+
+## Solutions
+
+- [AI Search](https://www.demandsphere.com/solutions/ai-search/): Optimize for AI search engines
+- [Automation](https://www.demandsphere.com/solutions/automation/): Automate search intelligence workflows
+- [For SEO Teams](https://www.demandsphere.com/solutions/seo-teams/): Enterprise SEO team workflows
+- [For Data Teams](https://www.demandsphere.com/solutions/data-teams/): Search data engineering and BI
+- [For Agencies](https://www.demandsphere.com/solutions/agencies/): Multi-client search intelligence
+- [For Executives](https://www.demandsphere.com/solutions/for-executives/): Executive search visibility reporting
+
+## Pricing
+
+- [Pricing](https://www.demandsphere.com/pricing/): Starter ($95/mo), Pro ($250/mo), Enterprise (custom)
+
+## Free Tools
+
+- [GSC Explorer](https://www.demandsphere.com/tools/gsc/): Google Search Console data explorer
+- [Domain Research](https://www.demandsphere.com/tools/domain-research/): Free domain visibility analysis
+- [GA4 Explorer](https://www.demandsphere.com/tools/ga4/): Google Analytics 4 data explorer
+- [Market Trends](https://www.demandsphere.com/tools/market-trends/): Search market trend analysis
+
+## Research & Data
+
+- [AI Frontier Model Tracker](https://www.demandsphere.com/research/demandsphere-radar/ai-frontier-model-tracker/): Track releases and benchmarks across all major AI model providers
+- [Google Algorithm Update Tracker](https://www.demandsphere.com/research/demandsphere-radar/algorithm-update-tracker/): Google algorithm and AI search update history since 2000
+- [Blog](https://www.demandsphere.com/blog/): Industry analysis, product updates, research
+
+## Contact
+
+- [Request a Demo](https://www.demandsphere.com/demo/): 30-minute live demo using your domain
+- [Contact](https://www.demandsphere.com/contact/): General inquiries
+- Email: hello@demandsphere.com
+
+## API Access
+
+The demo request endpoint accepts JSON POST requests:
+
+```
+POST https://www.demandsphere.com/api/contact
+Content-Type: application/json
+
+{
+  "name": "string (required)",
+  "email": "string (required, work email)",
+  "company": "string",
+  "phone": "string",
+  "message": "string",
+  "source": "string"
+}
+```
+
+Work email required - free email providers (gmail.com, etc.) are rejected.
+
+## MCP Server
+
+DemandSphere Radar data is available via MCP (Model Context Protocol):
+
+- Endpoint: `https://www.demandsphere.com/mcp`
+- Discovery: `/.well-known/mcp.json`
+- Authentication: none
+- License: CC BY-NC 4.0
+
+Available tools:
+- `get_ai_models` - List/filter frontier AI models with benchmarks and pricing
+- `get_ai_model_by_id` - Get a single model's full record by ID
+- `search_ai_models` - Search models by name or description
+- `calculate_model_cost` - Calculate token costs (defaults to 1M in + 1M out if omitted)
+- `get_providers` - List all tracked providers with model counts
+- `get_algorithm_updates` - List/filter Google algorithm updates (2000-present)
+- `search_algorithm_updates` - Search algorithm updates by name or description
+- `get_server_info` - Check data freshness, model/update counts

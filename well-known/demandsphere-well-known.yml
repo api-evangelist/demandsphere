@@ -1,0 +1,35 @@
+generated: '2026-07-18'
+method: searched
+source: live probes of DemandSphere hosts
+hosts:
+- host: https://www.demandsphere.com
+  documents:
+  - path: /.well-known/mcp.json
+    status: 200
+    file: demandsphere-mcp.json
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+- host: https://auth.demandsphere.com/auth/realms/DemandSphere
+  note: Keycloak SSO realm for the DemandSphere application and help center (distinct from the api_key-authenticated REST API).
+  documents:
+  - path: /.well-known/openid-configuration
+    status: 200
+    file: demandsphere-openid-configuration.json
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    file: demandsphere-oauth-authorization-server.json
+- host: https://api.demandsphere.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /openapi.json
+    status: 200
+    note: OpenAPI 3.0.0 spec captured at openapi/demandsphere-openapi-original.json

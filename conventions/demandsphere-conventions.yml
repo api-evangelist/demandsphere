@@ -1,0 +1,49 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/demandsphere-openapi-original.json
+docs: https://www.demandsphere.com/platform/apis/rest-apis/
+summary: >-
+  Cross-cutting request/response semantics for the DemandSphere REST API v5.0,
+  derived from the OpenAPI and confirmed against the developer docs.
+authentication:
+  style: api_key
+  location: query
+  parameter: api_key
+  note: Every operation requires the api_key query parameter (global security).
+request:
+  method: POST
+  pattern: All endpoints are POST .../list query operations; parameters are supplied as query-string values, no request body.
+  content_type: application/json (responses)
+pagination:
+  style: offset
+  params:
+  - {name: Limit, default: 25, description: Limit for returned number of records}
+  - {name: Offset, description: Starting record}
+  - {name: PageNum, default: 1, description: Page number}
+  note: Offset/limit with an alternate page-number parameter; no cursor pagination observed.
+filtering:
+  date_range:
+  - {name: From, format: YYYY-MM-DD, required: true}
+  - {name: To, format: YYYY-MM-DD, required: true}
+  granularity: {param: Granularity, values: [daily, weekly, monthly], default: daily}
+  ordering: {param: Order, values: [asc, desc], default: asc}
+  grouping: {param: Grouped, note: Toggles grouped vs ungrouped sort keys}
+  search_engines: {param: SearchEngines, note: 250+ market/engine enum values (google_us, bing_uk, yandex_ru, ...)}
+export:
+  params:
+  - {name: Export, type: boolean}
+  - {name: Format, values: [csv, xlsx], note: Required when Export is true}
+idempotency:
+  supported: false
+  note: No idempotency-key header or parameter documented; all operations are read-style list queries.
+error_envelope:
+  note: 4xx responses (400) are declared without a documented schema or problem+json media type; see errors/demandsphere-problem-types.yml.
+versioning:
+  scheme: uri-path
+  current: v5.0
+  note: API titled "DemandSphere API v5.0"; host api.demandsphere.com.
+cross_links:
+  authentication: authentication/demandsphere-authentication.yml
+  errors: errors/demandsphere-problem-types.yml
+  lifecycle: lifecycle/demandsphere-lifecycle.yml
+  data_model: data-model/demandsphere-data-model.yml

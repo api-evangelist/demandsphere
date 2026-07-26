@@ -1,0 +1,28 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/demandsphere-openapi-original.json
+standards:
+- id: openapi-3.0
+  conforms: true
+  evidence: Provider publishes an OpenAPI 3.0.0 document at https://api.demandsphere.com/openapi.json
+- id: api-key-auth
+  conforms: true
+  evidence: openapi securityScheme type apiKey (api_key in query), applied globally
+- id: oauth2
+  conforms: false
+  evidence: REST API uses api_key query auth; OAuth2/OIDC (Keycloak) is used only for application/help-center SSO, not the public API
+- id: oidc
+  conforms: true
+  evidence: Keycloak realm exposes /.well-known/openid-configuration for application SSO (well-known/demandsphere-openid-configuration.json)
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: 400 responses declared without application/problem+json media type or schema
+- id: pagination
+  conforms: true
+  evidence: offset/limit + page-number query parameters (Limit default 25, Offset, PageNum)
+- id: gdpr
+  conforms: true
+  evidence: Provider states products adhere to GDPR requirements (https://www.demandsphere.com/security/)
+- id: mcp
+  conforms: true
+  evidence: First-party MCP server (DemandSphereDev/demandsphere-mcp) plus a hosted Radar MCP server advertised at /.well-known/mcp.json

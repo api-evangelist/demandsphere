@@ -1,0 +1,23 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for DemandSphere API v5.0
+  version: 1.0.0
+extends: openapi/demandsphere-openapi-original.json
+actions:
+- target: $.info
+  update:
+    x-apievangelist-enriched: '2026-07-18'
+    x-apievangelist-provider: demandsphere
+    x-authentication: api_key query parameter (api_key)
+    x-pagination: offset/limit with page-number (Limit default 25, Offset, PageNum)
+    x-mcp-server: https://github.com/DemandSphereDev/demandsphere-mcp
+    x-status-page: https://status.demandsphere.com/
+- target: $.info
+  update:
+    description: >-
+      DemandSphere REST API v5.0 - SERP ranking trends, keyword-group and
+      keyword performance details, local rankings, landing matches, landings
+      history, search-engine summaries, and site hierarchy/properties. All
+      operations are POST .../list queries authenticated with an api_key query
+      parameter. Enhanced by API Evangelist with authentication, conventions,
+      data-model, and error-catalog artifacts.

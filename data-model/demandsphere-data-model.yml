@@ -1,0 +1,32 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/demandsphere-openapi-original.json
+note: >-
+  Derived from OpenAPI tags, path segments, and id-reference query parameters
+  (the spec declares no components.schemas, so entities are inferred from the
+  resource surface and the SiteGlobalKey/SiteID/KeywordID identifiers).
+entities:
+- name: Site
+  id_fields: [SiteID, SiteGlobalKey]
+  operations: [Sites_HierarchyList, Sites_PropertiesList]
+  description: A tracked website/property; root scope for all queries (SiteGlobalKey is required on ranking queries).
+- name: Keyword
+  id_fields: [KeywordID]
+  operations: [Keywords_KeywordsPerformanceDetail, Keywords_RankingTrends, Keywords_LocalRankings, Keywords_LandingMatches, Keywords_SearchEngines]
+  description: A tracked keyword within a site, carrying rank, rank_change, search_volume, clicks, impressions, and position metrics.
+- name: KeywordGroup
+  id_fields: [tag_name]
+  operations: [Keywords_KeywordGroupsDetail]
+  description: A named grouping (tag) of keywords used for grouped/aggregated reporting.
+- name: Page
+  operations: [Pages_LandingsHistory, Keywords_LandingMatches]
+  description: A landing page matched to keywords; landings history and landing matches.
+- name: SearchEngine
+  operations: [Keywords_SearchEngines, SearchEngines_Summary]
+  description: A market/engine locale (250+ enum values e.g. google_us, bing_uk, yandex_ru) rankings are measured against.
+relationships:
+- {from: Keyword, type: belongs_to, to: Site, via: SiteGlobalKey}
+- {from: KeywordGroup, type: has_many, to: Keyword, via: tag_name}
+- {from: Keyword, type: has_many, to: Page, via: landing_match}
+- {from: Keyword, type: has_many, to: SearchEngine, via: SearchEngines}
+- {from: Page, type: belongs_to, to: Site, via: SiteGlobalKey}

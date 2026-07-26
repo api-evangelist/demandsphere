@@ -1,0 +1,20 @@
+{
+  "name": "demandsphere-radar",
+  "version": "1.2.0",
+  "description": "DemandSphere Radar - AI frontier model tracker and Google algorithm update tracker. Query 65+ AI models with benchmarks and pricing, and 170+ Google algorithm updates from 2000 to present.",
+  "endpoint": "https://www.demandsphere.com/mcp",
+  "transport": "streamable-http",
+  "authentication": "none",
+  "license": "CC BY-NC 4.0",
+  "contact": "hello@demandsphere.com",
+  "tools": [
+    "get_ai_models",
+    "get_ai_model_by_id",
+    "search_ai_models",
+    "calculate_model_cost",
+    "get_providers",
+    "get_algorithm_updates",
+    "search_algorithm_updates",
+    "get_server_info"
+  ]
+}

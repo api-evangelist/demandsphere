@@ -1,7 +1,18 @@
 aid: demandsphere
 name: DemandSphere
-description: DemandSphere is a company surfaced as a portfolio company of 500-global and added to the
-  API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  DemandSphere is a unified AI search visibility platform (founded 2010, Y
+  Combinator S10) that tracks brand presence across traditional search engine
+  results pages, AI search engines (ChatGPT, Gemini, Perplexity, AI Overviews,
+  AI Mode), and agentic surfaces. Its modular products cover DemandMetrics SERP
+  analytics, DemandMetrics for Gen AI (LLM visibility and citation tracking),
+  DemandSphere Agents workflow automation, Analytics AX log-file analytics, and
+  Search Intelligence, a BigQuery data warehouse. The DemandSphere REST API
+  (v5.0) exposes rank tracking, ranking trends, keyword groups, local rankings,
+  landing matches, search-engine summaries, and site hierarchy data as JSON over
+  api-key authentication, across 200+ markets and 10+ search engines, and is
+  complemented by a first-party Model Context Protocol (MCP) server for agent
+  access.
 url: https://raw.githubusercontent.com/api-evangelist/demandsphere/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -9,17 +20,162 @@ x-backed-by:
 - 500-global
 x-tier: stub
 x-tier-reason: portfolio-lead
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-18'
+image: https://www.demandsphere.com/favicon.ico
 tags:
 - Company
-apis: []
+- SEO
+- Search Intelligence
+- SERP Analytics
+- AI Search
+- LLM Visibility
+- Rank Tracking
+- Analytics
+- API
+- MCP
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+apis:
+- aid: demandsphere:demandsphere-keywords-api
+  name: DemandSphere Keywords API
+  description: The Keywords API from DemandSphere — 6 operation(s) for keywords.
+  humanURL: https://www.demandsphere.com/platform/apis/rest-apis/
+  baseURL: https://api.demandsphere.com
+  tags:
+  - Keywords
+  properties:
+  - type: OpenAPI
+    url: openapi/demandsphere-keywords-api-openapi.yml
+  - type: DataModel
+    url: data-model/demandsphere-data-model.yml
+  - type: ErrorCatalog
+    url: errors/demandsphere-problem-types.yml
+  - type: Conventions
+    url: conventions/demandsphere-conventions.yml
+- aid: demandsphere:demandsphere-pages-api
+  name: DemandSphere Pages API
+  description: The Pages API from DemandSphere — 1 operation(s) for pages.
+  humanURL: https://www.demandsphere.com/platform/apis/rest-apis/
+  baseURL: https://api.demandsphere.com
+  tags:
+  - Pages
+  properties:
+  - type: OpenAPI
+    url: openapi/demandsphere-pages-api-openapi.yml
+  - type: DataModel
+    url: data-model/demandsphere-data-model.yml
+  - type: ErrorCatalog
+    url: errors/demandsphere-problem-types.yml
+  - type: Conventions
+    url: conventions/demandsphere-conventions.yml
+- aid: demandsphere:demandsphere-searchengines-api
+  name: DemandSphere SearchEngines API
+  description: The SearchEngines API from DemandSphere — 1 operation(s) for searchengines.
+  humanURL: https://www.demandsphere.com/platform/apis/rest-apis/
+  baseURL: https://api.demandsphere.com
+  tags:
+  - SearchEngines
+  properties:
+  - type: OpenAPI
+    url: openapi/demandsphere-searchengines-api-openapi.yml
+  - type: DataModel
+    url: data-model/demandsphere-data-model.yml
+  - type: ErrorCatalog
+    url: errors/demandsphere-problem-types.yml
+  - type: Conventions
+    url: conventions/demandsphere-conventions.yml
+- aid: demandsphere:demandsphere-sites-api
+  name: DemandSphere Sites API
+  description: The Sites API from DemandSphere — 2 operation(s) for sites.
+  humanURL: https://www.demandsphere.com/platform/apis/rest-apis/
+  baseURL: https://api.demandsphere.com
+  tags:
+  - Sites
+  properties:
+  - type: OpenAPI
+    url: openapi/demandsphere-sites-api-openapi.yml
+  - type: DataModel
+    url: data-model/demandsphere-data-model.yml
+  - type: ErrorCatalog
+    url: errors/demandsphere-problem-types.yml
+  - type: Conventions
+    url: conventions/demandsphere-conventions.yml
 common:
+- type: TrustCenter
+  url: security/demandsphere-trust-center.yml
+- type: VulnerabilityDisclosure
+  url: security/demandsphere-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/demandsphere-domain-security.yml
+- type: Authentication
+  url: authentication/demandsphere-authentication.yml
 - type: Website
   url: https://demandsphere.com
+- type: DeveloperPortal
+  url: https://www.demandsphere.com/solutions/developers/
+- type: Documentation
+  url: https://help.demandsphere.com
+- type: APIReference
+  url: https://www.demandsphere.com/platform/apis/rest-apis/
+- type: GettingStarted
+  url: https://www.demandsphere.com/platform/apis/
+- type: Pricing
+  url: https://www.demandsphere.com/pricing/
+- type: Blog
+  url: https://www.demandsphere.com/blog/
+- type: Support
+  url: https://www.demandsphere.com/resources/help-center/
+- type: SignUp
+  url: https://www.demandsphere.com/login/
+- type: TermsOfService
+  url: https://www.demandsphere.com/terms-of-service/
+- type: PrivacyPolicy
+  url: https://www.demandsphere.com/privacy-policy/
+- type: GitHubOrganization
+  url: https://github.com/DemandSphereDev
+- type: StatusPage
+  url: https://status.demandsphere.com/
+- type: ChangeLog
+  url: https://help.demandsphere.com/changelog
+- type: Compliance
+  url: https://www.demandsphere.com/security/
+- type: Security
+  url: https://www.demandsphere.com/security/
+- type: MCPServer
+  url: mcp/demandsphere-mcp.yml
+- type: LLMsTxt
+  url: llms/demandsphere-llms.txt
+- type: WellKnown
+  url: well-known/demandsphere-well-known.yml
+- type: Lifecycle
+  url: lifecycle/demandsphere-lifecycle.yml
+- type: Conformance
+  url: conformance/demandsphere-conformance.yml
+- type: Packages
+  url: packages/demandsphere-packages.yml
+- type: AgenticAccess
+  url: agentic-access/demandsphere-agentic-access.yml
+- type: AgentSkill
+  url: skills/_index.yml
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

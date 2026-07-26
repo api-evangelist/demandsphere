@@ -1,0 +1,15 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/demandsphere-openapi-original.json
+format: none
+note: >-
+  The OpenAPI declares a 400 response on every operation but without a response
+  schema or application/problem+json media type, so this catalog captures the
+  status surface only. No RFC 9457 problem-details or documented error-code
+  registry was found in the spec or the public developer docs.
+problems:
+- status: 400
+  title: Bad Request
+  applies_to: all operations
+  media_type: null
+  note: Declared on all 10 list operations; typically a missing/invalid required query parameter (api_key, From, To, SearchEngines, or a required SortBy* value).
