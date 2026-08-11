@@ -118,6 +118,8 @@ apis:
   - type: Conventions
     url: conventions/demandsphere-conventions.yml
 common:
+- type: Overlay
+  url: overlays/demandsphere-openapi-overlay.yaml
 - type: TrustCenter
   url: security/demandsphere-trust-center.yml
 - type: VulnerabilityDisclosure
