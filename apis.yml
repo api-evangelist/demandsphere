@@ -21,20 +21,26 @@ x-backed-by:
 x-tier: stub
 x-tier-reason: portfolio-lead
 accessModel:
-  pricing: unknown
-  onboarding: self-serve
+  pricing: paid
+  onboarding: sales-assisted
   trial: false
   try_now: false
   public: false
-  label: Self-serve signup
-  confidence: medium
+  label: Paid plans from $79/mo, demo-led signup
+  confidence: high
   source:
+  - https://www.demandsphere.com/pricing/
   - authentication
-  generated: '2026-07-22'
-  method: derived
+  generated: '2026-08-13'
+  method: searched
+  note: >-
+    Published tiers Starter $79/mo and Pro $208/mo (annual billing) plus a custom
+    Enterprise tier; API access is included on every tier. No free trial is
+    advertised and the primary call to action is "Get a demo". See
+    plans/demandsphere-plans-pricing.yml.
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-18'
+modified: '2026-08-13'
 image: https://www.demandsphere.com/favicon.ico
 tags:
 - Company
@@ -63,6 +69,8 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/demandsphere-keywords-api-openapi.yml
+  - type: Overlay
+    url: overlays/demandsphere-keywords-api-overlay.yaml
   - type: DataModel
     url: data-model/demandsphere-data-model.yml
   - type: ErrorCatalog
@@ -79,6 +87,8 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/demandsphere-pages-api-openapi.yml
+  - type: Overlay
+    url: overlays/demandsphere-pages-api-overlay.yaml
   - type: DataModel
     url: data-model/demandsphere-data-model.yml
   - type: ErrorCatalog
@@ -95,6 +105,8 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/demandsphere-searchengines-api-openapi.yml
+  - type: Overlay
+    url: overlays/demandsphere-searchengines-api-overlay.yaml
   - type: DataModel
     url: data-model/demandsphere-data-model.yml
   - type: ErrorCatalog
@@ -111,6 +123,8 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/demandsphere-sites-api-openapi.yml
+  - type: Overlay
+    url: overlays/demandsphere-sites-api-overlay.yaml
   - type: DataModel
     url: data-model/demandsphere-data-model.yml
   - type: ErrorCatalog
@@ -176,8 +190,22 @@ common:
   url: agentic-access/demandsphere-agentic-access.yml
 - type: AgentSkill
   url: skills/_index.yml
+- type: ToolCrosswalk
+  url: mcp/demandsphere-tool-crosswalk.yml
+- type: Plans
+  url: plans/demandsphere-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/demandsphere-rate-limits.yml
+- type: ChangeLog
+  url: changelog/demandsphere-changelog.yml
+- type: HelpCenter
+  url: https://www.demandsphere.com/resources/help-center/
 x-enrichment:
-  date: '2026-07-19'
-  status: backfilled
+  date: '2026-08-13'
+  status: enriched
+  artifacts_added: 11
   pass: local-v1
-  note: backfilled from .gitignore signal + verified work evidence
+  note: >-
+    Live MCP tools/list probed at https://www.demandsphere.com/mcp (8 tools);
+    plans, rate limits, changelog and a REST/MCP tool crosswalk added; no A2A
+    agent card served (404 on both hosts).
