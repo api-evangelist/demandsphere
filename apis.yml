@@ -38,7 +38,7 @@ accessModel:
     Enterprise tier; API access is included on every tier. No free trial is
     advertised and the primary call to action is "Get a demo". See
     plans/demandsphere-plans-pricing.yml.
-specificationVersion: '0.20'
+specificationVersion: '0.23'
 created: '2026-07-17'
 modified: '2026-08-13'
 image: https://www.demandsphere.com/favicon.ico
