@@ -1,24 +1,46 @@
-generated: '2026-07-18'
-method: searched
+generated: '2026-08-13'
+method: probed
 source: live probes of DemandSphere hosts
+checked: '2026-08-13'
+summary: >-
+  Two real documents are served: /.well-known/mcp.json on www.demandsphere.com
+  (the DemandSphere Radar MCP server descriptor) and the Keycloak OIDC discovery
+  pair on the auth.demandsphere.com SSO realm. Everything else 404s. Note that
+  www.demandsphere.com answers 404 with a full HTML page (~50 KB), so any probe
+  that trusts the body instead of the status code would read a hit where there
+  is none.
 hosts:
 - host: https://www.demandsphere.com
   documents:
   - path: /.well-known/mcp.json
     status: 200
+    content_type: application/json
     file: demandsphere-mcp.json
+  - path: /llms.txt
+    status: 200
+    content_type: text/plain
+    file: ../llms/demandsphere-llms.txt
+    note: Saved verbatim; byte-identical to the live document on 2026-08-13.
   - path: /.well-known/security.txt
     status: 404
   - path: /.well-known/openid-configuration
     status: 404
   - path: /.well-known/oauth-authorization-server
     status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
   - path: /.well-known/api-catalog
     status: 404
   - path: /.well-known/ai-plugin.json
     status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
 - host: https://auth.demandsphere.com/auth/realms/DemandSphere
-  note: Keycloak SSO realm for the DemandSphere application and help center (distinct from the api_key-authenticated REST API).
+  note: >-
+    Keycloak SSO realm for the DemandSphere application and help center, distinct
+    from the api_key-authenticated REST API. Not an API authorization surface.
   documents:
   - path: /.well-known/openid-configuration
     status: 200
@@ -28,8 +50,25 @@ hosts:
     file: demandsphere-oauth-authorization-server.json
 - host: https://api.demandsphere.com
   documents:
-  - path: /.well-known/security.txt
-    status: 404
   - path: /openapi.json
     status: 200
-    note: OpenAPI 3.0.0 spec captured at openapi/demandsphere-openapi-original.json
+    note: >-
+      OpenAPI 3.0.0, info.title "DemandSphere API v5.0 Documentation",
+      servers[0] https://api.demandsphere.com — captured verbatim at
+      openapi/_original/demandsphere-openapi-original.json.
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/mcp.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404

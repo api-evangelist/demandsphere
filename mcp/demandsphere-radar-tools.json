@@ -1,0 +1,189 @@
+{
+  "x-provenance": {
+    "generated": "2026-08-13",
+    "method": "probed",
+    "source": "https://www.demandsphere.com/mcp",
+    "request": "JSON-RPC tools/list (anonymous)",
+    "http_status": 200
+  },
+  "tools": [
+    {
+      "name": "get_ai_models",
+      "description": "Use structured filters to list frontier AI models from the DemandSphere Radar tracker at demandsphere.com/research/demandsphere-radar/ai-frontier-model-tracker/. Returns name, provider, country the lab is based in, release date, training data cutoff date, parameters, context window, benchmarks (MMLU-Pro, GPQA Diamond, SWE-bench, HumanEval, MATH-500, AIME, HLE), and API pricing. Sorted by release date descending. Use this with known filter values; use search_ai_models for natural-language queries.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "provider": {
+            "type": "string",
+            "description": "Filter by provider name. Use get_providers to see valid values."
+          },
+          "country": {
+            "type": "string",
+            "description": "Filter by the country the provider/lab is based in (e.g. \"United States\", \"China\", \"France\", \"Canada\"). Use get_providers to see countries."
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "General",
+              "Reasoning"
+            ],
+            "description": "Filter by model type."
+          },
+          "access": {
+            "type": "string",
+            "enum": [
+              "Open",
+              "Closed"
+            ],
+            "description": "Filter by access. Open = weights publicly available. Closed = API-only or proprietary, weights not released."
+          },
+          "after_date": {
+            "type": "string",
+            "description": "Only models released after this date (YYYY-MM-DD)."
+          },
+          "before_date": {
+            "type": "string",
+            "description": "Only models released before this date (YYYY-MM-DD)."
+          },
+          "limit": {
+            "type": "number",
+            "description": "Max results to return (default: 25)."
+          }
+        }
+      }
+    },
+    {
+      "name": "get_ai_model_by_id",
+      "description": "Get a single AI model by its ID from the DemandSphere Radar tracker. Returns the full record including all benchmarks, pricing, parameters, and download links.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Model ID (e.g. \"co47\", \"gpt-54\", \"g3p\", \"dsr1\"). Use search_ai_models or get_ai_models to discover IDs."
+          }
+        },
+        "required": [
+          "id"
+        ]
+      }
+    },
+    {
+      "name": "search_ai_models",
+      "description": "Full-text search across AI models from the DemandSphere Radar tracker at demandsphere.com/research/demandsphere-radar/ai-frontier-model-tracker/. Matches against model name, provider, and description. Use this for natural-language queries; use get_ai_models for structured filtering by provider, type, access level, or date range.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "Search query to match against model name, provider, and description."
+          },
+          "limit": {
+            "type": "number",
+            "description": "Max results to return (default: 25)."
+          }
+        },
+        "required": [
+          "query"
+        ]
+      }
+    },
+    {
+      "name": "calculate_model_cost",
+      "description": "Calculate the token cost of running a specific AI model. Data from the DemandSphere Radar tracker. Requires model name or ID plus at least one of input_tokens or output_tokens.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "model": {
+            "type": "string",
+            "description": "Model name or ID (e.g. \"Claude Opus 4.7\", \"co47\", \"GPT-5.4\")."
+          },
+          "input_tokens": {
+            "type": "number",
+            "description": "Number of input tokens (default: 1000000)."
+          },
+          "output_tokens": {
+            "type": "number",
+            "description": "Number of output tokens (default: 1000000)."
+          }
+        },
+        "required": [
+          "model",
+          "input_tokens"
+        ]
+      }
+    },
+    {
+      "name": "get_providers",
+      "description": "List all AI model providers/labs tracked by the DemandSphere Radar tracker at demandsphere.com/research/demandsphere-radar/ai-frontier-model-tracker/, with the country each lab is based in, model counts, and provider metadata.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {}
+      }
+    },
+    {
+      "name": "get_algorithm_updates",
+      "description": "Use structured filters to list Google algorithm and AI search updates from the DemandSphere Radar tracker at demandsphere.com/research/demandsphere-radar/algorithm-update-tracker/. Covers core updates, spam updates, AI innovations, and system changes from 2000 to present. Updated as new updates are confirmed. Sorted by date descending. The \"type\" field here refers to Google update categories (Core, Spam, AI, System, Other) - not AI model types. Use this with known filter values; use search_algorithm_updates for natural-language queries.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "Core",
+              "Spam",
+              "AI",
+              "System",
+              "Other"
+            ],
+            "description": "Filter by update type."
+          },
+          "year": {
+            "type": "number",
+            "description": "Filter by year (e.g. 2025)."
+          },
+          "after_date": {
+            "type": "string",
+            "description": "Only updates after this date (YYYY-MM-DD)."
+          },
+          "before_date": {
+            "type": "string",
+            "description": "Only updates before this date (YYYY-MM-DD)."
+          },
+          "limit": {
+            "type": "number",
+            "description": "Max results to return (default: 25)."
+          }
+        }
+      }
+    },
+    {
+      "name": "search_algorithm_updates",
+      "description": "Full-text search across Google algorithm and AI search updates from the DemandSphere Radar tracker at demandsphere.com/research/demandsphere-radar/algorithm-update-tracker/. Matches against update name, description, and slug. Use this for natural-language queries; use get_algorithm_updates for structured filtering by type, year, or date range.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "Search query to match against update name, description, and slug."
+          },
+          "limit": {
+            "type": "number",
+            "description": "Max results to return (default: 25)."
+          }
+        },
+        "required": [
+          "query"
+        ]
+      }
+    },
+    {
+      "name": "get_server_info",
+      "description": "Get DemandSphere Radar MCP server metadata including version, data freshness timestamps, model count, update count, and provider count. AI model data is updated daily. Algorithm update data is updated as new updates are confirmed by Google.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {}
+      }
+    }
+  ]
+}

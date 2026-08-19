@@ -1,0 +1,88 @@
+generated: '2026-08-13'
+method: searched
+source: https://github.com/DemandSphereDev/demandsphere-mcp/blob/main/CHANGELOG.md
+checked: '2026-08-13'
+summary: >-
+  DemandSphere runs two changelog surfaces and only one of them is public. The
+  platform changelog at help.demandsphere.com/changelog answers HTTP 200 but
+  renders a Keycloak sign-in page, so no product release history is readable
+  without a customer account. The first-party MCP server publishes a dated,
+  Keep-a-Changelog-style CHANGELOG.md in its public repository with an explicit
+  Breaking section, and that is the only machine-readable release history the
+  company publishes. The REST API itself (v5.0) publishes no versioned changelog.
+surfaces:
+- name: Platform changelog
+  url: https://help.demandsphere.com/changelog
+  http_status: 200
+  public: false
+  note: 200 returns the "Sign in to DemandSphere" page (Keycloak SSO); content is customer-only.
+- name: MCP server changelog
+  url: https://github.com/DemandSphereDev/demandsphere-mcp/blob/main/CHANGELOG.md
+  raw: https://raw.githubusercontent.com/DemandSphereDev/demandsphere-mcp/main/CHANGELOG.md
+  http_status: 200
+  public: true
+- name: REST API changelog
+  url: null
+  public: false
+  note: No dated version history published for the DemandSphere REST API v5.0 / v5.1.
+scheme: semver
+scheme_note: >-
+  "This project follows Semantic Versioning" — stated in the MCP server
+  CHANGELOG.md. Applies to the MCP server only; the REST API is versioned in the
+  URI path (v5.0, v5_1) with no published release cadence.
+component: demandsphere-mcp (MCP server)
+current_version: 0.3.1
+current_version_date: '2026-04-24'
+current_version_note: >-
+  Tag v0.3.1 (2026-04-24) has no CHANGELOG entry; the newest documented release
+  is 0.3.0 (2026-04-22).
+entries:
+- version: 0.3.0
+  date: '2026-04-22'
+  title: Embeddable public MCP
+  breaking: true
+  breaking_changes:
+  - >-
+    tools.<module>.register() no longer takes a `client` argument; every tool
+    module's register(mcp, client) is now register(mcp). Tools resolve the active
+    DSClient at call time via get_client(). Callers must drop the second argument.
+  additions:
+  - client.get_client() — returns the active DSClient, preferring the request-scoped _current_client ContextVar.
+  - client.set_default_client(client) — installs the process-wide fallback client for stdio / single-tenant HTTP.
+  - client._current_client — ContextVar an ASGI middleware can populate per request for hosted multi-tenant deployments.
+  - DSClient(http=..., limiter=...) — dependency injection so embedding apps can share an httpx pool and attach per-user rate limiters.
+  - server.create_asgi_app() -> Starlette — mount the MCP inside a larger ASGI stack.
+  changes:
+  - create_server() is now pure — registers tools without constructing a DSClient and never calls sys.exit.
+  - main() orchestrates the stdio / single-tenant bootstrap.
+  - Removed the _get_server() lazy singleton and _server module global.
+  compatibility: >-
+    Self-hosters running stdio or single-tenant streamable-HTTP are unaffected —
+    no new required environment variables, no changed CLI invocation or exit codes.
+- version: 0.2.0
+  date: '2026-03-11'
+  breaking: false
+  changes:
+  - Consolidated 4 SERP tools into serp_analytics(view=...) and 5 LLM traffic tools into llm_analytics(view=...), reducing tool count from 27 to 20.
+  - All hint strings, prompts and resources updated to the new consolidated tool names.
+  additions:
+  - Dynamic hints on all tool responses with pagination guidance and next-step suggestions.
+  - Recovery hints on all error responses mapping error types to actionable guidance.
+  - dry_run support on brand mutation tools (create_brand, update_brand, delete_brands).
+  - 4 MCP Prompts — weekly-ranking-report, genai-visibility-check, competitor-gap, landing-page-audit.
+  - 5 MCP Resources for parameter discovery — data://search-engines, data://sort-options, data://granularity, data://metrics, data://sites.
+  - 169 unit tests (up from 0).
+- version: 0.1.0
+  date: '2026-03-04'
+  breaking: false
+  additions:
+  - Initial beta release.
+  - 27 MCP tools across 5 domains — Site Discovery, SERP Analytics (v5.0), GenAI Visibility (v5.1), Brand Management (v5.1), ChatGPT Deep Research compatibility.
+  - Async HTTP client with token-bucket rate limiting and response shaping.
+  - stdio transport for local use; streamable HTTP for remote/hosted deployment.
+  - Configuration via environment variables, config file, or .env.
+  - Dockerfile for container-based deployment.
+cross_links:
+  mcp: mcp/demandsphere-mcp.yml
+  lifecycle: lifecycle/demandsphere-lifecycle.yml
+  packages: packages/demandsphere-packages.yml

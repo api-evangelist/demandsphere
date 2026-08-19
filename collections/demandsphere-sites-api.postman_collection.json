@@ -1,0 +1,285 @@
+{
+  "item": [
+    {
+      "id": "15ecd329-1373-4e7e-a6b6-8228a0ef1064",
+      "name": "Sites",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d9576af2-06fe-4e9e-b586-da9a44c2f871",
+          "name": "Get a list of hierarchy properties",
+          "request": {
+            "name": "Get a list of hierarchy properties",
+            "description": {},
+            "url": {
+              "path": [
+                "sites",
+                "hierarchy",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "64d93c18-fa04-4537-8449-736c768255a7",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sites",
+                    "hierarchy",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"hierarchyList\": [\n    {\n      \"id\": \"string\",\n      \"siteName\": \"string\",\n      \"organizationName\": \"string\",\n      \"accountName\": \"string\",\n      \"url\": \"string\",\n      \"numUsers\": 2002,\n      \"keywords\": 4832,\n      \"image\": \"string\",\n      \"ownership\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"siteName\": \"string\",\n      \"organizationName\": \"string\",\n      \"accountName\": \"string\",\n      \"url\": \"string\",\n      \"numUsers\": 5813,\n      \"keywords\": 320,\n      \"image\": \"string\",\n      \"ownership\": \"string\"\n    }\n  ],\n  \"meta\": {\n    \"api_version\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "526a38cb-0431-4691-a15f-2a52d234d43c",
+              "name": "Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sites",
+                    "hierarchy",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5329a3b7-83ef-4fb2-86ee-2a061edc044f",
+          "name": "Get a list of properties",
+          "request": {
+            "name": "Get a list of properties",
+            "description": {},
+            "url": {
+              "path": [
+                "sites",
+                "properties",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a360a278-1bee-445e-b527-5a18fc213569",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sites",
+                    "properties",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"propertyList\": {\n    \"organizations\": [\n      {\n        \"name\": \"string\",\n        \"id\": \"string\",\n        \"accounts\": [\n          {\n            \"name\": \"string\",\n            \"id\": \"string\",\n            \"sites\": [\n              {\n                \"id\": \"string\",\n                \"siteName\": \"string\",\n                \"organizationId\": \"string\",\n                \"organizationName\": \"string\",\n                \"accountId\": \"string\",\n                \"accountName\": \"string\",\n                \"url\": \"string\",\n                \"numUsers\": 9994,\n                \"keywords\": 1471,\n                \"image\": \"string\",\n                \"ownership\": \"string\",\n                \"favicon\": \"string\",\n                \"countryCode\": \"string\",\n                \"geoname\": \"string\"\n              },\n              {\n                \"id\": \"string\",\n                \"siteName\": \"string\",\n                \"organizationId\": \"string\",\n                \"organizationName\": \"string\",\n                \"accountId\": \"string\",\n                \"accountName\": \"string\",\n                \"url\": \"string\",\n                \"numUsers\": 4709,\n                \"keywords\": 9500,\n                \"image\": \"string\",\n                \"ownership\": \"string\",\n                \"favicon\": \"string\",\n                \"countryCode\": \"string\",\n                \"geoname\": \"string\"\n              }\n            ]\n          },\n          {\n            \"name\": \"string\",\n            \"id\": \"string\",\n            \"sites\": [\n              {\n                \"id\": \"string\",\n                \"siteName\": \"string\",\n                \"organizationId\": \"string\",\n                \"organizationName\": \"string\",\n                \"accountId\": \"string\",\n                \"accountName\": \"string\",\n                \"url\": \"string\",\n                \"numUsers\": 9079,\n                \"keywords\": 5910,\n                \"image\": \"string\",\n                \"ownership\": \"string\",\n                \"favicon\": \"string\",\n                \"countryCode\": \"string\",\n                \"geoname\": \"string\"\n              },\n              {\n                \"id\": \"string\",\n                \"siteName\": \"string\",\n                \"organizationId\": \"string\",\n                \"organizationName\": \"string\",\n                \"accountId\": \"string\",\n                \"accountName\": \"string\",\n                \"url\": \"string\",\n                \"numUsers\": 9226,\n                \"keywords\": 1305,\n                \"image\": \"string\",\n                \"ownership\": \"string\",\n                \"favicon\": \"string\",\n                \"countryCode\": \"string\",\n                \"geoname\": \"string\"\n              }\n            ]\n          }\n        ]\n      },\n      {\n        \"name\": \"string\",\n        \"id\": \"string\",\n        \"accounts\": [\n          {\n            \"name\": \"string\",\n            \"id\": \"string\",\n            \"sites\": [\n              {\n                \"id\": \"string\",\n                \"siteName\": \"string\",\n                \"organizationId\": \"string\",\n                \"organizationName\": \"string\",\n                \"accountId\": \"string\",\n                \"accountName\": \"string\",\n                \"url\": \"string\",\n                \"numUsers\": 6066,\n                \"keywords\": 7378,\n                \"image\": \"string\",\n                \"ownership\": \"string\",\n                \"favicon\": \"string\",\n                \"countryCode\": \"string\",\n                \"geoname\": \"string\"\n              },\n              {\n                \"id\": \"string\",\n                \"siteName\": \"string\",\n                \"organizationId\": \"string\",\n                \"organizationName\": \"string\",\n                \"accountId\": \"string\",\n                \"accountName\": \"string\",\n                \"url\": \"string\",\n                \"numUsers\": 2010,\n                \"keywords\": 4561,\n                \"image\": \"string\",\n                \"ownership\": \"string\",\n                \"favicon\": \"string\",\n                \"countryCode\": \"string\",\n                \"geoname\": \"string\"\n              }\n            ]\n          },\n          {\n            \"name\": \"string\",\n            \"id\": \"string\",\n            \"sites\": [\n              {\n                \"id\": \"string\",\n                \"siteName\": \"string\",\n                \"organizationId\": \"string\",\n                \"organizationName\": \"string\",\n                \"accountId\": \"string\",\n                \"accountName\": \"string\",\n                \"url\": \"string\",\n                \"numUsers\": 4370,\n                \"keywords\": 3326,\n                \"image\": \"string\",\n                \"ownership\": \"string\",\n                \"favicon\": \"string\",\n                \"countryCode\": \"string\",\n                \"geoname\": \"string\"\n              },\n              {\n                \"id\": \"string\",\n                \"siteName\": \"string\",\n                \"organizationId\": \"string\",\n                \"organizationName\": \"string\",\n                \"accountId\": \"string\",\n                \"accountName\": \"string\",\n                \"url\": \"string\",\n                \"numUsers\": 8799,\n                \"keywords\": 4993,\n                \"image\": \"string\",\n                \"ownership\": \"string\",\n                \"favicon\": \"string\",\n                \"countryCode\": \"string\",\n                \"geoname\": \"string\"\n              }\n            ]\n          }\n        ]\n      }\n    ],\n    \"accounts\": [\n      {\n        \"name\": \"string\",\n        \"id\": \"string\",\n        \"sites\": [\n          {\n            \"id\": \"string\",\n            \"siteName\": \"string\",\n            \"organizationId\": \"string\",\n            \"organizationName\": \"string\",\n            \"accountId\": \"string\",\n            \"accountName\": \"string\",\n            \"url\": \"string\",\n            \"numUsers\": 9562,\n            \"keywords\": 6027,\n            \"image\": \"string\",\n            \"ownership\": \"string\",\n            \"favicon\": \"string\",\n            \"countryCode\": \"string\",\n            \"geoname\": \"string\"\n          },\n          {\n            \"id\": \"string\",\n            \"siteName\": \"string\",\n            \"organizationId\": \"string\",\n            \"organizationName\": \"string\",\n            \"accountId\": \"string\",\n            \"accountName\": \"string\",\n            \"url\": \"string\",\n            \"numUsers\": 5611,\n            \"keywords\": 9509,\n            \"image\": \"string\",\n            \"ownership\": \"string\",\n            \"favicon\": \"string\",\n            \"countryCode\": \"string\",\n            \"geoname\": \"string\"\n          }\n        ]\n      },\n      {\n        \"name\": \"string\",\n        \"id\": \"string\",\n        \"sites\": [\n          {\n            \"id\": \"string\",\n            \"siteName\": \"string\",\n            \"organizationId\": \"string\",\n            \"organizationName\": \"string\",\n            \"accountId\": \"string\",\n            \"accountName\": \"string\",\n            \"url\": \"string\",\n            \"numUsers\": 5837,\n            \"keywords\": 5832,\n            \"image\": \"string\",\n            \"ownership\": \"string\",\n            \"favicon\": \"string\",\n            \"countryCode\": \"string\",\n            \"geoname\": \"string\"\n          },\n          {\n            \"id\": \"string\",\n            \"siteName\": \"string\",\n            \"organizationId\": \"string\",\n            \"organizationName\": \"string\",\n            \"accountId\": \"string\",\n            \"accountName\": \"string\",\n            \"url\": \"string\",\n            \"numUsers\": 8323,\n            \"keywords\": 5514,\n            \"image\": \"string\",\n            \"ownership\": \"string\",\n            \"favicon\": \"string\",\n            \"countryCode\": \"string\",\n            \"geoname\": \"string\"\n          }\n        ]\n      }\n    ]\n  },\n  \"meta\": {\n    \"api_version\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e705115e-b6a7-4b14-b14d-cc6d773b2d0f",
+              "name": "Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sites",
+                    "properties",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.demandsphere.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api_key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "52d6f290-6d81-4e17-9081-41e2d671c516",
+    "name": "DemandSphere API v5.0 Documentation Keywords Sites API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

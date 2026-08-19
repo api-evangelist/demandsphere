@@ -1,17 +1,55 @@
-generated: '2026-07-18'
+generated: '2026-08-13'
 method: searched
 source: https://github.com/DemandSphereDev
+checked: '2026-08-13'
 note: >-
-  DemandSphere marketing references Python & Node SDKs, but no first-party client
-  library was found published on npm, PyPI, or any other public registry as of
-  this run. The only published, installable first-party package is the MCP
-  server, distributed as a git-installable Python package (not yet on PyPI).
+  DemandSphere markets "API access" on every plan but publishes no first-party
+  client SDK. Re-checked on 2026-08-13: npm, PyPI, RubyGems, crates.io,
+  Packagist, NuGet, Maven Central and pkg.go.dev carry no demandsphere package,
+  and the GitHub organization DemandSphereDev contains exactly one public
+  repository. The only installable first-party artifact is the MCP server, and
+  it is git-install only — it is not published to PyPI despite being a packaged
+  Python distribution with a console entry point.
+registry_probes:
+- registry: npm
+  query: demandsphere
+  endpoint: https://registry.npmjs.org/-/v1/search?text=demandsphere
+  result: 0 packages
+  status: 200
+- registry: npm
+  package: demandsphere-mcp
+  endpoint: https://registry.npmjs.org/demandsphere-mcp
+  status: 404
+- registry: pypi
+  package: demandsphere
+  endpoint: https://pypi.org/pypi/demandsphere/json
+  status: 404
+- registry: pypi
+  package: demandsphere-mcp
+  endpoint: https://pypi.org/pypi/demandsphere-mcp/json
+  status: 404
+package_count: 1
+sdk_count: 0
 packages:
 - language: python
   registry: github
   name: demandsphere-mcp
   url: https://github.com/DemandSphereDev/demandsphere-mcp
-  install: git clone https://github.com/DemandSphereDev/demandsphere-mcp.git && pip install -e .
+  install: git clone https://github.com/DemandSphereDev/demandsphere-mcp.git && uv sync
+  install_alt: git clone https://github.com/DemandSphereDev/demandsphere-mcp.git && pip install -e .
+  entry_point: demandsphere-mcp
   official: true
   kind: mcp-server
   license: MIT
+  requires_python: '>=3.11'
+  version: 0.3.1
+  published: '2026-04-24'
+  version_source: https://github.com/DemandSphereDev/demandsphere-mcp/tags (git tag v0.3.1)
+  version_note: >-
+    No registry metadata endpoint exists for this package — it is distributed
+    only from git, so the version and date are read from the repository's tag
+    feed rather than from a package registry. pyproject.toml declares
+    version as dynamic and the project is absent from PyPI, which means a
+    consumer running `pip install -e .` from main cannot tell which release they
+    are getting.
+  development_status: 4 - Beta (declared in pyproject.toml classifiers)

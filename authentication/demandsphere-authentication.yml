@@ -1,6 +1,27 @@
-generated: '2026-07-18'
-method: derived
-source: openapi/demandsphere-openapi-original.json
+generated: '2026-08-13'
+method: searched
+source: openapi/demandsphere-keywords-api-openapi.yml, openapi/demandsphere-pages-api-openapi.yml,
+  openapi/demandsphere-searchengines-api-openapi.yml, openapi/demandsphere-sites-api-openapi.yml
+docs: https://www.demandsphere.com/platform/apis/rest-apis/
+key_issuance: app.demandsphere.com/settings
+key_issuance_source: https://github.com/DemandSphereDev/demandsphere-mcp (tools/utils.py auth_error recovery hint)
+docs_discrepancy: >-
+  https://www.demandsphere.com/platform/apis/rest-apis/ advertises "OAuth 2.0
+  Authentication" for the REST API. No OAuth flow, authorization endpoint or
+  scope registry is published for api.demandsphere.com, the OpenAPI declares only
+  an apiKey-in-query scheme, and DemandSphere's own first-party MCP client sends
+  the credential as the `api_key` query parameter. The company does run OAuth/OIDC
+  — a Keycloak realm at auth.demandsphere.com serving the web application and
+  help-center SSO — but it does not front the API.
+sso:
+  provider: Keycloak
+  realm: https://auth.demandsphere.com/auth/realms/DemandSphere
+  discovery: well-known/demandsphere-openid-configuration.json
+  scope: application and help-center sign-in only; not an API authorization server.
+transport_note: >-
+  The credential travels in the URL query string, so it can be captured in
+  reverse-proxy, CDN and monitoring logs — DemandSphere documents this risk in
+  its MCP server README and recommends stripping query strings from access logs.
 summary:
   types:
   - apiKey
@@ -12,4 +33,7 @@ schemes:
   in: query
   parameter: api_key
   sources:
-  - openapi/demandsphere-openapi-original.json
+  - openapi/demandsphere-keywords-api-openapi.yml
+  - openapi/demandsphere-pages-api-openapi.yml
+  - openapi/demandsphere-searchengines-api-openapi.yml
+  - openapi/demandsphere-sites-api-openapi.yml

@@ -4,11 +4,9 @@ status: published
 source: https://github.com/DemandSphereDev/demandsphere-mcp
 servers:
 - name: demandsphere
-  description: >-
-    Official DemandSphere MCP server connecting AI assistants to the search
-    intelligence platform. Supports traditional SERP analytics (v5.0) and GenAI
-    visibility tracking (v5.1). API-key auth is injected server-side (the
-    DemandSphere API uses api_key query-parameter auth); the model never sees the key.
+  description: Official DemandSphere MCP server connecting AI assistants to the search intelligence platform.
+    Supports traditional SERP analytics (v5.0) and GenAI visibility tracking (v5.1). API-key auth is injected
+    server-side (the DemandSphere API uses api_key query-parameter auth); the model never sees the key.
   official: true
   repository: https://github.com/DemandSphereDev/demandsphere-mcp
   language: Python
@@ -21,31 +19,69 @@ servers:
   - git clone https://github.com/DemandSphereDev/demandsphere-mcp.git && pip install -e .
   auth: api_key (env DEMANDSPHERE_API_KEY / ~/.config/demandsphere/config.json / .env)
   tools:
-  - {name: list_sites, domain: Site Discovery, description: Discovers configured sites}
-  - {name: list_sites_flat, domain: Site Discovery, description: Returns flattened site list}
-  - {name: serp_analytics, domain: SERP Analytics, description: 'SERP rankings analysis (views: performance, trends, engine_comparison, engine_summary)'}
-  - {name: get_keyword_groups, domain: SERP Analytics, description: Retrieves grouped keyword data}
-  - {name: get_local_rankings, domain: SERP Analytics, description: Fetches local search rankings}
-  - {name: get_landing_matches, domain: SERP Analytics, description: Identifies landing page matches}
-  - {name: get_landings_history, domain: SERP Analytics, description: Tracks landing page history}
-  - {name: get_mentions, domain: GenAI Visibility, description: Retrieves GenAI mentions}
-  - {name: get_keyword_citations, domain: GenAI Visibility, description: Gets citation data by keyword}
-  - {name: get_bulk_citations, domain: GenAI Visibility, description: Processes bulk citation requests}
-  - {name: get_site_citations, domain: GenAI Visibility, description: Fetches site-specific citations}
-  - {name: llm_analytics, domain: GenAI Visibility, description: 'GenAI visibility analysis (views: stats, performance, channels, cross_channel, cross_llms)'}
-  - {name: get_llm_filters, domain: GenAI Visibility, description: Returns available GenAI filters}
-  - {name: get_people_also_ask, domain: GenAI Visibility, description: Retrieves people-also-ask data}
-  - {name: list_brands, domain: Brand Management, description: Lists configured brands}
-  - {name: create_brand, domain: Brand Management, description: Creates a new brand entry}
-  - {name: update_brand, domain: Brand Management, description: Modifies an existing brand}
-  - {name: delete_brands, domain: Brand Management, description: Removes brands}
-  - {name: search, domain: ChatGPT Deep Research, description: Searches via ChatGPT Deep Research}
-  - {name: fetch, domain: ChatGPT Deep Research, description: Retrieves content via ChatGPT Deep Research}
+  - name: list_sites
+    domain: Site Discovery
+    description: Discovers configured sites
+  - name: list_sites_flat
+    domain: Site Discovery
+    description: Returns flattened site list
+  - name: serp_analytics
+    domain: SERP Analytics
+    description: 'SERP rankings analysis (views: performance, trends, engine_comparison, engine_summary)'
+  - name: get_keyword_groups
+    domain: SERP Analytics
+    description: Retrieves grouped keyword data
+  - name: get_local_rankings
+    domain: SERP Analytics
+    description: Fetches local search rankings
+  - name: get_landing_matches
+    domain: SERP Analytics
+    description: Identifies landing page matches
+  - name: get_landings_history
+    domain: SERP Analytics
+    description: Tracks landing page history
+  - name: get_mentions
+    domain: GenAI Visibility
+    description: Retrieves GenAI mentions
+  - name: get_keyword_citations
+    domain: GenAI Visibility
+    description: Gets citation data by keyword
+  - name: get_bulk_citations
+    domain: GenAI Visibility
+    description: Processes bulk citation requests
+  - name: get_site_citations
+    domain: GenAI Visibility
+    description: Fetches site-specific citations
+  - name: llm_analytics
+    domain: GenAI Visibility
+    description: 'GenAI visibility analysis (views: stats, performance, channels, cross_channel, cross_llms)'
+  - name: get_llm_filters
+    domain: GenAI Visibility
+    description: Returns available GenAI filters
+  - name: get_people_also_ask
+    domain: GenAI Visibility
+    description: Retrieves people-also-ask data
+  - name: list_brands
+    domain: Brand Management
+    description: Lists configured brands
+  - name: create_brand
+    domain: Brand Management
+    description: Creates a new brand entry
+  - name: update_brand
+    domain: Brand Management
+    description: Modifies an existing brand
+  - name: delete_brands
+    domain: Brand Management
+    description: Removes brands
+  - name: search
+    domain: ChatGPT Deep Research
+    description: Searches via ChatGPT Deep Research
+  - name: fetch
+    domain: ChatGPT Deep Research
+    description: Retrieves content via ChatGPT Deep Research
 - name: demandsphere-radar
-  description: >-
-    Hosted, no-auth MCP server exposing DemandSphere Radar data - AI frontier
-    model tracker (65+ models with benchmarks/pricing) and Google algorithm
-    update tracker (170+ updates, 2000-present).
+  description: Hosted, no-auth MCP server exposing DemandSphere Radar data - AI frontier model tracker
+    (65+ models with benchmarks/pricing) and Google algorithm update tracker (170+ updates, 2000-present).
   official: true
   version: 1.2.0
   transport: streamable-http
@@ -54,11 +90,47 @@ servers:
   auth: none
   license: CC BY-NC 4.0
   tools:
-  - {name: get_ai_models, description: List/filter frontier AI models with benchmarks and pricing}
-  - {name: get_ai_model_by_id, description: Get a single model's full record by ID}
-  - {name: search_ai_models, description: Search models by name or description}
-  - {name: calculate_model_cost, description: Calculate token costs (defaults to 1M in + 1M out if omitted)}
-  - {name: get_providers, description: List all tracked providers with model counts}
-  - {name: get_algorithm_updates, description: List/filter Google algorithm updates (2000-present)}
-  - {name: search_algorithm_updates, description: Search algorithm updates by name or description}
-  - {name: get_server_info, description: Check data freshness, model/update counts}
+  - name: get_ai_models
+    description: List/filter frontier AI models with benchmarks and pricing
+  - name: get_ai_model_by_id
+    description: Get a single model's full record by ID
+  - name: search_ai_models
+    description: Search models by name or description
+  - name: calculate_model_cost
+    description: Calculate token costs (defaults to 1M in + 1M out if omitted)
+  - name: get_providers
+    description: List all tracked providers with model counts
+  - name: get_algorithm_updates
+    description: List/filter Google algorithm updates (2000-present)
+  - name: search_algorithm_updates
+    description: Search algorithm updates by name or description
+  - name: get_server_info
+    description: Check data freshness, model/update counts, and server version
+  tools_capture: mcp/demandsphere-radar-tools.json
+  probe:
+    method: probed
+    url: https://www.demandsphere.com/mcp
+    request: JSON-RPC initialize + tools/list (anonymous, no auth challenge)
+    http_status: 200
+    protocol_version: '2025-03-26'
+    server_info: demandsphere-radar 1.2.0
+    tools_returned: 8
+    checked: '2026-08-13'
+deployment:
+  mode: both
+  endpoint: https://www.demandsphere.com/mcp
+  install: git clone https://github.com/DemandSphereDev/demandsphere-mcp.git && uv sync && uv run demandsphere-mcp
+  package: https://github.com/DemandSphereDev/demandsphere-mcp
+  auth: none
+  verified: probed
+  checked: '2026-08-13'
+  note: >-
+    Two distinct surfaces. The hosted DemandSphere Radar server at
+    https://www.demandsphere.com/mcp is remote, anonymous, and answered a live
+    tools/list with 8 tools on 2026-08-13 (verbatim capture in
+    mcp/demandsphere-radar-tools.json). The 20-tool platform server
+    (DemandSphereDev/demandsphere-mcp, v0.3.1) is local-stdio or self-hosted
+    streamable-HTTP only — it is not published to PyPI and the vendor operates
+    no hosted endpoint for it; it requires a DEMANDSPHERE_API_KEY, so its tool
+    schemas could not be introspected anonymously and are recorded from the
+    first-party repository README and source.

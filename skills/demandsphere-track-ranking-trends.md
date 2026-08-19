@@ -1,7 +1,7 @@
 ---
 name: Track keyword ranking trends
 description: Pull a site's keyword ranking trends over a date range from the DemandSphere API v5.0, then drill into per-keyword performance and landing matches.
-api: openapi/demandsphere-openapi-original.json
+api: openapi/demandsphere-keywords-api-openapi.yml
 operations:
 - Sites_PropertiesList
 - Keywords_RankingTrends

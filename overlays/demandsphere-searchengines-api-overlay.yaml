@@ -1,0 +1,42 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for DemandSphere API v5.0 Documentation Keywords SearchEngines API
+  version: 1.0.0
+x-provenance:
+  generated: '2026-08-13'
+  method: generated
+  source: openapi/demandsphere-searchengines-api-openapi.yml
+extends: openapi/demandsphere-searchengines-api-openapi.yml
+actions:
+- target: $.info
+  update:
+    x-apievangelist-enriched: '2026-08-13'
+    x-apievangelist-provider: demandsphere
+    x-authentication: api_key query parameter (api_key); the docs claim "OAuth 2.0" but the contract is an API key
+    x-authentication-artifact: authentication/demandsphere-authentication.yml
+    x-pagination: offset/limit with page-number (Limit default 25, Offset, PageNum)
+    x-error-catalog: errors/demandsphere-problem-types.yml
+    x-conventions: conventions/demandsphere-conventions.yml
+    x-data-model: data-model/demandsphere-data-model.yml
+    x-rate-limits: rate-limits/demandsphere-rate-limits.yml
+    x-plans: plans/demandsphere-plans-pricing.yml
+    x-mcp-server: https://github.com/DemandSphereDev/demandsphere-mcp
+    x-mcp-endpoint: https://www.demandsphere.com/mcp
+    x-tool-crosswalk: mcp/demandsphere-tool-crosswalk.yml
+    x-status-page: https://status.demandsphere.com/
+    x-lifecycle: lifecycle/demandsphere-lifecycle.yml
+- target: $.paths.*.post
+  update:
+    x-undeclared-statuses:
+      note: >-
+        The spec declares only 200 and 400. DemandSphere's own first-party client
+        also handles 401, 403, 404, 429, 500, 502, 503 and 504 from this host;
+        429 and 5xx are retryable. See errors/demandsphere-problem-types.yml.
+    x-rate-limit:
+      published: false
+      statement: The developer page states "no artificial rate limits".
+      exhaustion_status: 429
+      headers: none documented
+    x-idempotency:
+      supported: false
+      note: Read-style list query; retry is safe.

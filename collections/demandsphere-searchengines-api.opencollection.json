@@ -1,0 +1,67 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "DemandSphere API v5.0 Documentation Keywords SearchEngines API",
+    "version": "5.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "api_key",
+      "value": "{{api_key}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "SearchEngines",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a list of search engines summary",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.demandsphere.com/search_engines/summary/list",
+            "params": [
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "YYYY-MM-DD"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "YYYY-MM-DD"
+              },
+              {
+                "name": "granularity",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "search_engines",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "site_global_key",
+                "value": "",
+                "type": "query",
+                "description": "Your site ID"
+              }
+            ]
+          },
+          "docs": "Get a list of search engines summary"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

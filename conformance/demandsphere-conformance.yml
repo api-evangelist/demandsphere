@@ -1,28 +1,63 @@
-generated: '2026-07-18'
-method: derived
-source: openapi/demandsphere-openapi-original.json
+generated: '2026-08-13'
+method: searched
+source: >-
+  openapi/_original/demandsphere-openapi-original.json +
+  https://www.demandsphere.com/security/ +
+  live probes of https://api.demandsphere.com and https://www.demandsphere.com/mcp
+checked: '2026-08-13'
 standards:
 - id: openapi-3.0
   conforms: true
-  evidence: Provider publishes an OpenAPI 3.0.0 document at https://api.demandsphere.com/openapi.json
+  evidence: Provider publishes an OpenAPI 3.0.0 document at https://api.demandsphere.com/openapi.json (HTTP 200, 200,938 bytes, 10 operations, servers[0] https://api.demandsphere.com).
 - id: api-key-auth
   conforms: true
-  evidence: openapi securityScheme type apiKey (api_key in query), applied globally
+  evidence: openapi securityScheme type apiKey (api_key in query), applied globally.
 - id: oauth2
   conforms: false
-  evidence: REST API uses api_key query auth; OAuth2/OIDC (Keycloak) is used only for application/help-center SSO, not the public API
+  evidence: >-
+    The REST API uses api_key query auth. The developer page claims "OAuth 2.0
+    authentication" but no authorization endpoint, flow or scope registry is
+    published for the API; OAuth2/OIDC (Keycloak) covers application and
+    help-center SSO only.
 - id: oidc
   conforms: true
-  evidence: Keycloak realm exposes /.well-known/openid-configuration for application SSO (well-known/demandsphere-openid-configuration.json)
+  evidence: Keycloak realm exposes /.well-known/openid-configuration (HTTP 200) for application SSO — well-known/demandsphere-openid-configuration.json. Not an API authorization surface.
 - id: rfc9457-problem-details
   conforms: false
-  evidence: 400 responses declared without application/problem+json media type or schema
+  evidence: 400 responses are declared without an application/problem+json media type or schema; no error-code reference is published.
+- id: rfc8594-sunset
+  conforms: false
+  evidence: No deprecation or sunset policy and no Sunset/Deprecation header contract published.
 - id: pagination
   conforms: true
-  evidence: offset/limit + page-number query parameters (Limit default 25, Offset, PageNum)
-- id: gdpr
-  conforms: true
-  evidence: Provider states products adhere to GDPR requirements (https://www.demandsphere.com/security/)
+  evidence: offset/limit plus page-number query parameters (Limit default 25, Offset, PageNum) on every list operation.
+- id: idempotency
+  conforms: false
+  evidence: No idempotency key header or parameter is documented; the published v5.0 surface is read-style POST list queries, while v5.1 brand mutations are undocumented.
+- id: rate-limit-headers
+  conforms: false
+  evidence: No RateLimit-*/X-RateLimit-*/Retry-After contract published; the docs state "no artificial rate limits" while the first-party client treats 429 as retryable.
 - id: mcp
   conforms: true
-  evidence: First-party MCP server (DemandSphereDev/demandsphere-mcp) plus a hosted Radar MCP server advertised at /.well-known/mcp.json
+  evidence: >-
+    Hosted Radar MCP server at https://www.demandsphere.com/mcp answered an
+    anonymous JSON-RPC initialize + tools/list on 2026-08-13 (HTTP 200,
+    protocolVersion 2025-03-26, serverInfo demandsphere-radar 1.2.0, 8 tools with
+    inputSchema), advertised at /.well-known/mcp.json. A second first-party
+    server (DemandSphereDev/demandsphere-mcp v0.3.1, 20 tools) ships stdio and
+    streamable-HTTP transports for local/self-hosted use.
+- id: a2a-agent-card
+  conforms: false
+  evidence: /.well-known/agent-card.json and /.well-known/agent.json return 404 on both www.demandsphere.com and api.demandsphere.com.
+- id: llms-txt
+  conforms: true
+  evidence: https://www.demandsphere.com/llms.txt returns HTTP 200 with a structured llms.txt document (saved verbatim at llms/demandsphere-llms.txt).
+- id: asyncapi
+  conforms: false
+  evidence: No AsyncAPI document and no documented event/webhook catalog; the connectors page lists destinations, not events.
+- id: soc2
+  conforms: true
+  evidence: SOC 2 named on https://www.demandsphere.com/security/ (see security/demandsphere-trust-center.yml).
+- id: gdpr
+  conforms: true
+  evidence: Provider states its products adhere to GDPR requirements (https://www.demandsphere.com/security/).

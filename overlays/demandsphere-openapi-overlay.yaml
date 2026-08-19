@@ -2,7 +2,7 @@ overlay: 1.0.0
 info:
   title: API Evangelist enhancements for DemandSphere API v5.0
   version: 1.0.0
-extends: openapi/demandsphere-openapi-original.json
+extends: openapi/_original/demandsphere-openapi-original.json
 actions:
 - target: $.info
   update:

@@ -1,0 +1,1835 @@
+{
+  "item": [
+    {
+      "id": "92af8dd6-3857-4ce0-adaa-6d8af2f11a3d",
+      "name": "Keywords",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "388cc5fa-0cdd-47e2-a5d2-a51b9e99d079",
+          "name": "Get a list of keyword groups details",
+          "request": {
+            "name": "Get a list of keyword groups details",
+            "description": {},
+            "url": {
+              "path": [
+                "keywords",
+                "keyword_groups_detail",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<string>",
+                  "description": "(Required) YYYY-MM-DD"
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<string>",
+                  "description": "(Required) YYYY-MM-DD"
+                },
+                {
+                  "disabled": false,
+                  "key": "granularity",
+                  "value": "daily",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "asc",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "site_global_key",
+                  "value": "<string>",
+                  "description": "(Required) Your site ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "25",
+                  "description": "Limit for returned number of records"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "Offset - starting record"
+                },
+                {
+                  "disabled": false,
+                  "key": "page_num",
+                  "value": "1"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort_by",
+                  "value": "tag_name",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "search_engines",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "export",
+                  "value": "<boolean>",
+                  "description": "Export data to file"
+                },
+                {
+                  "disabled": false,
+                  "key": "kw_format",
+                  "value": "<string>",
+                  "description": "format of exported file - Required! if export == true"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "896c1149-6c47-44da-b072-036bfe052d3d",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "keywords",
+                    "keyword_groups_detail",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "granularity",
+                      "value": "daily"
+                    },
+                    {
+                      "key": "order",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "site_global_key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "25"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_num",
+                      "value": "1"
+                    },
+                    {
+                      "key": "sort_by",
+                      "value": "tag_name"
+                    },
+                    {
+                      "key": "search_engines",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "export",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "kw_format",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tabularData\": [\n    {\n      \"site\": \"string\",\n      \"search_engines\": [\n        \"string\",\n        \"string\"\n      ],\n      \"from\": \"string\",\n      \"to\": \"string\",\n      \"sort_col\": [\n        \"string\",\n        \"string\"\n      ],\n      \"sort_dir\": [\n        \"string\",\n        \"string\"\n      ],\n      \"buckets\": \"string\",\n      \"device_ids\": [\n        654,\n        6846\n      ],\n      \"keyword_tag_ids\": [\n        2874,\n        2933\n      ],\n      \"keyword_tag_ids_logics\": [\n        \"string\",\n        \"string\"\n      ],\n      \"location_ids\": [\n        2142,\n        2659\n      ],\n      \"serp_features_ids\": [\n        2079,\n        8568\n      ],\n      \"serp_features_ids_for_ranks\": [\n        398,\n        2087\n      ],\n      \"search_string\": \"string\",\n      \"only_conversion_event_ids\": [\n        7466,\n        2674\n      ],\n      \"application_brand\": \"string\",\n      \"statement_timeout\": 4034,\n      \"set_cache\": \"string\",\n      \"page_info\": {\n        \"returned_count\": 9,\n        \"total_count\": 7473\n      },\n      \"results\": [\n        {\n          \"keywords_count\": {\n            \"label\": \"string\",\n            \"value\": 4356,\n            \"dataType\": \"string\"\n          },\n          \"bucket0\": {\n            \"label\": \"string\",\n            \"value\": 5602,\n            \"dataType\": \"string\"\n          },\n          \"bucket1\": {\n            \"label\": \"string\",\n            \"value\": 5902,\n            \"dataType\": \"string\"\n          },\n          \"bucket2\": {\n            \"label\": \"string\",\n            \"value\": 1044,\n            \"dataType\": \"string\"\n          },\n          \"bucket3\": {\n            \"label\": \"string\",\n            \"value\": 3987,\n            \"dataType\": \"string\"\n          },\n          \"bucket4\": {\n            \"label\": \"string\",\n            \"value\": 3013,\n            \"dataType\": \"string\"\n          },\n          \"bucket5\": {\n            \"label\": \"string\",\n            \"value\": 7393,\n            \"dataType\": \"string\"\n          },\n          \"bucket6\": {\n            \"label\": \"string\",\n            \"value\": 2688,\n            \"dataType\": \"string\"\n          },\n          \"bucket7\": {\n            \"label\": \"string\",\n            \"value\": 981,\n            \"dataType\": \"string\"\n          },\n          \"bucket8\": {\n            \"label\": \"string\",\n            \"value\": 2277,\n            \"dataType\": \"string\"\n          },\n          \"search_volume\": {\n            \"label\": \"string\",\n            \"value\": 8188,\n            \"dataType\": \"string\"\n          },\n          \"projected_mo_traffic\": {\n            \"label\": \"string\",\n            \"value\": 1286,\n            \"dataType\": \"string\"\n          },\n          \"impressions\": {\n            \"label\": \"string\",\n            \"value\": 9694,\n            \"dataType\": \"string\"\n          },\n          \"clicks\": {\n            \"label\": \"string\",\n            \"value\": 7090,\n            \"dataType\": \"string\"\n          },\n          \"average_position\": {\n            \"label\": \"string\",\n            \"value\": 9744.489215240183,\n            \"dataType\": \"string\"\n          },\n          \"ctr\": {\n            \"label\": \"string\",\n            \"value\": 8164.800219924101,\n            \"dataType\": \"string\"\n          },\n          \"tag_id\": {\n            \"label\": \"string\",\n            \"value\": 3466,\n            \"dataType\": \"string\"\n          },\n          \"tag_name\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          },\n          \"created_at\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          },\n          \"updated_at\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          }\n        },\n        {\n          \"keywords_count\": {\n            \"label\": \"string\",\n            \"value\": 5368,\n            \"dataType\": \"string\"\n          },\n          \"bucket0\": {\n            \"label\": \"string\",\n            \"value\": 436,\n            \"dataType\": \"string\"\n          },\n          \"bucket1\": {\n            \"label\": \"string\",\n            \"value\": 9755,\n            \"dataType\": \"string\"\n          },\n          \"bucket2\": {\n            \"label\": \"string\",\n            \"value\": 9894,\n            \"dataType\": \"string\"\n          },\n          \"bucket3\": {\n            \"label\": \"string\",\n            \"value\": 304,\n            \"dataType\": \"string\"\n          },\n          \"bucket4\": {\n            \"label\": \"string\",\n            \"value\": 6295,\n            \"dataType\": \"string\"\n          },\n          \"bucket5\": {\n            \"label\": \"string\",\n            \"value\": 4614,\n            \"dataType\": \"string\"\n          },\n          \"bucket6\": {\n            \"label\": \"string\",\n            \"value\": 1082,\n            \"dataType\": \"string\"\n          },\n          \"bucket7\": {\n            \"label\": \"string\",\n            \"value\": 2614,\n            \"dataType\": \"string\"\n          },\n          \"bucket8\": {\n            \"label\": \"string\",\n            \"value\": 3671,\n            \"dataType\": \"string\"\n          },\n          \"search_volume\": {\n            \"label\": \"string\",\n            \"value\": 2881,\n            \"dataType\": \"string\"\n          },\n          \"projected_mo_traffic\": {\n            \"label\": \"string\",\n            \"value\": 6815,\n            \"dataType\": \"string\"\n          },\n          \"impressions\": {\n            \"label\": \"string\",\n            \"value\": 8185,\n            \"dataType\": \"string\"\n          },\n          \"clicks\": {\n            \"label\": \"string\",\n            \"value\": 7724,\n            \"dataType\": \"string\"\n          },\n          \"average_position\": {\n            \"label\": \"string\",\n            \"value\": 3249.8955260233697,\n            \"dataType\": \"string\"\n          },\n          \"ctr\": {\n            \"label\": \"string\",\n            \"value\": 5593.476899805808,\n            \"dataType\": \"string\"\n          },\n          \"tag_id\": {\n            \"label\": \"string\",\n            \"value\": 9207,\n            \"dataType\": \"string\"\n          },\n          \"tag_name\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          },\n          \"created_at\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          },\n          \"updated_at\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          }\n        }\n      ]\n    },\n    {\n      \"site\": \"string\",\n      \"search_engines\": [\n        \"string\",\n        \"string\"\n      ],\n      \"from\": \"string\",\n      \"to\": \"string\",\n      \"sort_col\": [\n        \"string\",\n        \"string\"\n      ],\n      \"sort_dir\": [\n        \"string\",\n        \"string\"\n      ],\n      \"buckets\": \"string\",\n      \"device_ids\": [\n        534,\n        6633\n      ],\n      \"keyword_tag_ids\": [\n        4439,\n        3255\n      ],\n      \"keyword_tag_ids_logics\": [\n        \"string\",\n        \"string\"\n      ],\n      \"location_ids\": [\n        8314,\n        5396\n      ],\n      \"serp_features_ids\": [\n        7522,\n        961\n      ],\n      \"serp_features_ids_for_ranks\": [\n        5898,\n        1332\n      ],\n      \"search_string\": \"string\",\n      \"only_conversion_event_ids\": [\n        9552,\n        1398\n      ],\n      \"application_brand\": \"string\",\n      \"statement_timeout\": 9993,\n      \"set_cache\": \"string\",\n      \"page_info\": {\n        \"returned_count\": 4281,\n        \"total_count\": 1796\n      },\n      \"results\": [\n        {\n          \"keywords_count\": {\n            \"label\": \"string\",\n            \"value\": 8774,\n            \"dataType\": \"string\"\n          },\n          \"bucket0\": {\n            \"label\": \"string\",\n            \"value\": 6802,\n            \"dataType\": \"string\"\n          },\n          \"bucket1\": {\n            \"label\": \"string\",\n            \"value\": 628,\n            \"dataType\": \"string\"\n          },\n          \"bucket2\": {\n            \"label\": \"string\",\n            \"value\": 9394,\n            \"dataType\": \"string\"\n          },\n          \"bucket3\": {\n            \"label\": \"string\",\n            \"value\": 9838,\n            \"dataType\": \"string\"\n          },\n          \"bucket4\": {\n            \"label\": \"string\",\n            \"value\": 628,\n            \"dataType\": \"string\"\n          },\n          \"bucket5\": {\n            \"label\": \"string\",\n            \"value\": 7211,\n            \"dataType\": \"string\"\n          },\n          \"bucket6\": {\n            \"label\": \"string\",\n            \"value\": 595,\n            \"dataType\": \"string\"\n          },\n          \"bucket7\": {\n            \"label\": \"string\",\n            \"value\": 5853,\n            \"dataType\": \"string\"\n          },\n          \"bucket8\": {\n            \"label\": \"string\",\n            \"value\": 2924,\n            \"dataType\": \"string\"\n          },\n          \"search_volume\": {\n            \"label\": \"string\",\n            \"value\": 3011,\n            \"dataType\": \"string\"\n          },\n          \"projected_mo_traffic\": {\n            \"label\": \"string\",\n            \"value\": 525,\n            \"dataType\": \"string\"\n          },\n          \"impressions\": {\n            \"label\": \"string\",\n            \"value\": 8011,\n            \"dataType\": \"string\"\n          },\n          \"clicks\": {\n            \"label\": \"string\",\n            \"value\": 5948,\n            \"dataType\": \"string\"\n          },\n          \"average_position\": {\n            \"label\": \"string\",\n            \"value\": 6975.663930066414,\n            \"dataType\": \"string\"\n          },\n          \"ctr\": {\n            \"label\": \"string\",\n            \"value\": 3387.2454350814564,\n            \"dataType\": \"string\"\n          },\n          \"tag_id\": {\n            \"label\": \"string\",\n            \"value\": 9999,\n            \"dataType\": \"string\"\n          },\n          \"tag_name\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          },\n          \"created_at\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          },\n          \"updated_at\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          }\n        },\n        {\n          \"keywords_count\": {\n            \"label\": \"string\",\n            \"value\": 1226,\n            \"dataType\": \"string\"\n          },\n          \"bucket0\": {\n            \"label\": \"string\",\n            \"value\": 7545,\n            \"dataType\": \"string\"\n          },\n          \"bucket1\": {\n            \"label\": \"string\",\n            \"value\": 6220,\n            \"dataType\": \"string\"\n          },\n          \"bucket2\": {\n            \"label\": \"string\",\n            \"value\": 6763,\n            \"dataType\": \"string\"\n          },\n          \"bucket3\": {\n            \"label\": \"string\",\n            \"value\": 6766,\n            \"dataType\": \"string\"\n          },\n          \"bucket4\": {\n            \"label\": \"string\",\n            \"value\": 9700,\n            \"dataType\": \"string\"\n          },\n          \"bucket5\": {\n            \"label\": \"string\",\n            \"value\": 798,\n            \"dataType\": \"string\"\n          },\n          \"bucket6\": {\n            \"label\": \"string\",\n            \"value\": 7509,\n            \"dataType\": \"string\"\n          },\n          \"bucket7\": {\n            \"label\": \"string\",\n            \"value\": 7544,\n            \"dataType\": \"string\"\n          },\n          \"bucket8\": {\n            \"label\": \"string\",\n            \"value\": 4713,\n            \"dataType\": \"string\"\n          },\n          \"search_volume\": {\n            \"label\": \"string\",\n            \"value\": 9600,\n            \"dataType\": \"string\"\n          },\n          \"projected_mo_traffic\": {\n            \"label\": \"string\",\n            \"value\": 6685,\n            \"dataType\": \"string\"\n          },\n          \"impressions\": {\n            \"label\": \"string\",\n            \"value\": 8161,\n            \"dataType\": \"string\"\n          },\n          \"clicks\": {\n            \"label\": \"string\",\n            \"value\": 117,\n            \"dataType\": \"string\"\n          },\n          \"average_position\": {\n            \"label\": \"string\",\n            \"value\": 2662.3755989974597,\n            \"dataType\": \"string\"\n          },\n          \"ctr\": {\n            \"label\": \"string\",\n            \"value\": 1737.7013024850164,\n            \"dataType\": \"string\"\n          },\n          \"tag_id\": {\n            \"label\": \"string\",\n            \"value\": 7690,\n            \"dataType\": \"string\"\n          },\n          \"tag_name\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          },\n          \"created_at\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          },\n          \"updated_at\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          }\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "755801b7-73bc-4001-b96f-2512e0fe66ff",
+              "name": "Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "keywords",
+                    "keyword_groups_detail",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "granularity",
+                      "value": "daily"
+                    },
+                    {
+                      "key": "order",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "site_global_key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "25"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_num",
+                      "value": "1"
+                    },
+                    {
+                      "key": "sort_by",
+                      "value": "tag_name"
+                    },
+                    {
+                      "key": "search_engines",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "export",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "kw_format",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "20749f46-4864-4dc0-9e1f-e0c2c1ca07df",
+          "name": "Get a list of keywords performance details",
+          "request": {
+            "name": "Get a list of keywords performance details",
+            "description": {},
+            "url": {
+              "path": [
+                "keywords",
+                "keywords_performance_detail",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<string>",
+                  "description": "(Required) YYYY-MM-DD"
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<string>",
+                  "description": "(Required) YYYY-MM-DD"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort_by",
+                  "value": "keyword_name",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "granularity",
+                  "value": "daily",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "asc",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "site_global_key",
+                  "value": "<string>",
+                  "description": "(Required) Your site ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "25",
+                  "description": "Limit for returned number of records"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "Offset - starting record"
+                },
+                {
+                  "disabled": false,
+                  "key": "page_num",
+                  "value": "1"
+                },
+                {
+                  "disabled": false,
+                  "key": "search_engines",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "export",
+                  "value": "<boolean>",
+                  "description": "Export data to file"
+                },
+                {
+                  "disabled": false,
+                  "key": "kw_format",
+                  "value": "<string>",
+                  "description": "format of exported file - Required! if export == true"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "42ae1fb9-b7bb-47ab-9111-7316aac3ed4b",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "keywords",
+                    "keywords_performance_detail",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort_by",
+                      "value": "keyword_name"
+                    },
+                    {
+                      "key": "granularity",
+                      "value": "daily"
+                    },
+                    {
+                      "key": "order",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "site_global_key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "25"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_num",
+                      "value": "1"
+                    },
+                    {
+                      "key": "search_engines",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "export",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "kw_format",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tabularData\": [\n    {\n      \"site\": \"string\",\n      \"search_engines\": [\n        \"string\",\n        \"string\"\n      ],\n      \"from\": \"string\",\n      \"to\": \"string\",\n      \"sort_col\": [\n        \"string\",\n        \"string\"\n      ],\n      \"sort_dir\": [\n        \"string\",\n        \"string\"\n      ],\n      \"buckets\": \"string\",\n      \"device_ids\": [\n        2389,\n        3488\n      ],\n      \"keyword_tag_ids\": [\n        6929,\n        4616\n      ],\n      \"keyword_tag_ids_logics\": [\n        \"string\",\n        \"string\"\n      ],\n      \"location_ids\": [\n        4682,\n        9345\n      ],\n      \"serp_features_ids\": [\n        2610,\n        6108\n      ],\n      \"serp_features_ids_for_ranks\": [\n        9266,\n        6617\n      ],\n      \"search_string\": \"string\",\n      \"only_conversion_event_ids\": [\n        5571,\n        9767\n      ],\n      \"application_brand\": \"string\",\n      \"statement_timeout\": 6727,\n      \"set_cache\": \"string\",\n      \"page_info\": {\n        \"returned_count\": 9286,\n        \"total_count\": 8403\n      },\n      \"results\": [\n        {\n          \"rank\": {\n            \"label\": \"string\",\n            \"value\": 8729,\n            \"dataType\": \"string\"\n          },\n          \"rank_change\": {\n            \"label\": \"string\",\n            \"value\": 7668,\n            \"dataType\": \"string\"\n          },\n          \"page_url\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          },\n          \"keyword_description\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          },\n          \"serp_features\": [\n            {\n              \"label\": \"string\",\n              \"value\": \"string\",\n              \"dataType\": \"string\"\n            },\n            {\n              \"label\": \"string\",\n              \"value\": \"string\",\n              \"dataType\": \"string\"\n            }\n          ],\n          \"search_volume\": {\n            \"label\": \"string\",\n            \"value\": 6869,\n            \"dataType\": \"string\"\n          },\n          \"projected_mo_traffic\": {\n            \"label\": \"string\",\n            \"value\": 3024.185970866179,\n            \"dataType\": \"string\"\n          },\n          \"keyword_id\": {\n            \"label\": \"string\",\n            \"value\": 5656,\n            \"dataType\": \"string\"\n          },\n          \"location_id\": {\n            \"label\": \"string\",\n            \"value\": 7956,\n            \"dataType\": \"string\"\n          },\n          \"keyword_name\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          },\n          \"impressions\": {\n            \"label\": \"string\",\n            \"value\": 5678.649169846144,\n            \"dataType\": \"string\"\n          },\n          \"clicks\": {\n            \"label\": \"string\",\n            \"value\": 4221.762671533439,\n            \"dataType\": \"string\"\n          },\n          \"average_position\": {\n            \"label\": \"string\",\n            \"value\": 2940.806851885458,\n            \"dataType\": \"string\"\n          },\n          \"ctr\": {\n            \"label\": \"string\",\n            \"value\": 2392.183478093238,\n            \"dataType\": \"string\"\n          },\n          \"page_id\": {\n            \"label\": \"string\",\n            \"value\": 503,\n            \"dataType\": \"string\"\n          },\n          \"created_at\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          },\n          \"updated_at\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          },\n          \"search_intents\": [\n            {\n              \"label\": \"string\",\n              \"value\": \"string\",\n              \"dataType\": \"string\"\n            },\n            {\n              \"label\": \"string\",\n              \"value\": \"string\",\n              \"dataType\": \"string\"\n            }\n          ]\n        },\n        {\n          \"rank\": {\n            \"label\": \"string\",\n            \"value\": 5516,\n            \"dataType\": \"string\"\n          },\n          \"rank_change\": {\n            \"label\": \"string\",\n            \"value\": 8963,\n            \"dataType\": \"string\"\n          },\n          \"page_url\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          },\n          \"keyword_description\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          },\n          \"serp_features\": [\n            {\n              \"label\": \"string\",\n              \"value\": \"string\",\n              \"dataType\": \"string\"\n            },\n            {\n              \"label\": \"string\",\n              \"value\": \"string\",\n              \"dataType\": \"string\"\n            }\n          ],\n          \"search_volume\": {\n            \"label\": \"string\",\n            \"value\": 8876,\n            \"dataType\": \"string\"\n          },\n          \"projected_mo_traffic\": {\n            \"label\": \"string\",\n            \"value\": 5501.795500986804,\n            \"dataType\": \"string\"\n          },\n          \"keyword_id\": {\n            \"label\": \"string\",\n            \"value\": 8366,\n            \"dataType\": \"string\"\n          },\n          \"location_id\": {\n            \"label\": \"string\",\n            \"value\": 51,\n            \"dataType\": \"string\"\n          },\n          \"keyword_name\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          },\n          \"impressions\": {\n            \"label\": \"string\",\n            \"value\": 4526.670025980639,\n            \"dataType\": \"string\"\n          },\n          \"clicks\": {\n            \"label\": \"string\",\n            \"value\": 1267.989446727623,\n            \"dataType\": \"string\"\n          },\n          \"average_position\": {\n            \"label\": \"string\",\n            \"value\": 3348.4378028539218,\n            \"dataType\": \"string\"\n          },\n          \"ctr\": {\n            \"label\": \"string\",\n            \"value\": 8683.734379046797,\n            \"dataType\": \"string\"\n          },\n          \"page_id\": {\n            \"label\": \"string\",\n            \"value\": 2108,\n            \"dataType\": \"string\"\n          },\n          \"created_at\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          },\n          \"updated_at\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          },\n          \"search_intents\": [\n            {\n              \"label\": \"string\",\n              \"value\": \"string\",\n              \"dataType\": \"string\"\n            },\n            {\n              \"label\": \"string\",\n              \"value\": \"string\",\n              \"dataType\": \"string\"\n            }\n          ]\n        }\n      ]\n    },\n    {\n      \"site\": \"string\",\n      \"search_engines\": [\n        \"string\",\n        \"string\"\n      ],\n      \"from\": \"string\",\n      \"to\": \"string\",\n      \"sort_col\": [\n        \"string\",\n        \"string\"\n      ],\n      \"sort_dir\": [\n        \"string\",\n        \"string\"\n      ],\n      \"buckets\": \"string\",\n      \"device_ids\": [\n        1629,\n        9608\n      ],\n      \"keyword_tag_ids\": [\n        5243,\n        3387\n      ],\n      \"keyword_tag_ids_logics\": [\n        \"string\",\n        \"string\"\n      ],\n      \"location_ids\": [\n        12,\n        5284\n      ],\n      \"serp_features_ids\": [\n        8685,\n        9891\n      ],\n      \"serp_features_ids_for_ranks\": [\n        3089,\n        4804\n      ],\n      \"search_string\": \"string\",\n      \"only_conversion_event_ids\": [\n        8984,\n        4199\n      ],\n      \"application_brand\": \"string\",\n      \"statement_timeout\": 3214,\n      \"set_cache\": \"string\",\n      \"page_info\": {\n        \"returned_count\": 2599,\n        \"total_count\": 3627\n      },\n      \"results\": [\n        {\n          \"rank\": {\n            \"label\": \"string\",\n            \"value\": 2001,\n            \"dataType\": \"string\"\n          },\n          \"rank_change\": {\n            \"label\": \"string\",\n            \"value\": 7412,\n            \"dataType\": \"string\"\n          },\n          \"page_url\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          },\n          \"keyword_description\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          },\n          \"serp_features\": [\n            {\n              \"label\": \"string\",\n              \"value\": \"string\",\n              \"dataType\": \"string\"\n            },\n            {\n              \"label\": \"string\",\n              \"value\": \"string\",\n              \"dataType\": \"string\"\n            }\n          ],\n          \"search_volume\": {\n            \"label\": \"string\",\n            \"value\": 94,\n            \"dataType\": \"string\"\n          },\n          \"projected_mo_traffic\": {\n            \"label\": \"string\",\n            \"value\": 9240.986121854423,\n            \"dataType\": \"string\"\n          },\n          \"keyword_id\": {\n            \"label\": \"string\",\n            \"value\": 3408,\n            \"dataType\": \"string\"\n          },\n          \"location_id\": {\n            \"label\": \"string\",\n            \"value\": 9436,\n            \"dataType\": \"string\"\n          },\n          \"keyword_name\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          },\n          \"impressions\": {\n            \"label\": \"string\",\n            \"value\": 1475.756535707735,\n            \"dataType\": \"string\"\n          },\n          \"clicks\": {\n            \"label\": \"string\",\n            \"value\": 6841.523615378939,\n            \"dataType\": \"string\"\n          },\n          \"average_position\": {\n            \"label\": \"string\",\n            \"value\": 5405.2136895354815,\n            \"dataType\": \"string\"\n          },\n          \"ctr\": {\n            \"label\": \"string\",\n            \"value\": 7341.786118623527,\n            \"dataType\": \"string\"\n          },\n          \"page_id\": {\n            \"label\": \"string\",\n            \"value\": 920,\n            \"dataType\": \"string\"\n          },\n          \"created_at\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          },\n          \"updated_at\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          },\n          \"search_intents\": [\n            {\n              \"label\": \"string\",\n              \"value\": \"string\",\n              \"dataType\": \"string\"\n            },\n            {\n              \"label\": \"string\",\n              \"value\": \"string\",\n              \"dataType\": \"string\"\n            }\n          ]\n        },\n        {\n          \"rank\": {\n            \"label\": \"string\",\n            \"value\": 7392,\n            \"dataType\": \"string\"\n          },\n          \"rank_change\": {\n            \"label\": \"string\",\n            \"value\": 4704,\n            \"dataType\": \"string\"\n          },\n          \"page_url\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          },\n          \"keyword_description\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          },\n          \"serp_features\": [\n            {\n              \"label\": \"string\",\n              \"value\": \"string\",\n              \"dataType\": \"string\"\n            },\n            {\n              \"label\": \"string\",\n              \"value\": \"string\",\n              \"dataType\": \"string\"\n            }\n          ],\n          \"search_volume\": {\n            \"label\": \"string\",\n            \"value\": 4162,\n            \"dataType\": \"string\"\n          },\n          \"projected_mo_traffic\": {\n            \"label\": \"string\",\n            \"value\": 4729.598827642554,\n            \"dataType\": \"string\"\n          },\n          \"keyword_id\": {\n            \"label\": \"string\",\n            \"value\": 1646,\n            \"dataType\": \"string\"\n          },\n          \"location_id\": {\n            \"label\": \"string\",\n            \"value\": 7157,\n            \"dataType\": \"string\"\n          },\n          \"keyword_name\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          },\n          \"impressions\": {\n            \"label\": \"string\",\n            \"value\": 8063.035227371121,\n            \"dataType\": \"string\"\n          },\n          \"clicks\": {\n            \"label\": \"string\",\n            \"value\": 4032.2049564507456,\n            \"dataType\": \"string\"\n          },\n          \"average_position\": {\n            \"label\": \"string\",\n            \"value\": 307.9349471754433,\n            \"dataType\": \"string\"\n          },\n          \"ctr\": {\n            \"label\": \"string\",\n            \"value\": 5087.143820919896,\n            \"dataType\": \"string\"\n          },\n          \"page_id\": {\n            \"label\": \"string\",\n            \"value\": 4603,\n            \"dataType\": \"string\"\n          },\n          \"created_at\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          },\n          \"updated_at\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          },\n          \"search_intents\": [\n            {\n              \"label\": \"string\",\n              \"value\": \"string\",\n              \"dataType\": \"string\"\n            },\n            {\n              \"label\": \"string\",\n              \"value\": \"string\",\n              \"dataType\": \"string\"\n            }\n          ]\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cb8ee1e0-7478-4919-8a14-1d611a5133e5",
+              "name": "Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "keywords",
+                    "keywords_performance_detail",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort_by",
+                      "value": "keyword_name"
+                    },
+                    {
+                      "key": "granularity",
+                      "value": "daily"
+                    },
+                    {
+                      "key": "order",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "site_global_key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "25"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_num",
+                      "value": "1"
+                    },
+                    {
+                      "key": "search_engines",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "export",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "kw_format",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6985a6a2-8ba3-449d-922d-462d70ce16c9",
+          "name": "Get a list of landing matches",
+          "request": {
+            "name": "Get a list of landing matches",
+            "description": {},
+            "url": {
+              "path": [
+                "keywords",
+                "landing_matches",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<string>",
+                  "description": "(Required) YYYY-MM-DD"
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<string>",
+                  "description": "(Required) YYYY-MM-DD"
+                },
+                {
+                  "disabled": false,
+                  "key": "granularity",
+                  "value": "daily",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "asc",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "site_global_key",
+                  "value": "<string>",
+                  "description": "(Required) Your site ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "25",
+                  "description": "Limit for returned number of records"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "Offset - starting record"
+                },
+                {
+                  "disabled": false,
+                  "key": "page_num",
+                  "value": "1"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort_by",
+                  "value": "keyword_name",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "search_engines",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "export",
+                  "value": "<boolean>",
+                  "description": "Export data to file"
+                },
+                {
+                  "disabled": false,
+                  "key": "kw_format",
+                  "value": "<string>",
+                  "description": "format of exported file - Required! if export == true"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5b3bebf7-9720-4449-a18a-99aba23efec3",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "keywords",
+                    "landing_matches",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "granularity",
+                      "value": "daily"
+                    },
+                    {
+                      "key": "order",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "site_global_key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "25"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_num",
+                      "value": "1"
+                    },
+                    {
+                      "key": "sort_by",
+                      "value": "keyword_name"
+                    },
+                    {
+                      "key": "search_engines",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "export",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "kw_format",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tabularData\": [\n    {\n      \"site\": \"string\",\n      \"search_engines\": [\n        \"string\",\n        \"string\"\n      ],\n      \"from\": \"string\",\n      \"to\": \"string\",\n      \"sort_col\": [\n        \"string\",\n        \"string\"\n      ],\n      \"sort_dir\": [\n        \"string\",\n        \"string\"\n      ],\n      \"buckets\": \"string\",\n      \"device_ids\": [\n        3828,\n        4075\n      ],\n      \"keyword_tag_ids\": [\n        3778,\n        2307\n      ],\n      \"keyword_tag_ids_logics\": [\n        \"string\",\n        \"string\"\n      ],\n      \"location_ids\": [\n        3312,\n        3232\n      ],\n      \"serp_features_ids\": [\n        1745,\n        3367\n      ],\n      \"serp_features_ids_for_ranks\": [\n        1370,\n        3348\n      ],\n      \"search_string\": \"string\",\n      \"only_conversion_event_ids\": [\n        4912,\n        3703\n      ],\n      \"application_brand\": \"string\",\n      \"statement_timeout\": 7803,\n      \"set_cache\": \"string\",\n      \"page_info\": {\n        \"returned_count\": 5177,\n        \"total_count\": 8043\n      },\n      \"results\": [\n        {\n          \"keyword_id\": {\n            \"label\": \"string\",\n            \"value\": 2155,\n            \"dataType\": \"string\"\n          },\n          \"keyword_description\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          },\n          \"keyword_name\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          },\n          \"location_id\": {\n            \"label\": \"string\",\n            \"value\": 399,\n            \"dataType\": \"string\"\n          },\n          \"location_name\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          },\n          \"rank\": {\n            \"label\": \"string\",\n            \"value\": 8667,\n            \"dataType\": \"string\"\n          },\n          \"rank_change\": {\n            \"label\": \"string\",\n            \"value\": 1371,\n            \"dataType\": \"string\"\n          },\n          \"page\": [\n            {\n              \"id\": {\n                \"label\": \"string\",\n                \"value\": 8573,\n                \"dataType\": \"string\"\n              },\n              \"url\": {\n                \"label\": \"string\",\n                \"value\": \"string\",\n                \"dataType\": \"string\"\n              },\n              \"title\": {\n                \"label\": \"string\",\n                \"value\": \"string\",\n                \"dataType\": \"string\"\n              }\n            },\n            {\n              \"id\": {\n                \"label\": \"string\",\n                \"value\": 4744,\n                \"dataType\": \"string\"\n              },\n              \"url\": {\n                \"label\": \"string\",\n                \"value\": \"string\",\n                \"dataType\": \"string\"\n              },\n              \"title\": {\n                \"label\": \"string\",\n                \"value\": \"string\",\n                \"dataType\": \"string\"\n              }\n            }\n          ],\n          \"search_volume\": {\n            \"label\": \"string\",\n            \"value\": 2078,\n            \"dataType\": \"string\"\n          },\n          \"landing_match\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          },\n          \"discovered_page\": [\n            {\n              \"id\": {\n                \"label\": \"string\",\n                \"value\": 3580,\n                \"dataType\": \"string\"\n              },\n              \"url\": {\n                \"label\": \"string\",\n                \"value\": \"string\",\n                \"dataType\": \"string\"\n              }\n            },\n            {\n              \"id\": {\n                \"label\": \"string\",\n                \"value\": 9158,\n                \"dataType\": \"string\"\n              },\n              \"url\": {\n                \"label\": \"string\",\n                \"value\": \"string\",\n                \"dataType\": \"string\"\n              }\n            }\n          ],\n          \"preferred_page\": [\n            {\n              \"id\": {\n                \"label\": \"string\",\n                \"value\": 8932,\n                \"dataType\": \"string\"\n              },\n              \"url\": {\n                \"label\": \"string\",\n                \"value\": \"string\",\n                \"dataType\": \"string\"\n              }\n            },\n            {\n              \"id\": {\n                \"label\": \"string\",\n                \"value\": 1779,\n                \"dataType\": \"string\"\n              },\n              \"url\": {\n                \"label\": \"string\",\n                \"value\": \"string\",\n                \"dataType\": \"string\"\n              }\n            }\n          ],\n          \"created_at\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          },\n          \"updated_at\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          }\n        },\n        {\n          \"keyword_id\": {\n            \"label\": \"string\",\n            \"value\": 6670,\n            \"dataType\": \"string\"\n          },\n          \"keyword_description\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          },\n          \"keyword_name\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          },\n          \"location_id\": {\n            \"label\": \"string\",\n            \"value\": 8165,\n            \"dataType\": \"string\"\n          },\n          \"location_name\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          },\n          \"rank\": {\n            \"label\": \"string\",\n            \"value\": 7982,\n            \"dataType\": \"string\"\n          },\n          \"rank_change\": {\n            \"label\": \"string\",\n            \"value\": 7859,\n            \"dataType\": \"string\"\n          },\n          \"page\": [\n            {\n              \"id\": {\n                \"label\": \"string\",\n                \"value\": 4281,\n                \"dataType\": \"string\"\n              },\n              \"url\": {\n                \"label\": \"string\",\n                \"value\": \"string\",\n                \"dataType\": \"string\"\n              },\n              \"title\": {\n                \"label\": \"string\",\n                \"value\": \"string\",\n                \"dataType\": \"string\"\n              }\n            },\n            {\n              \"id\": {\n                \"label\": \"string\",\n                \"value\": 9620,\n                \"dataType\": \"string\"\n              },\n              \"url\": {\n                \"label\": \"string\",\n                \"value\": \"string\",\n                \"dataType\": \"string\"\n              },\n              \"title\": {\n                \"label\": \"string\",\n                \"value\": \"string\",\n                \"dataType\": \"string\"\n              }\n            }\n          ],\n          \"search_volume\": {\n            \"label\": \"string\",\n            \"value\": 5718,\n            \"dataType\": \"string\"\n          },\n          \"landing_match\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          },\n          \"discovered_page\": [\n            {\n              \"id\": {\n                \"label\": \"string\",\n                \"value\": 9474,\n                \"dataType\": \"string\"\n              },\n              \"url\": {\n                \"label\": \"string\",\n                \"value\": \"string\",\n                \"dataType\": \"string\"\n              }\n            },\n            {\n              \"id\": {\n                \"label\": \"string\",\n                \"value\": 3331,\n                \"dataType\": \"string\"\n              },\n              \"url\": {\n                \"label\": \"string\",\n                \"value\": \"string\",\n                \"dataType\": \"string\"\n              }\n            }\n          ],\n          \"preferred_page\": [\n            {\n              \"id\": {\n                \"label\": \"string\",\n                \"value\": 3094,\n                \"dataType\": \"string\"\n              },\n              \"url\": {\n                \"label\": \"string\",\n                \"value\": \"string\",\n                \"dataType\": \"string\"\n              }\n            },\n            {\n              \"id\": {\n                \"label\": \"string\",\n                \"value\": 6019,\n                \"dataType\": \"string\"\n              },\n              \"url\": {\n                \"label\": \"string\",\n                \"value\": \"string\",\n                \"dataType\": \"string\"\n              }\n            }\n          ],\n          \"created_at\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          },\n          \"updated_at\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          }\n        }\n      ]\n    },\n    {\n      \"site\": \"string\",\n      \"search_engines\": [\n        \"string\",\n        \"string\"\n      ],\n      \"from\": \"string\",\n      \"to\": \"string\",\n      \"sort_col\": [\n        \"string\",\n        \"string\"\n      ],\n      \"sort_dir\": [\n        \"string\",\n        \"string\"\n      ],\n      \"buckets\": \"string\",\n      \"device_ids\": [\n        292,\n        6567\n      ],\n      \"keyword_tag_ids\": [\n        3503,\n        8826\n      ],\n      \"keyword_tag_ids_logics\": [\n        \"string\",\n        \"string\"\n      ],\n      \"location_ids\": [\n        2239,\n        3097\n      ],\n      \"serp_features_ids\": [\n        7574,\n        5736\n      ],\n      \"serp_features_ids_for_ranks\": [\n        3089,\n        8039\n      ],\n      \"search_string\": \"string\",\n      \"only_conversion_event_ids\": [\n        8392,\n        8815\n      ],\n      \"application_brand\": \"string\",\n      \"statement_timeout\": 3131,\n      \"set_cache\": \"string\",\n      \"page_info\": {\n        \"returned_count\": 9536,\n        \"total_count\": 8048\n      },\n      \"results\": [\n        {\n          \"keyword_id\": {\n            \"label\": \"string\",\n            \"value\": 5795,\n            \"dataType\": \"string\"\n          },\n          \"keyword_description\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          },\n          \"keyword_name\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          },\n          \"location_id\": {\n            \"label\": \"string\",\n            \"value\": 6994,\n            \"dataType\": \"string\"\n          },\n          \"location_name\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          },\n          \"rank\": {\n            \"label\": \"string\",\n            \"value\": 2688,\n            \"dataType\": \"string\"\n          },\n          \"rank_change\": {\n            \"label\": \"string\",\n            \"value\": 5781,\n            \"dataType\": \"string\"\n          },\n          \"page\": [\n            {\n              \"id\": {\n                \"label\": \"string\",\n                \"value\": 7790,\n                \"dataType\": \"string\"\n              },\n              \"url\": {\n                \"label\": \"string\",\n                \"value\": \"string\",\n                \"dataType\": \"string\"\n              },\n              \"title\": {\n                \"label\": \"string\",\n                \"value\": \"string\",\n                \"dataType\": \"string\"\n              }\n            },\n            {\n              \"id\": {\n                \"label\": \"string\",\n                \"value\": 6894,\n                \"dataType\": \"string\"\n              },\n              \"url\": {\n                \"label\": \"string\",\n                \"value\": \"string\",\n                \"dataType\": \"string\"\n              },\n              \"title\": {\n                \"label\": \"string\",\n                \"value\": \"string\",\n                \"dataType\": \"string\"\n              }\n            }\n          ],\n          \"search_volume\": {\n            \"label\": \"string\",\n            \"value\": 9643,\n            \"dataType\": \"string\"\n          },\n          \"landing_match\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          },\n          \"discovered_page\": [\n            {\n              \"id\": {\n                \"label\": \"string\",\n                \"value\": 7861,\n                \"dataType\": \"string\"\n              },\n              \"url\": {\n                \"label\": \"string\",\n                \"value\": \"string\",\n                \"dataType\": \"string\"\n              }\n            },\n            {\n              \"id\": {\n                \"label\": \"string\",\n                \"value\": 6576,\n                \"dataType\": \"string\"\n              },\n              \"url\": {\n                \"label\": \"string\",\n                \"value\": \"string\",\n                \"dataType\": \"string\"\n              }\n            }\n          ],\n          \"preferred_page\": [\n            {\n              \"id\": {\n                \"label\": \"string\",\n                \"value\": 4129,\n                \"dataType\": \"string\"\n              },\n              \"url\": {\n                \"label\": \"string\",\n                \"value\": \"string\",\n                \"dataType\": \"string\"\n              }\n            },\n            {\n              \"id\": {\n                \"label\": \"string\",\n                \"value\": 1594,\n                \"dataType\": \"string\"\n              },\n              \"url\": {\n                \"label\": \"string\",\n                \"value\": \"string\",\n                \"dataType\": \"string\"\n              }\n            }\n          ],\n          \"created_at\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          },\n          \"updated_at\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          }\n        },\n        {\n          \"keyword_id\": {\n            \"label\": \"string\",\n            \"value\": 5665,\n            \"dataType\": \"string\"\n          },\n          \"keyword_description\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          },\n          \"keyword_name\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          },\n          \"location_id\": {\n            \"label\": \"string\",\n            \"value\": 4979,\n            \"dataType\": \"string\"\n          },\n          \"location_name\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          },\n          \"rank\": {\n            \"label\": \"string\",\n            \"value\": 9203,\n            \"dataType\": \"string\"\n          },\n          \"rank_change\": {\n            \"label\": \"string\",\n            \"value\": 4012,\n            \"dataType\": \"string\"\n          },\n          \"page\": [\n            {\n              \"id\": {\n                \"label\": \"string\",\n                \"value\": 377,\n                \"dataType\": \"string\"\n              },\n              \"url\": {\n                \"label\": \"string\",\n                \"value\": \"string\",\n                \"dataType\": \"string\"\n              },\n              \"title\": {\n                \"label\": \"string\",\n                \"value\": \"string\",\n                \"dataType\": \"string\"\n              }\n            },\n            {\n              \"id\": {\n                \"label\": \"string\",\n                \"value\": 7902,\n                \"dataType\": \"string\"\n              },\n              \"url\": {\n                \"label\": \"string\",\n                \"value\": \"string\",\n                \"dataType\": \"string\"\n              },\n              \"title\": {\n                \"label\": \"string\",\n                \"value\": \"string\",\n                \"dataType\": \"string\"\n              }\n            }\n          ],\n          \"search_volume\": {\n            \"label\": \"string\",\n            \"value\": 9435,\n            \"dataType\": \"string\"\n          },\n          \"landing_match\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          },\n          \"discovered_page\": [\n            {\n              \"id\": {\n                \"label\": \"string\",\n                \"value\": 2442,\n                \"dataType\": \"string\"\n              },\n              \"url\": {\n                \"label\": \"string\",\n                \"value\": \"string\",\n                \"dataType\": \"string\"\n              }\n            },\n            {\n              \"id\": {\n                \"label\": \"string\",\n                \"value\": 3325,\n                \"dataType\": \"string\"\n              },\n              \"url\": {\n                \"label\": \"string\",\n                \"value\": \"string\",\n                \"dataType\": \"string\"\n              }\n            }\n          ],\n          \"preferred_page\": [\n            {\n              \"id\": {\n                \"label\": \"string\",\n                \"value\": 62,\n                \"dataType\": \"string\"\n              },\n              \"url\": {\n                \"label\": \"string\",\n                \"value\": \"string\",\n                \"dataType\": \"string\"\n              }\n            },\n            {\n              \"id\": {\n                \"label\": \"string\",\n                \"value\": 7450,\n                \"dataType\": \"string\"\n              },\n              \"url\": {\n                \"label\": \"string\",\n                \"value\": \"string\",\n                \"dataType\": \"string\"\n              }\n            }\n          ],\n          \"created_at\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          },\n          \"updated_at\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          }\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d399ccd9-fd70-4ff4-920e-1c2220b4771b",
+              "name": "Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "keywords",
+                    "landing_matches",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "granularity",
+                      "value": "daily"
+                    },
+                    {
+                      "key": "order",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "site_global_key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "25"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_num",
+                      "value": "1"
+                    },
+                    {
+                      "key": "sort_by",
+                      "value": "keyword_name"
+                    },
+                    {
+                      "key": "search_engines",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "export",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "kw_format",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a6083270-98a1-4c9e-8e0f-8b481fe8540d",
+          "name": "Get a list of local rankings",
+          "request": {
+            "name": "Get a list of local rankings",
+            "description": {},
+            "url": {
+              "path": [
+                "keywords",
+                "local_rankings",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<string>",
+                  "description": "(Required) YYYY-MM-DD"
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<string>",
+                  "description": "(Required) YYYY-MM-DD"
+                },
+                {
+                  "disabled": false,
+                  "key": "granularity",
+                  "value": "daily",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "asc",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "site_global_key",
+                  "value": "<string>",
+                  "description": "(Required) Your site ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "25",
+                  "description": "Limit for returned number of records"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "Offset - starting record"
+                },
+                {
+                  "disabled": false,
+                  "key": "page_num",
+                  "value": "1"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort_by",
+                  "value": "keyword_name",
+                  "description": "When param: grouped == false - Required!"
+                },
+                {
+                  "disabled": false,
+                  "key": "grouped",
+                  "value": "<string>",
+                  "description": "Group keywords"
+                },
+                {
+                  "disabled": false,
+                  "key": "search_engines",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "export",
+                  "value": "<boolean>",
+                  "description": "Export data to file"
+                },
+                {
+                  "disabled": false,
+                  "key": "kw_format",
+                  "value": "<string>",
+                  "description": "format of exported file - Required! if export == true"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "918d224c-e501-4cb5-8c9a-e4a560972a9f",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "keywords",
+                    "local_rankings",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "granularity",
+                      "value": "daily"
+                    },
+                    {
+                      "key": "order",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "site_global_key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "25"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_num",
+                      "value": "1"
+                    },
+                    {
+                      "key": "sort_by",
+                      "value": "keyword_name"
+                    },
+                    {
+                      "key": "grouped",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search_engines",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "export",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "kw_format",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tabularData\": [\n    {\n      \"site\": \"string\",\n      \"search_engines\": [\n        \"string\",\n        \"string\"\n      ],\n      \"from\": \"string\",\n      \"to\": \"string\",\n      \"sort_col\": [\n        \"string\",\n        \"string\"\n      ],\n      \"sort_dir\": [\n        \"string\",\n        \"string\"\n      ],\n      \"buckets\": \"string\",\n      \"device_ids\": [\n        5683,\n        2266\n      ],\n      \"keyword_tag_ids\": [\n        2634,\n        5529\n      ],\n      \"keyword_tag_ids_logics\": [\n        \"string\",\n        \"string\"\n      ],\n      \"location_ids\": [\n        3769,\n        2719\n      ],\n      \"serp_features_ids\": [\n        220,\n        14\n      ],\n      \"serp_features_ids_for_ranks\": [\n        8254,\n        4683\n      ],\n      \"search_string\": \"string\",\n      \"only_conversion_event_ids\": [\n        3034,\n        2431\n      ],\n      \"application_brand\": \"string\",\n      \"statement_timeout\": 4900,\n      \"set_cache\": \"string\",\n      \"page_info\": {\n        \"returned_count\": 2371,\n        \"total_count\": 7524\n      },\n      \"results\": [\n        {\n          \"keyword_name\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          },\n          \"keyword_id\": {\n            \"label\": \"string\",\n            \"value\": 1819,\n            \"dataType\": \"string\"\n          },\n          \"rankings_data\": [\n            {\n              \"rank\": {\n                \"label\": \"string\",\n                \"value\": 271,\n                \"dataType\": \"string\"\n              },\n              \"rank_change\": {\n                \"label\": \"string\",\n                \"value\": 2144,\n                \"dataType\": \"string\"\n              }\n            },\n            {\n              \"rank\": {\n                \"label\": \"string\",\n                \"value\": 9822,\n                \"dataType\": \"string\"\n              },\n              \"rank_change\": {\n                \"label\": \"string\",\n                \"value\": 2511,\n                \"dataType\": \"string\"\n              }\n            }\n          ]\n        },\n        {\n          \"keyword_name\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          },\n          \"keyword_id\": {\n            \"label\": \"string\",\n            \"value\": 5783,\n            \"dataType\": \"string\"\n          },\n          \"rankings_data\": [\n            {\n              \"rank\": {\n                \"label\": \"string\",\n                \"value\": 8767,\n                \"dataType\": \"string\"\n              },\n              \"rank_change\": {\n                \"label\": \"string\",\n                \"value\": 9310,\n                \"dataType\": \"string\"\n              }\n            },\n            {\n              \"rank\": {\n                \"label\": \"string\",\n                \"value\": 6235,\n                \"dataType\": \"string\"\n              },\n              \"rank_change\": {\n                \"label\": \"string\",\n                \"value\": 5804,\n                \"dataType\": \"string\"\n              }\n            }\n          ]\n        }\n      ]\n    },\n    {\n      \"site\": \"string\",\n      \"search_engines\": [\n        \"string\",\n        \"string\"\n      ],\n      \"from\": \"string\",\n      \"to\": \"string\",\n      \"sort_col\": [\n        \"string\",\n        \"string\"\n      ],\n      \"sort_dir\": [\n        \"string\",\n        \"string\"\n      ],\n      \"buckets\": \"string\",\n      \"device_ids\": [\n        6701,\n        2059\n      ],\n      \"keyword_tag_ids\": [\n        8762,\n        4860\n      ],\n      \"keyword_tag_ids_logics\": [\n        \"string\",\n        \"string\"\n      ],\n      \"location_ids\": [\n        4837,\n        8267\n      ],\n      \"serp_features_ids\": [\n        2920,\n        3398\n      ],\n      \"serp_features_ids_for_ranks\": [\n        5671,\n        7204\n      ],\n      \"search_string\": \"string\",\n      \"only_conversion_event_ids\": [\n        3804,\n        8804\n      ],\n      \"application_brand\": \"string\",\n      \"statement_timeout\": 4397,\n      \"set_cache\": \"string\",\n      \"page_info\": {\n        \"returned_count\": 6326,\n        \"total_count\": 4481\n      },\n      \"results\": [\n        {\n          \"keyword_name\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          },\n          \"keyword_id\": {\n            \"label\": \"string\",\n            \"value\": 4998,\n            \"dataType\": \"string\"\n          },\n          \"rankings_data\": [\n            {\n              \"rank\": {\n                \"label\": \"string\",\n                \"value\": 7170,\n                \"dataType\": \"string\"\n              },\n              \"rank_change\": {\n                \"label\": \"string\",\n                \"value\": 6582,\n                \"dataType\": \"string\"\n              }\n            },\n            {\n              \"rank\": {\n                \"label\": \"string\",\n                \"value\": 1348,\n                \"dataType\": \"string\"\n              },\n              \"rank_change\": {\n                \"label\": \"string\",\n                \"value\": 1014,\n                \"dataType\": \"string\"\n              }\n            }\n          ]\n        },\n        {\n          \"keyword_name\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          },\n          \"keyword_id\": {\n            \"label\": \"string\",\n            \"value\": 6804,\n            \"dataType\": \"string\"\n          },\n          \"rankings_data\": [\n            {\n              \"rank\": {\n                \"label\": \"string\",\n                \"value\": 4368,\n                \"dataType\": \"string\"\n              },\n              \"rank_change\": {\n                \"label\": \"string\",\n                \"value\": 4305,\n                \"dataType\": \"string\"\n              }\n            },\n            {\n              \"rank\": {\n                \"label\": \"string\",\n                \"value\": 4444,\n                \"dataType\": \"string\"\n              },\n              \"rank_change\": {\n                \"label\": \"string\",\n                \"value\": 5322,\n                \"dataType\": \"string\"\n              }\n            }\n          ]\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4a10fdb3-203e-4c89-8440-2f6b1e4edc50",
+              "name": "Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "keywords",
+                    "local_rankings",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "granularity",
+                      "value": "daily"
+                    },
+                    {
+                      "key": "order",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "site_global_key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "25"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_num",
+                      "value": "1"
+                    },
+                    {
+                      "key": "sort_by",
+                      "value": "keyword_name"
+                    },
+                    {
+                      "key": "grouped",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search_engines",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "export",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "kw_format",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b8d10242-22b2-4b5e-b55c-1d7fec291382",
+          "name": "Get a list of ranking trends",
+          "request": {
+            "name": "Get a list of ranking trends",
+            "description": {},
+            "url": {
+              "path": [
+                "keywords",
+                "ranking_trends",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<string>",
+                  "description": "(Required) YYYY-MM-DD"
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<string>",
+                  "description": "(Required) YYYY-MM-DD"
+                },
+                {
+                  "disabled": false,
+                  "key": "granularity",
+                  "value": "daily",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "asc",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "site_global_key",
+                  "value": "<string>",
+                  "description": "(Required) Your site ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "25",
+                  "description": "Limit for returned number of records"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "Offset - starting record"
+                },
+                {
+                  "disabled": false,
+                  "key": "page_num",
+                  "value": "1"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort_by",
+                  "value": "keyword_name",
+                  "description": "When param: grouped == false - Required!"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort_by",
+                  "value": "tag_name",
+                  "description": "When param: grouped == true - Required!"
+                },
+                {
+                  "disabled": false,
+                  "key": "grouped",
+                  "value": "<string>",
+                  "description": "Group keywords"
+                },
+                {
+                  "disabled": false,
+                  "key": "search_engines",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "export",
+                  "value": "<boolean>",
+                  "description": "Export data to file"
+                },
+                {
+                  "disabled": false,
+                  "key": "kw_format",
+                  "value": "<string>",
+                  "description": "format of exported file - Required! if export == true"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e68104f3-7429-45d1-9728-8dff78259d7f",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "keywords",
+                    "ranking_trends",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "granularity",
+                      "value": "daily"
+                    },
+                    {
+                      "key": "order",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "site_global_key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "25"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_num",
+                      "value": "1"
+                    },
+                    {
+                      "key": "sort_by",
+                      "value": "keyword_name"
+                    },
+                    {
+                      "key": "sort_by",
+                      "value": "tag_name"
+                    },
+                    {
+                      "key": "grouped",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search_engines",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "export",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "kw_format",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tabularData\": [\n    {\n      \"site\": \"string\",\n      \"search_engines\": [\n        \"string\",\n        \"string\"\n      ],\n      \"from\": \"string\",\n      \"to\": \"string\",\n      \"sort_col\": [\n        \"string\",\n        \"string\"\n      ],\n      \"sort_dir\": [\n        \"string\",\n        \"string\"\n      ],\n      \"buckets\": \"string\",\n      \"device_ids\": [\n        1605,\n        1794\n      ],\n      \"keyword_tag_ids\": [\n        9616,\n        5509\n      ],\n      \"keyword_tag_ids_logics\": [\n        \"string\",\n        \"string\"\n      ],\n      \"location_ids\": [\n        2703,\n        4653\n      ],\n      \"serp_features_ids\": [\n        1525,\n        1713\n      ],\n      \"serp_features_ids_for_ranks\": [\n        631,\n        7529\n      ],\n      \"search_string\": \"string\",\n      \"only_conversion_event_ids\": [\n        3144,\n        8823\n      ],\n      \"application_brand\": \"string\",\n      \"statement_timeout\": 8914,\n      \"set_cache\": \"string\",\n      \"page_info\": {\n        \"returned_count\": 5343,\n        \"total_count\": 6836\n      },\n      \"results\": [\n        {\n          \"keyword_description\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          },\n          \"location_name\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          },\n          \"impressions\": {\n            \"label\": \"string\",\n            \"value\": 184,\n            \"dataType\": \"string\"\n          },\n          \"clicks\": {\n            \"label\": \"string\",\n            \"value\": 5231,\n            \"dataType\": \"string\"\n          },\n          \"average_position\": {\n            \"label\": \"string\",\n            \"value\": 3998.9036215512488,\n            \"dataType\": \"string\"\n          },\n          \"ctr\": {\n            \"label\": \"string\",\n            \"value\": 1364.9064514258057,\n            \"dataType\": \"string\"\n          },\n          \"search_volume\": {\n            \"label\": \"string\",\n            \"value\": 9757,\n            \"dataType\": \"string\"\n          },\n          \"keyword_id\": {\n            \"label\": \"string\",\n            \"value\": 174,\n            \"dataType\": \"string\"\n          },\n          \"keyword_name\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          },\n          \"location_id\": {\n            \"label\": \"string\",\n            \"value\": 7166,\n            \"dataType\": \"string\"\n          },\n          \"rankings_data\": [\n            {\n              \"label\": \"string\",\n              \"value\": 4212,\n              \"dataType\": \"string\"\n            },\n            {\n              \"label\": \"string\",\n              \"value\": 2727,\n              \"dataType\": \"string\"\n            }\n          ]\n        },\n        {\n          \"keyword_description\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          },\n          \"location_name\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          },\n          \"impressions\": {\n            \"label\": \"string\",\n            \"value\": 6358,\n            \"dataType\": \"string\"\n          },\n          \"clicks\": {\n            \"label\": \"string\",\n            \"value\": 1872,\n            \"dataType\": \"string\"\n          },\n          \"average_position\": {\n            \"label\": \"string\",\n            \"value\": 798.6117429213568,\n            \"dataType\": \"string\"\n          },\n          \"ctr\": {\n            \"label\": \"string\",\n            \"value\": 4823.572138911788,\n            \"dataType\": \"string\"\n          },\n          \"search_volume\": {\n            \"label\": \"string\",\n            \"value\": 6505,\n            \"dataType\": \"string\"\n          },\n          \"keyword_id\": {\n            \"label\": \"string\",\n            \"value\": 2552,\n            \"dataType\": \"string\"\n          },\n          \"keyword_name\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          },\n          \"location_id\": {\n            \"label\": \"string\",\n            \"value\": 4169,\n            \"dataType\": \"string\"\n          },\n          \"rankings_data\": [\n            {\n              \"label\": \"string\",\n              \"value\": 9987,\n              \"dataType\": \"string\"\n            },\n            {\n              \"label\": \"string\",\n              \"value\": 863,\n              \"dataType\": \"string\"\n            }\n          ]\n        }\n      ]\n    },\n    {\n      \"site\": \"string\",\n      \"search_engines\": [\n        \"string\",\n        \"string\"\n      ],\n      \"from\": \"string\",\n      \"to\": \"string\",\n      \"sort_col\": [\n        \"string\",\n        \"string\"\n      ],\n      \"sort_dir\": [\n        \"string\",\n        \"string\"\n      ],\n      \"buckets\": \"string\",\n      \"device_ids\": [\n        1466,\n        1060\n      ],\n      \"keyword_tag_ids\": [\n        9104,\n        7024\n      ],\n      \"keyword_tag_ids_logics\": [\n        \"string\",\n        \"string\"\n      ],\n      \"location_ids\": [\n        97,\n        564\n      ],\n      \"serp_features_ids\": [\n        5528,\n        7326\n      ],\n      \"serp_features_ids_for_ranks\": [\n        9592,\n        6018\n      ],\n      \"search_string\": \"string\",\n      \"only_conversion_event_ids\": [\n        6470,\n        6895\n      ],\n      \"application_brand\": \"string\",\n      \"statement_timeout\": 7647,\n      \"set_cache\": \"string\",\n      \"page_info\": {\n        \"returned_count\": 746,\n        \"total_count\": 6163\n      },\n      \"results\": [\n        {\n          \"keyword_description\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          },\n          \"location_name\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          },\n          \"impressions\": {\n            \"label\": \"string\",\n            \"value\": 7042,\n            \"dataType\": \"string\"\n          },\n          \"clicks\": {\n            \"label\": \"string\",\n            \"value\": 3537,\n            \"dataType\": \"string\"\n          },\n          \"average_position\": {\n            \"label\": \"string\",\n            \"value\": 6105.128912483895,\n            \"dataType\": \"string\"\n          },\n          \"ctr\": {\n            \"label\": \"string\",\n            \"value\": 6467.109948893483,\n            \"dataType\": \"string\"\n          },\n          \"search_volume\": {\n            \"label\": \"string\",\n            \"value\": 5548,\n            \"dataType\": \"string\"\n          },\n          \"keyword_id\": {\n            \"label\": \"string\",\n            \"value\": 6375,\n            \"dataType\": \"string\"\n          },\n          \"keyword_name\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          },\n          \"location_id\": {\n            \"label\": \"string\",\n            \"value\": 6571,\n            \"dataType\": \"string\"\n          },\n          \"rankings_data\": [\n            {\n              \"label\": \"string\",\n              \"value\": 9911,\n              \"dataType\": \"string\"\n            },\n            {\n              \"label\": \"string\",\n              \"value\": 7724,\n              \"dataType\": \"string\"\n            }\n          ]\n        },\n        {\n          \"keyword_description\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          },\n          \"location_name\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          },\n          \"impressions\": {\n            \"label\": \"string\",\n            \"value\": 7528,\n            \"dataType\": \"string\"\n          },\n          \"clicks\": {\n            \"label\": \"string\",\n            \"value\": 9546,\n            \"dataType\": \"string\"\n          },\n          \"average_position\": {\n            \"label\": \"string\",\n            \"value\": 5234.229004092589,\n            \"dataType\": \"string\"\n          },\n          \"ctr\": {\n            \"label\": \"string\",\n            \"value\": 267.8247488098273,\n            \"dataType\": \"string\"\n          },\n          \"search_volume\": {\n            \"label\": \"string\",\n            \"value\": 6451,\n            \"dataType\": \"string\"\n          },\n          \"keyword_id\": {\n            \"label\": \"string\",\n            \"value\": 404,\n            \"dataType\": \"string\"\n          },\n          \"keyword_name\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          },\n          \"location_id\": {\n            \"label\": \"string\",\n            \"value\": 4075,\n            \"dataType\": \"string\"\n          },\n          \"rankings_data\": [\n            {\n              \"label\": \"string\",\n              \"value\": 101,\n              \"dataType\": \"string\"\n            },\n            {\n              \"label\": \"string\",\n              \"value\": 2887,\n              \"dataType\": \"string\"\n            }\n          ]\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1a54ee36-dd54-45b5-a2d4-3bc4fbdee9a7",
+              "name": "Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "keywords",
+                    "ranking_trends",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "granularity",
+                      "value": "daily"
+                    },
+                    {
+                      "key": "order",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "site_global_key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "25"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_num",
+                      "value": "1"
+                    },
+                    {
+                      "key": "sort_by",
+                      "value": "keyword_name"
+                    },
+                    {
+                      "key": "sort_by",
+                      "value": "tag_name"
+                    },
+                    {
+                      "key": "grouped",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search_engines",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "export",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "kw_format",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9a7c1fd8-52d3-45e9-b3ff-cf6382abf09b",
+          "name": "Get a list of search engines",
+          "request": {
+            "name": "Get a list of search engines",
+            "description": {},
+            "url": {
+              "path": [
+                "keywords",
+                "search_engines",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<string>",
+                  "description": "(Required) YYYY-MM-DD"
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<string>",
+                  "description": "(Required) YYYY-MM-DD"
+                },
+                {
+                  "disabled": false,
+                  "key": "granularity",
+                  "value": "daily",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "asc",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "site_global_key",
+                  "value": "<string>",
+                  "description": "(Required) Your site ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "25",
+                  "description": "Limit for returned number of records"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "Offset - starting record"
+                },
+                {
+                  "disabled": false,
+                  "key": "page_num",
+                  "value": "1"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort_by",
+                  "value": "tag_name",
+                  "description": "When param: grouped == true - Required!"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort_by",
+                  "value": "keyword_name",
+                  "description": "When param: grouped == false - Required!"
+                },
+                {
+                  "disabled": false,
+                  "key": "grouped",
+                  "value": "<string>",
+                  "description": "Group keywords"
+                },
+                {
+                  "disabled": false,
+                  "key": "search_engines",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "export",
+                  "value": "<boolean>",
+                  "description": "Export data to file"
+                },
+                {
+                  "disabled": false,
+                  "key": "kw_format",
+                  "value": "<string>",
+                  "description": "format of exported file - Required! if export == true"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e3bedd68-4ec4-4823-8cdd-44984d80446a",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "keywords",
+                    "search_engines",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "granularity",
+                      "value": "daily"
+                    },
+                    {
+                      "key": "order",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "site_global_key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "25"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_num",
+                      "value": "1"
+                    },
+                    {
+                      "key": "sort_by",
+                      "value": "tag_name"
+                    },
+                    {
+                      "key": "sort_by",
+                      "value": "keyword_name"
+                    },
+                    {
+                      "key": "grouped",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search_engines",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "export",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "kw_format",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tabularData\": [\n    {\n      \"site\": \"string\",\n      \"search_engines\": [\n        \"string\",\n        \"string\"\n      ],\n      \"from\": \"string\",\n      \"to\": \"string\",\n      \"sort_col\": [\n        \"string\",\n        \"string\"\n      ],\n      \"sort_dir\": [\n        \"string\",\n        \"string\"\n      ],\n      \"buckets\": \"string\",\n      \"device_ids\": [\n        5465,\n        7116\n      ],\n      \"keyword_tag_ids\": [\n        8131,\n        8626\n      ],\n      \"keyword_tag_ids_logics\": [\n        \"string\",\n        \"string\"\n      ],\n      \"location_ids\": [\n        6824,\n        9834\n      ],\n      \"serp_features_ids\": [\n        8071,\n        8155\n      ],\n      \"serp_features_ids_for_ranks\": [\n        9874,\n        9721\n      ],\n      \"search_string\": \"string\",\n      \"only_conversion_event_ids\": [\n        1377,\n        2479\n      ],\n      \"application_brand\": \"string\",\n      \"statement_timeout\": 3105,\n      \"set_cache\": \"string\",\n      \"page_info\": {\n        \"returned_count\": 586,\n        \"total_count\": 1247\n      },\n      \"results\": [\n        {\n          \"keyword_description\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          },\n          \"impressions\": {\n            \"label\": \"string\",\n            \"value\": 5555,\n            \"dataType\": \"string\"\n          },\n          \"clicks\": {\n            \"label\": \"string\",\n            \"value\": 443,\n            \"dataType\": \"string\"\n          },\n          \"average_position\": {\n            \"label\": \"string\",\n            \"value\": 8121.446839953116,\n            \"dataType\": \"string\"\n          },\n          \"ctr\": {\n            \"label\": \"string\",\n            \"value\": 9310.954886860125,\n            \"dataType\": \"string\"\n          },\n          \"search_volume\": {\n            \"label\": \"string\",\n            \"value\": 6802,\n            \"dataType\": \"string\"\n          },\n          \"search_engine_data\": [\n            {\n              \"search_engine_name\": {\n                \"rank\": {\n                  \"label\": \"string\",\n                  \"value\": 7573,\n                  \"dataType\": \"string\"\n                },\n                \"rank_change\": {\n                  \"label\": \"string\",\n                  \"value\": 7517.348911621645,\n                  \"dataType\": \"string\"\n                },\n                \"projected_mo_traffic\": {\n                  \"label\": \"string\",\n                  \"value\": 4006.3826556275726,\n                  \"dataType\": \"string\"\n                },\n                \"page\": {\n                  \"id\": {\n                    \"label\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"value\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"dataType\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"url\": {\n                    \"label\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"value\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"dataType\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"title\": {\n                    \"label\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"value\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"dataType\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  }\n                }\n              }\n            },\n            {\n              \"search_engine_name\": {\n                \"rank\": {\n                  \"label\": \"string\",\n                  \"value\": 7228,\n                  \"dataType\": \"string\"\n                },\n                \"rank_change\": {\n                  \"label\": \"string\",\n                  \"value\": 7474.62566876698,\n                  \"dataType\": \"string\"\n                },\n                \"projected_mo_traffic\": {\n                  \"label\": \"string\",\n                  \"value\": 7595.189416160683,\n                  \"dataType\": \"string\"\n                },\n                \"page\": {\n                  \"id\": {\n                    \"label\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"value\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"dataType\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"url\": {\n                    \"label\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"value\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"dataType\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"title\": {\n                    \"label\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"value\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"dataType\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  }\n                }\n              }\n            }\n          ],\n          \"keyword_id\": 9373,\n          \"mysql_keyword_id\": {\n            \"label\": \"string\",\n            \"value\": 8830,\n            \"dataType\": \"string\"\n          },\n          \"keyword_name\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          },\n          \"location_id\": {\n            \"label\": \"string\",\n            \"value\": 4658,\n            \"dataType\": \"string\"\n          }\n        },\n        {\n          \"keyword_description\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          },\n          \"impressions\": {\n            \"label\": \"string\",\n            \"value\": 6119,\n            \"dataType\": \"string\"\n          },\n          \"clicks\": {\n            \"label\": \"string\",\n            \"value\": 667,\n            \"dataType\": \"string\"\n          },\n          \"average_position\": {\n            \"label\": \"string\",\n            \"value\": 4429.262932732878,\n            \"dataType\": \"string\"\n          },\n          \"ctr\": {\n            \"label\": \"string\",\n            \"value\": 7380.451702856202,\n            \"dataType\": \"string\"\n          },\n          \"search_volume\": {\n            \"label\": \"string\",\n            \"value\": 1062,\n            \"dataType\": \"string\"\n          },\n          \"search_engine_data\": [\n            {\n              \"search_engine_name\": {\n                \"rank\": {\n                  \"label\": \"string\",\n                  \"value\": 7876,\n                  \"dataType\": \"string\"\n                },\n                \"rank_change\": {\n                  \"label\": \"string\",\n                  \"value\": 6612.821255112053,\n                  \"dataType\": \"string\"\n                },\n                \"projected_mo_traffic\": {\n                  \"label\": \"string\",\n                  \"value\": 4434.349138052494,\n                  \"dataType\": \"string\"\n                },\n                \"page\": {\n                  \"id\": {\n                    \"label\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"value\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"dataType\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"url\": {\n                    \"label\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"value\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"dataType\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"title\": {\n                    \"label\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"value\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"dataType\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  }\n                }\n              }\n            },\n            {\n              \"search_engine_name\": {\n                \"rank\": {\n                  \"label\": \"string\",\n                  \"value\": 4679,\n                  \"dataType\": \"string\"\n                },\n                \"rank_change\": {\n                  \"label\": \"string\",\n                  \"value\": 8959.562090915253,\n                  \"dataType\": \"string\"\n                },\n                \"projected_mo_traffic\": {\n                  \"label\": \"string\",\n                  \"value\": 977.1346257798164,\n                  \"dataType\": \"string\"\n                },\n                \"page\": {\n                  \"id\": {\n                    \"label\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"value\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"dataType\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"url\": {\n                    \"label\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"value\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"dataType\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"title\": {\n                    \"label\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"value\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"dataType\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  }\n                }\n              }\n            }\n          ],\n          \"keyword_id\": 8864,\n          \"mysql_keyword_id\": {\n            \"label\": \"string\",\n            \"value\": 4300,\n            \"dataType\": \"string\"\n          },\n          \"keyword_name\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          },\n          \"location_id\": {\n            \"label\": \"string\",\n            \"value\": 6653,\n            \"dataType\": \"string\"\n          }\n        }\n      ]\n    },\n    {\n      \"site\": \"string\",\n      \"search_engines\": [\n        \"string\",\n        \"string\"\n      ],\n      \"from\": \"string\",\n      \"to\": \"string\",\n      \"sort_col\": [\n        \"string\",\n        \"string\"\n      ],\n      \"sort_dir\": [\n        \"string\",\n        \"string\"\n      ],\n      \"buckets\": \"string\",\n      \"device_ids\": [\n        9167,\n        2201\n      ],\n      \"keyword_tag_ids\": [\n        9669,\n        3835\n      ],\n      \"keyword_tag_ids_logics\": [\n        \"string\",\n        \"string\"\n      ],\n      \"location_ids\": [\n        7357,\n        5021\n      ],\n      \"serp_features_ids\": [\n        3722,\n        5223\n      ],\n      \"serp_features_ids_for_ranks\": [\n        9526,\n        2702\n      ],\n      \"search_string\": \"string\",\n      \"only_conversion_event_ids\": [\n        5187,\n        605\n      ],\n      \"application_brand\": \"string\",\n      \"statement_timeout\": 1992,\n      \"set_cache\": \"string\",\n      \"page_info\": {\n        \"returned_count\": 1162,\n        \"total_count\": 7226\n      },\n      \"results\": [\n        {\n          \"keyword_description\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          },\n          \"impressions\": {\n            \"label\": \"string\",\n            \"value\": 2008,\n            \"dataType\": \"string\"\n          },\n          \"clicks\": {\n            \"label\": \"string\",\n            \"value\": 9563,\n            \"dataType\": \"string\"\n          },\n          \"average_position\": {\n            \"label\": \"string\",\n            \"value\": 7760.970698435005,\n            \"dataType\": \"string\"\n          },\n          \"ctr\": {\n            \"label\": \"string\",\n            \"value\": 4479.116473088926,\n            \"dataType\": \"string\"\n          },\n          \"search_volume\": {\n            \"label\": \"string\",\n            \"value\": 5537,\n            \"dataType\": \"string\"\n          },\n          \"search_engine_data\": [\n            {\n              \"search_engine_name\": {\n                \"rank\": {\n                  \"label\": \"string\",\n                  \"value\": 9840,\n                  \"dataType\": \"string\"\n                },\n                \"rank_change\": {\n                  \"label\": \"string\",\n                  \"value\": 3845.3999873736243,\n                  \"dataType\": \"string\"\n                },\n                \"projected_mo_traffic\": {\n                  \"label\": \"string\",\n                  \"value\": 5105.296881498658,\n                  \"dataType\": \"string\"\n                },\n                \"page\": {\n                  \"id\": {\n                    \"label\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"value\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"dataType\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"url\": {\n                    \"label\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"value\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"dataType\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"title\": {\n                    \"label\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"value\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"dataType\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  }\n                }\n              }\n            },\n            {\n              \"search_engine_name\": {\n                \"rank\": {\n                  \"label\": \"string\",\n                  \"value\": 7223,\n                  \"dataType\": \"string\"\n                },\n                \"rank_change\": {\n                  \"label\": \"string\",\n                  \"value\": 2756.055579002795,\n                  \"dataType\": \"string\"\n                },\n                \"projected_mo_traffic\": {\n                  \"label\": \"string\",\n                  \"value\": 9225.993568325675,\n                  \"dataType\": \"string\"\n                },\n                \"page\": {\n                  \"id\": {\n                    \"label\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"value\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"dataType\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"url\": {\n                    \"label\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"value\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"dataType\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"title\": {\n                    \"label\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"value\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"dataType\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  }\n                }\n              }\n            }\n          ],\n          \"keyword_id\": 5448,\n          \"mysql_keyword_id\": {\n            \"label\": \"string\",\n            \"value\": 6699,\n            \"dataType\": \"string\"\n          },\n          \"keyword_name\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          },\n          \"location_id\": {\n            \"label\": \"string\",\n            \"value\": 5017,\n            \"dataType\": \"string\"\n          }\n        },\n        {\n          \"keyword_description\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          },\n          \"impressions\": {\n            \"label\": \"string\",\n            \"value\": 8145,\n            \"dataType\": \"string\"\n          },\n          \"clicks\": {\n            \"label\": \"string\",\n            \"value\": 645,\n            \"dataType\": \"string\"\n          },\n          \"average_position\": {\n            \"label\": \"string\",\n            \"value\": 7830.5621110719985,\n            \"dataType\": \"string\"\n          },\n          \"ctr\": {\n            \"label\": \"string\",\n            \"value\": 301.4688779673247,\n            \"dataType\": \"string\"\n          },\n          \"search_volume\": {\n            \"label\": \"string\",\n            \"value\": 6935,\n            \"dataType\": \"string\"\n          },\n          \"search_engine_data\": [\n            {\n              \"search_engine_name\": {\n                \"rank\": {\n                  \"label\": \"string\",\n                  \"value\": 1254,\n                  \"dataType\": \"string\"\n                },\n                \"rank_change\": {\n                  \"label\": \"string\",\n                  \"value\": 5737.5847109714205,\n                  \"dataType\": \"string\"\n                },\n                \"projected_mo_traffic\": {\n                  \"label\": \"string\",\n                  \"value\": 1737.1898390710771,\n                  \"dataType\": \"string\"\n                },\n                \"page\": {\n                  \"id\": {\n                    \"label\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"value\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"dataType\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"url\": {\n                    \"label\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"value\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"dataType\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"title\": {\n                    \"label\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"value\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"dataType\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  }\n                }\n              }\n            },\n            {\n              \"search_engine_name\": {\n                \"rank\": {\n                  \"label\": \"string\",\n                  \"value\": 3553,\n                  \"dataType\": \"string\"\n                },\n                \"rank_change\": {\n                  \"label\": \"string\",\n                  \"value\": 9596.446636984016,\n                  \"dataType\": \"string\"\n                },\n                \"projected_mo_traffic\": {\n                  \"label\": \"string\",\n                  \"value\": 4955.445790723247,\n                  \"dataType\": \"string\"\n                },\n                \"page\": {\n                  \"id\": {\n                    \"label\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"value\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"dataType\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"url\": {\n                    \"label\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"value\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"dataType\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  },\n                  \"title\": {\n                    \"label\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"value\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    },\n                    \"dataType\": {\n                      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                    }\n                  }\n                }\n              }\n            }\n          ],\n          \"keyword_id\": 8652,\n          \"mysql_keyword_id\": {\n            \"label\": \"string\",\n            \"value\": 1588,\n            \"dataType\": \"string\"\n          },\n          \"keyword_name\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          },\n          \"location_id\": {\n            \"label\": \"string\",\n            \"value\": 6136,\n            \"dataType\": \"string\"\n          }\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0593813b-c830-490f-91c5-6b1503b71fb6",
+              "name": "Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "keywords",
+                    "search_engines",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "granularity",
+                      "value": "daily"
+                    },
+                    {
+                      "key": "order",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "site_global_key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "25"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_num",
+                      "value": "1"
+                    },
+                    {
+                      "key": "sort_by",
+                      "value": "tag_name"
+                    },
+                    {
+                      "key": "sort_by",
+                      "value": "keyword_name"
+                    },
+                    {
+                      "key": "grouped",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search_engines",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "export",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "kw_format",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.demandsphere.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api_key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "4606b134-ad31-464a-94b6-777a5fa87a7a",
+    "name": "DemandSphere API v5.0 Documentation Keywords API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

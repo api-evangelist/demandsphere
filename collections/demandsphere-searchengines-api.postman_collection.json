@@ -1,0 +1,238 @@
+{
+  "item": [
+    {
+      "id": "52897d77-14df-4319-81a0-7c6cd40ed23b",
+      "name": "SearchEngines",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e6e42cba-e9b2-44e3-99ac-82cdc318f249",
+          "name": "Get a list of search engines summary",
+          "request": {
+            "name": "Get a list of search engines summary",
+            "description": {},
+            "url": {
+              "path": [
+                "search_engines",
+                "summary",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<string>",
+                  "description": "(Required) YYYY-MM-DD"
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<string>",
+                  "description": "(Required) YYYY-MM-DD"
+                },
+                {
+                  "disabled": false,
+                  "key": "granularity",
+                  "value": "daily",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "search_engines",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "site_global_key",
+                  "value": "<string>",
+                  "description": "(Required) Your site ID"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1f87c6d3-8da4-4519-acab-1005f79ad47f",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search_engines",
+                    "summary",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "granularity",
+                      "value": "daily"
+                    },
+                    {
+                      "key": "search_engines",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "site_global_key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tabularData\": [\n    {\n      \"site\": \"string\",\n      \"search_engines\": [\n        \"string\",\n        \"string\"\n      ],\n      \"from\": \"string\",\n      \"to\": \"string\",\n      \"sort_col\": [\n        \"string\",\n        \"string\"\n      ],\n      \"sort_dir\": [\n        \"string\",\n        \"string\"\n      ],\n      \"application_brand\": \"string\",\n      \"page_info\": {\n        \"returned_count\": 2901,\n        \"total_count\": 7430\n      },\n      \"results\": [\n        {\n          \"search_engine\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          },\n          \"rank\": {\n            \"label\": \"string\",\n            \"value\": 7850,\n            \"dataType\": \"string\"\n          },\n          \"rank_change\": {\n            \"label\": \"string\",\n            \"value\": 3159,\n            \"dataType\": \"string\"\n          },\n          \"tracked_visits\": {\n            \"label\": \"string\",\n            \"value\": 688,\n            \"dataType\": \"string\"\n          },\n          \"tracked_conversions\": {\n            \"label\": \"string\",\n            \"value\": 1688,\n            \"dataType\": \"string\"\n          },\n          \"tracked_revenue\": {\n            \"label\": \"string\",\n            \"value\": 5315,\n            \"dataType\": \"string\"\n          },\n          \"organic_visits\": {\n            \"label\": \"string\",\n            \"value\": 7474,\n            \"dataType\": \"string\"\n          },\n          \"organic_conversions\": {\n            \"label\": \"string\",\n            \"value\": 2868,\n            \"dataType\": \"string\"\n          },\n          \"organic_revenue\": {\n            \"label\": \"string\",\n            \"value\": 8936,\n            \"dataType\": \"string\"\n          }\n        },\n        {\n          \"search_engine\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          },\n          \"rank\": {\n            \"label\": \"string\",\n            \"value\": 6143,\n            \"dataType\": \"string\"\n          },\n          \"rank_change\": {\n            \"label\": \"string\",\n            \"value\": 5903,\n            \"dataType\": \"string\"\n          },\n          \"tracked_visits\": {\n            \"label\": \"string\",\n            \"value\": 2133,\n            \"dataType\": \"string\"\n          },\n          \"tracked_conversions\": {\n            \"label\": \"string\",\n            \"value\": 7238,\n            \"dataType\": \"string\"\n          },\n          \"tracked_revenue\": {\n            \"label\": \"string\",\n            \"value\": 9065,\n            \"dataType\": \"string\"\n          },\n          \"organic_visits\": {\n            \"label\": \"string\",\n            \"value\": 8422,\n            \"dataType\": \"string\"\n          },\n          \"organic_conversions\": {\n            \"label\": \"string\",\n            \"value\": 2249,\n            \"dataType\": \"string\"\n          },\n          \"organic_revenue\": {\n            \"label\": \"string\",\n            \"value\": 5833,\n            \"dataType\": \"string\"\n          }\n        }\n      ]\n    },\n    {\n      \"site\": \"string\",\n      \"search_engines\": [\n        \"string\",\n        \"string\"\n      ],\n      \"from\": \"string\",\n      \"to\": \"string\",\n      \"sort_col\": [\n        \"string\",\n        \"string\"\n      ],\n      \"sort_dir\": [\n        \"string\",\n        \"string\"\n      ],\n      \"application_brand\": \"string\",\n      \"page_info\": {\n        \"returned_count\": 8412,\n        \"total_count\": 4140\n      },\n      \"results\": [\n        {\n          \"search_engine\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          },\n          \"rank\": {\n            \"label\": \"string\",\n            \"value\": 4251,\n            \"dataType\": \"string\"\n          },\n          \"rank_change\": {\n            \"label\": \"string\",\n            \"value\": 3039,\n            \"dataType\": \"string\"\n          },\n          \"tracked_visits\": {\n            \"label\": \"string\",\n            \"value\": 2992,\n            \"dataType\": \"string\"\n          },\n          \"tracked_conversions\": {\n            \"label\": \"string\",\n            \"value\": 5066,\n            \"dataType\": \"string\"\n          },\n          \"tracked_revenue\": {\n            \"label\": \"string\",\n            \"value\": 2066,\n            \"dataType\": \"string\"\n          },\n          \"organic_visits\": {\n            \"label\": \"string\",\n            \"value\": 6585,\n            \"dataType\": \"string\"\n          },\n          \"organic_conversions\": {\n            \"label\": \"string\",\n            \"value\": 1938,\n            \"dataType\": \"string\"\n          },\n          \"organic_revenue\": {\n            \"label\": \"string\",\n            \"value\": 1621,\n            \"dataType\": \"string\"\n          }\n        },\n        {\n          \"search_engine\": {\n            \"label\": \"string\",\n            \"value\": \"string\",\n            \"dataType\": \"string\"\n          },\n          \"rank\": {\n            \"label\": \"string\",\n            \"value\": 3238,\n            \"dataType\": \"string\"\n          },\n          \"rank_change\": {\n            \"label\": \"string\",\n            \"value\": 5920,\n            \"dataType\": \"string\"\n          },\n          \"tracked_visits\": {\n            \"label\": \"string\",\n            \"value\": 1866,\n            \"dataType\": \"string\"\n          },\n          \"tracked_conversions\": {\n            \"label\": \"string\",\n            \"value\": 1060,\n            \"dataType\": \"string\"\n          },\n          \"tracked_revenue\": {\n            \"label\": \"string\",\n            \"value\": 8263,\n            \"dataType\": \"string\"\n          },\n          \"organic_visits\": {\n            \"label\": \"string\",\n            \"value\": 3673,\n            \"dataType\": \"string\"\n          },\n          \"organic_conversions\": {\n            \"label\": \"string\",\n            \"value\": 1792,\n            \"dataType\": \"string\"\n          },\n          \"organic_revenue\": {\n            \"label\": \"string\",\n            \"value\": 3133,\n            \"dataType\": \"string\"\n          }\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c76c42a1-b9dd-44c2-9469-63f2fb4fa5b9",
+              "name": "Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search_engines",
+                    "summary",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "granularity",
+                      "value": "daily"
+                    },
+                    {
+                      "key": "search_engines",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "site_global_key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.demandsphere.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api_key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "effe10b7-9187-489e-a40a-136e540da889",
+    "name": "DemandSphere API v5.0 Documentation Keywords SearchEngines API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

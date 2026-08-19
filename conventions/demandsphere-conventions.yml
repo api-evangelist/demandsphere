@@ -1,15 +1,30 @@
-generated: '2026-07-18'
-method: derived
-source: openapi/demandsphere-openapi-original.json
+generated: '2026-08-13'
+method: searched
+source: >-
+  openapi/_original/demandsphere-openapi-original.json +
+  https://www.demandsphere.com/platform/apis/rest-apis/ +
+  https://github.com/DemandSphereDev/demandsphere-mcp (v0.3.1)
 docs: https://www.demandsphere.com/platform/apis/rest-apis/
 summary: >-
   Cross-cutting request/response semantics for the DemandSphere REST API v5.0,
-  derived from the OpenAPI and confirmed against the developer docs.
+  derived from the OpenAPI and confirmed against the developer docs and the
+  provider's own MCP client implementation.
 authentication:
   style: api_key
   location: query
   parameter: api_key
   note: Every operation requires the api_key query parameter (global security).
+  docs_discrepancy: >-
+    The developer page states "OAuth 2.0 authentication" for the REST APIs, but
+    the published OpenAPI declares a single securityScheme of type apiKey in
+    query, and DemandSphere's own MCP client injects `api_key` as a query
+    parameter on every outbound request. OAuth/OIDC at DemandSphere is the
+    Keycloak realm behind the application and help-center SSO, not the API. Treat
+    the docs claim as marketing copy, not a contract.
+  key_handling_warning: >-
+    Because the key travels in the query string it can land in proxy, CDN and
+    monitoring logs — a caveat DemandSphere itself publishes in the MCP server
+    README, recommending query-string redaction at any reverse proxy.
 request:
   method: POST
   pattern: All endpoints are POST .../list query operations; parameters are supplied as query-string values, no request body.
@@ -42,8 +57,32 @@ versioning:
   scheme: uri-path
   current: v5.0
   note: API titled "DemandSphere API v5.0"; host api.demandsphere.com.
+rate_limit_signaling:
+  documented: false
+  headers: []
+  statement: The developer page advertises "no artificial rate limits".
+  observed_status: 429 is treated as retryable by the first-party MCP client, so a ceiling exists in practice.
+  see: rate-limits/demandsphere-rate-limits.yml
+request_id:
+  supported: false
+  note: No request-id / correlation header is documented or declared in the OpenAPI.
+field_expansion:
+  supported: false
+  note: No expand / sparse-fieldset parameter; response shape is fixed per operation.
+metadata:
+  supported: false
+webhooks:
+  documented: false
+  note: >-
+    "Webhooks & Data Connectors" appears in site navigation, but no event
+    catalog, payload schema, delivery or retry semantics are published; the
+    connectors page documents destinations (GA4, GSC, Slack, Google Drive,
+    BigQuery, S3) rather than an event surface. No AsyncAPI is published.
 cross_links:
   authentication: authentication/demandsphere-authentication.yml
   errors: errors/demandsphere-problem-types.yml
   lifecycle: lifecycle/demandsphere-lifecycle.yml
   data_model: data-model/demandsphere-data-model.yml
+  rate_limits: rate-limits/demandsphere-rate-limits.yml
+  plans: plans/demandsphere-plans-pricing.yml
+  tool_crosswalk: mcp/demandsphere-tool-crosswalk.yml

@@ -1,0 +1,87 @@
+generated: '2026-08-13'
+method: searched
+source: https://www.demandsphere.com/pricing/
+http_status: 200
+checked: '2026-08-13'
+currency: USD
+billing_note: >-
+  Published prices are the annual-billing monthly equivalent; the page shows both
+  the monthly figure and the annual total. Volume is a blended pool — the plan
+  states "1 prompt = 10 keywords", so a tier's keyword allowance can be spent on
+  AI-search prompts at that exchange rate.
+plan_count: 3
+plans:
+- name: Starter
+  price: 79
+  price_display: $79/mo
+  currency: USD
+  period: month
+  billing: annual
+  annual_total: 948
+  included:
+    volume: 1,000 keywords, 100 prompts, or any blend
+    exchange_rate: 1 prompt = 10 keywords
+    users: unlimited
+    domains: unlimited
+  features:
+  - Daily tracking
+  - Unlimited users and domains
+  - API access
+  - Integrations
+  - Custom dashboards
+  - CSV exports
+  - Email support
+- name: Pro
+  price: 208
+  price_display: $208/mo
+  currency: USD
+  period: month
+  billing: annual
+  annual_total: 2496
+  included:
+    volume: 2,500 keywords, 250 prompts, or any blend
+    exchange_rate: 1 prompt = 10 keywords
+    users: unlimited
+    domains: unlimited
+  features:
+  - Everything in Starter
+  - Data Studio templates
+  - Scheduled reports
+  - Priority support (email + Slack)
+- name: Enterprise
+  price: null
+  price_display: Custom
+  currency: USD
+  period: null
+  billing: contact-sales
+  included:
+    volume: Custom prompt + keyword volume
+  features:
+  - Everything in Pro
+  - SSO
+  - Dedicated strategist
+  - 24-hour SLA support
+  - Dedicated subdomain
+  - BigQuery and log analytics available as add-ons
+add_ons:
+- name: Search Intelligence (BigQuery)
+  price_display: +20% of your plan
+  note: Percentage uplift on the base subscription.
+- name: Analytics AX (log analytics)
+  pricing_model: volume-based storage
+  tiers:
+  - {tier: hot, price_display: $0.40/GB}
+  - {tier: warm, price_display: $0.012/GB}
+  - {tier: cold, price_display: $0.025/GB}
+trial:
+  free_trial: false
+  note: No free trial is advertised on the pricing page; the primary call to action is "Get a demo".
+api_access:
+  included_in: [Starter, Pro, Enterprise]
+  note: >-
+    API access is listed as a Starter-tier feature, so the REST API and its data
+    are available on every published plan rather than gated to Enterprise.
+    No separate per-call API pricing or API call quota is published.
+cross_links:
+  rate_limits: rate-limits/demandsphere-rate-limits.yml
+  pricing_page: https://www.demandsphere.com/pricing/

@@ -1,0 +1,66 @@
+generated: '2026-08-13'
+method: searched
+source: https://www.demandsphere.com/platform/apis/rest-apis/
+http_status: 200
+checked: '2026-08-13'
+summary: >-
+  DemandSphere publishes no numeric rate limit for its REST API. The developer
+  page states, verbatim, that the REST APIs come with "no artificial rate
+  limits", and neither the page nor the OpenAPI declares a 429 response, a
+  RateLimit-* / X-RateLimit-* header, or a Retry-After contract. The API does
+  return 429 in practice: DemandSphere's own first-party MCP server treats 429
+  as a retryable status and classifies it as `rate_limited`, which is the only
+  provider-published evidence of an enforced ceiling.
+limit_count: 0
+published_limits: []
+provider_statement:
+  quote: >-
+    REST APIs for SERP rankings, LLM visibility, citations, log analytics, and
+    more. OAuth 2.0 authentication, comprehensive documentation, and no
+    artificial rate limits.
+  url: https://www.demandsphere.com/platform/apis/rest-apis/
+response_headers:
+  documented: false
+  observed: []
+  note: >-
+    No RateLimit-*, X-RateLimit-* or Retry-After header is documented. The
+    published OpenAPI declares only 200 and 400 on every operation, so an agent
+    has no declared runtime signal to read.
+exhaustion:
+  status_code: 429
+  documented_in_openapi: false
+  evidence:
+    source: https://github.com/DemandSphereDev/demandsphere-mcp
+    file: src/demandsphere_mcp/client.py
+    detail: >-
+      `_RETRYABLE_STATUS = {429, 500, 502, 503, 504}` — the first-party client
+      retries 429 with backoff; tools/utils.py maps status 429 to error_type
+      `rate_limited` with the recovery hint "Rate limit reached. Wait a moment
+      and retry".
+client_side_limits:
+- scope: per MCP server process
+  limit: 60
+  window: minute
+  mechanism: token bucket
+  configurable: DEMANDSPHERE_MAX_REQUESTS_PER_MINUTE
+  source: https://github.com/DemandSphereDev/demandsphere-mcp
+  note: >-
+    A self-imposed client default in DemandSphere's own MCP server, not a
+    server-enforced quota. Recorded because it is the only number the provider
+    publishes anywhere near a rate limit.
+- scope: per MCP tool call
+  limit: 100
+  unit: rows returned
+  configurable: DEMANDSPHERE_MAX_RESULTS_PER_TOOL_CALL
+  source: https://github.com/DemandSphereDev/demandsphere-mcp
+  note: Response shaping cap, not a request-rate limit.
+quota:
+  model: subscription volume, not request rate
+  note: >-
+    Commercial ceilings are expressed as tracked keyword/prompt volume per plan
+    (Starter 1,000 keywords / 100 prompts; Pro 2,500 / 250; Enterprise custom),
+    not as API calls. See plans/demandsphere-plans-pricing.yml.
+cross_links:
+  plans: plans/demandsphere-plans-pricing.yml
+  conventions: conventions/demandsphere-conventions.yml
+  errors: errors/demandsphere-problem-types.yml

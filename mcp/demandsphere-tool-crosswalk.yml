@@ -1,0 +1,193 @@
+generated: '2026-08-13'
+method: derived
+source: >-
+  mcp/demandsphere-mcp.yml + openapi/demandsphere-*-openapi.yml + first-party MCP
+  server source (https://github.com/DemandSphereDev/demandsphere-mcp,
+  src/demandsphere_mcp/tools/*.py, tag v0.3.1) + live tools/list capture at
+  https://www.demandsphere.com/mcp (mcp/demandsphere-radar-tools.json)
+summary: >-
+  Binds every DemandSphere MCP tool to the REST operation it actually calls. The
+  v5.0 SERP/site tools map 1:1 (and one tool 1:many, via its `view` parameter)
+  onto operationIds published in the DemandSphere OpenAPI. The v5.1 GenAI
+  visibility and Brand Management tools call REST paths that exist on
+  api.demandsphere.com but are NOT described by the published v5.0 OpenAPI, so
+  they are recorded as mcp_only with the exact upstream path the server calls.
+  The hosted Radar server is a separate product with no REST counterpart at all.
+surfaces:
+  openapi:
+    files:
+    - openapi/demandsphere-keywords-api-openapi.yml
+    - openapi/demandsphere-pages-api-openapi.yml
+    - openapi/demandsphere-searchengines-api-openapi.yml
+    - openapi/demandsphere-sites-api-openapi.yml
+    original: openapi/_original/demandsphere-openapi-original.json
+    live: https://api.demandsphere.com/openapi.json
+    version: 5.0.0
+    operations: 10
+    gated: false
+    auth: api_key query parameter
+  graphql: null
+  mcp:
+  - name: demandsphere
+    transport: [stdio, streamable-http]
+    url: null
+    gated: true
+    note: Local/self-hosted only; requires DEMANDSPHERE_API_KEY, so live schemas were not introspectable.
+    tools: 20
+  - name: demandsphere-radar
+    transport: streamable-http
+    url: https://www.demandsphere.com/mcp
+    gated: false
+    note: Anonymous; tools/list returned 8 tools with full inputSchema on 2026-08-13.
+    tools: 8
+coverage:
+  mcp_tools_total: 28
+  crosswalked: 8
+  mcp_only: 20
+  rest_only: 0
+  rest_operations_total: 10
+  rest_operations_bound: 10
+crosswalk:
+- tool: list_sites
+  server: demandsphere
+  category: Site Discovery
+  rest: [Sites_PropertiesList]
+  binding: POST /sites/properties/list
+  confidence: high
+  note: Source line `await get_client().post("/sites/properties/list")` in tools/sites.py.
+- tool: list_sites_flat
+  server: demandsphere
+  category: Site Discovery
+  rest: [Sites_HierarchyList]
+  binding: POST /sites/hierarchy/list
+  confidence: high
+  note: Source line `await get_client().post("/sites/hierarchy/list")` in tools/sites.py.
+- tool: serp_analytics
+  server: demandsphere
+  category: SERP Analytics
+  rest:
+  - Keywords_KeywordsPerformanceDetail
+  - Keywords_RankingTrends
+  - Keywords_SearchEngines
+  - SearchEngines_Summary
+  binding: >-
+    One tool, four operations, selected by the `view` parameter:
+    performance -> POST /keywords/keywords_performance_detail/list,
+    trends -> POST /keywords/ranking_trends/list,
+    engine_comparison -> POST /keywords/search_engines/list,
+    engine_summary -> POST /search_engines/summary/list
+  confidence: high
+  note: >-
+    Consolidated in MCP server 0.2.0 (4 tools -> 1). The tool inherits each
+    operation's parameters (From, To, Granularity, Order, SiteGlobalKey, Limit,
+    Offset, PageNum, SortBy*, SearchEngines, Export, Format).
+- tool: get_keyword_groups
+  server: demandsphere
+  category: SERP Analytics
+  rest: [Keywords_KeywordGroupsDetail]
+  binding: POST /keywords/keyword_groups_detail/list
+  confidence: high
+- tool: get_local_rankings
+  server: demandsphere
+  category: SERP Analytics
+  rest: [Keywords_LocalRankings]
+  binding: POST /keywords/local_rankings/list
+  confidence: high
+- tool: get_landing_matches
+  server: demandsphere
+  category: SERP Analytics
+  rest: [Keywords_LandingMatches]
+  binding: POST /keywords/landing_matches/list
+  confidence: high
+- tool: get_landings_history
+  server: demandsphere
+  category: SERP Analytics
+  rest: [Pages_LandingsHistory]
+  binding: POST /pages/landings_history/list
+  confidence: high
+- tool: search
+  server: demandsphere
+  category: ChatGPT Deep Research
+  rest: [Sites_PropertiesList, Keywords_RankingTrends]
+  binding: Composite — ChatGPT Deep Research compatibility shim over the v5.0 list operations
+  confidence: low
+  note: >-
+    tools/chatgpt_compat.py composes and caches results rather than proxying a
+    single operation; the exact operation set depends on the query. Mapped by
+    semantics, not by a single source line.
+mcp_only:
+- tool: fetch
+  server: demandsphere
+  reason: Retrieves a previously cached Deep Research record by synthetic id; no REST operation.
+- tool: get_mentions
+  server: demandsphere
+  reason: Calls GET /v5_1/accounts/sites/{key}/mentions — v5.1 path, not described by the published v5.0 OpenAPI.
+- tool: get_keyword_citations
+  server: demandsphere
+  reason: Calls GET /v5_1/accounts/sites/{key}/queries/citations — v5.1, undocumented in the public spec.
+- tool: get_bulk_citations
+  server: demandsphere
+  reason: Calls GET /v5_1/accounts/sites/{key}/queries/bulk_citations — v5.1, undocumented in the public spec.
+- tool: get_site_citations
+  server: demandsphere
+  reason: Calls GET /v5_1/accounts/sites/{key}/citations — v5.1, undocumented in the public spec.
+- tool: llm_analytics
+  server: demandsphere
+  reason: >-
+    Calls GET /v5_1/accounts/sites/{key}/analytics/site_visits/llms/{endpoint}
+    with views stats, performance, channels, cross_channel, cross_llms — v5.1,
+    undocumented in the public spec.
+- tool: get_llm_filters
+  server: demandsphere
+  reason: Calls GET /v5_1/accounts/sites/{key}/analytics/site_visits/llms/filters — v5.1, undocumented.
+- tool: get_people_also_ask
+  server: demandsphere
+  reason: Calls GET /v5_1/accounts/sites/{key}/people_also_asks — v5.1, undocumented.
+- tool: list_brands
+  server: demandsphere
+  reason: Calls POST /api/v5_1/brands/list_brands — v5.1 Brand Management, undocumented.
+- tool: create_brand
+  server: demandsphere
+  reason: Calls POST /api/v5_1/brands — v5.1 write operation, undocumented in the public spec.
+- tool: update_brand
+  server: demandsphere
+  reason: Calls POST /api/v5_1/brands/update_brand — v5.1 write operation, undocumented.
+- tool: delete_brands
+  server: demandsphere
+  reason: Calls POST /api/v5_1/brands/delete_brands — v5.1 write operation, undocumented.
+- tool: get_ai_models
+  server: demandsphere-radar
+  reason: Radar dataset (frontier model tracker); no REST API published for it.
+- tool: get_ai_model_by_id
+  server: demandsphere-radar
+  reason: Radar dataset; no REST API published for it.
+- tool: search_ai_models
+  server: demandsphere-radar
+  reason: Radar dataset; no REST API published for it.
+- tool: calculate_model_cost
+  server: demandsphere-radar
+  reason: Computation over the Radar dataset; no REST counterpart.
+- tool: get_providers
+  server: demandsphere-radar
+  reason: Radar dataset; no REST API published for it.
+- tool: get_algorithm_updates
+  server: demandsphere-radar
+  reason: Radar Google algorithm update tracker; no REST API published for it.
+- tool: search_algorithm_updates
+  server: demandsphere-radar
+  reason: Radar Google algorithm update tracker; no REST API published for it.
+- tool: get_server_info
+  server: demandsphere-radar
+  reason: MCP server metadata/freshness; not an API operation.
+rest_only: []
+rest_only_note: >-
+  No published v5.0 operation is missing an MCP tool — all 10 are reachable
+  through the platform server. Two of them, however, are reachable only via the
+  `serp_analytics` view selector rather than a dedicated tool
+  (Keywords_SearchEngines = view engine_comparison, SearchEngines_Summary =
+  view engine_summary), so an agent reading tool names alone will not see them.
+cross_links:
+  mcp: mcp/demandsphere-mcp.yml
+  conventions: conventions/demandsphere-conventions.yml
+  errors: errors/demandsphere-problem-types.yml
+  data_model: data-model/demandsphere-data-model.yml

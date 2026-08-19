@@ -1,15 +1,49 @@
-generated: '2026-07-18'
+generated: '2026-08-13'
 method: searched
-source: https://www.demandsphere.com/platform/apis/rest-apis/
+source: >-
+  https://www.demandsphere.com/platform/apis/rest-apis/ +
+  https://help.demandsphere.com/changelog (probed) +
+  https://github.com/DemandSphereDev/demandsphere-mcp
+checked: '2026-08-13'
 versioning:
   scheme: uri-path
   current: v5.0
+  also_live: v5_1
   docs: https://www.demandsphere.com/platform/apis/rest-apis/
-  note: MCP server tracks two API generations - v5.0 (SERP analytics) and v5.1 (GenAI visibility).
+  note: >-
+    Two API generations are in service — v5.0 (SERP analytics, the generation
+    described by the published OpenAPI) and v5.1 (GenAI visibility and brand
+    management, reachable at /v5_1/... and /api/v5_1/... but not described by any
+    published spec). DemandSphere's own MCP server calls both.
 status_page: https://status.demandsphere.com/
-changelog: https://help.demandsphere.com/changelog
+changelog:
+  platform: https://help.demandsphere.com/changelog
+  platform_public: false
+  platform_http_status: 200
+  platform_note: Returns the Keycloak "Sign in to DemandSphere" page; release history is customer-only.
+  mcp_server: https://github.com/DemandSphereDev/demandsphere-mcp/blob/main/CHANGELOG.md
+  artifact: changelog/demandsphere-changelog.yml
 deprecation:
   policy_url: null
   sunset_header: null
-  note: No published deprecation/sunset policy found; no operations flagged deprecated in the OpenAPI.
+  rfc8594: false
+  note: >-
+    No published deprecation or sunset policy, no Deprecation/Sunset header
+    contract, and no operation flagged deprecated in the OpenAPI. The only
+    breaking-change discipline DemandSphere publishes anywhere is the semver
+    "Breaking" section in the MCP server changelog (0.3.0, 2026-04-22), which
+    covers the server's own Python API rather than the REST API.
 deprecated_operations: []
+sla:
+  published: false
+  note: >-
+    A "24hr SLA support" response commitment is advertised on the Enterprise
+    pricing tier; no uptime or availability SLA is published for the API.
+support_commitments:
+  starter: Email support
+  pro: Priority support (email + Slack)
+  enterprise: 24-hour SLA support, dedicated strategist
+  source: https://www.demandsphere.com/pricing/
+cross_links:
+  changelog: changelog/demandsphere-changelog.yml
+  plans: plans/demandsphere-plans-pricing.yml

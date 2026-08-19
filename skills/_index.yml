@@ -1,12 +1,33 @@
-generated: '2026-07-18'
+generated: '2026-08-13'
 method: generated
-source: openapi/demandsphere-openapi-original.json
+source: >-
+  openapi/_original/demandsphere-openapi-original.json (operationIds verified
+  against the refined per-tag specs) + mcp/demandsphere-tool-crosswalk.yml
+note: >-
+  No provider-published Agent Skills or AGENTS.md was found in the DemandSphere
+  GitHub organization or docs; these are API Evangelist skills grounded in real
+  published operationIds.
 skills:
 - file: demandsphere-track-ranking-trends.md
   name: Track keyword ranking trends
-  api: openapi/demandsphere-openapi-original.json
+  api: openapi/demandsphere-keywords-api-openapi.yml
   operations:
   - Sites_PropertiesList
   - Keywords_RankingTrends
   - Keywords_KeywordsPerformanceDetail
   - Keywords_LandingMatches
+- file: demandsphere-compare-search-engine-performance.md
+  name: Compare search engine performance
+  api: openapi/demandsphere-keywords-api-openapi.yml
+  operations:
+  - Sites_PropertiesList
+  - Keywords_SearchEngines
+  - SearchEngines_Summary
+- file: demandsphere-audit-landing-pages.md
+  name: Audit landing pages against ranking keywords
+  api: openapi/demandsphere-pages-api-openapi.yml
+  operations:
+  - Sites_HierarchyList
+  - Sites_PropertiesList
+  - Keywords_LandingMatches
+  - Pages_LandingsHistory

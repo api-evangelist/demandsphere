@@ -1,15 +1,116 @@
-generated: '2026-07-18'
-method: derived
-source: openapi/demandsphere-openapi-original.json
+generated: '2026-08-13'
+method: searched
+source: >-
+  openapi/_original/demandsphere-openapi-original.json +
+  https://github.com/DemandSphereDev/demandsphere-mcp
+  (src/demandsphere_mcp/client.py, src/demandsphere_mcp/tools/utils.py, v0.3.1)
 format: none
 note: >-
-  The OpenAPI declares a 400 response on every operation but without a response
-  schema or application/problem+json media type, so this catalog captures the
-  status surface only. No RFC 9457 problem-details or documented error-code
-  registry was found in the spec or the public developer docs.
+  The OpenAPI declares a 400 response on every operation without a response
+  schema or an application/problem+json media type, and DemandSphere publishes no
+  error-code reference in its public docs, so there is no RFC 9457 problem
+  details contract and no documented error registry. The status surface below is
+  wider than the spec: DemandSphere's own first-party MCP client handles 401,
+  403, 404, 429 and 5xx from api.demandsphere.com with specific messages, which
+  is provider-published evidence that those statuses are returned by the API even
+  though the spec never declares them.
+declared_in_openapi: [200, 400]
 problems:
 - status: 400
   title: Bad Request
   applies_to: all operations
   media_type: null
-  note: Declared on all 10 list operations; typically a missing/invalid required query parameter (api_key, From, To, SearchEngines, or a required SortBy* value).
+  declared: true
+  client_error_type: validation_error
+  remediation: >-
+    Check parameter formats — dates must be YYYY-MM-DD, date ranges are capped at
+    365 days by the first-party client, string parameters must not be empty, and
+    required parameters (api_key, From, To, SearchEngines, the operation's
+    SortBy* value) must be present.
+  note: Declared on all 10 list operations.
+- status: 401
+  title: Unauthorized
+  applies_to: all operations
+  media_type: null
+  declared: false
+  client_error_type: auth_error
+  provider_message: Invalid or missing API key.
+  remediation: >-
+    Check that the api_key query parameter is set and valid. Keys are generated
+    at app.demandsphere.com/settings.
+  retryable: false
+- status: 403
+  title: Forbidden
+  applies_to: all operations
+  media_type: null
+  declared: false
+  client_error_type: auth_error
+  provider_message: Forbidden — check API key permissions.
+  retryable: false
+- status: 404
+  title: Not Found
+  applies_to: all operations
+  media_type: null
+  declared: false
+  client_error_type: not_found
+  provider_message: Resource not found.
+  remediation: Call Sites_PropertiesList or Sites_HierarchyList to discover valid site IDs and global keys.
+  retryable: false
+- status: 429
+  title: Too Many Requests
+  applies_to: all operations
+  media_type: null
+  declared: false
+  client_error_type: rate_limited
+  remediation: Wait and retry; the first-party client backs off automatically.
+  retryable: true
+  note: >-
+    No Retry-After or RateLimit-* header is documented. See
+    rate-limits/demandsphere-rate-limits.yml.
+- status: 500
+  title: Internal Server Error
+  applies_to: all operations
+  media_type: null
+  declared: false
+  client_error_type: upstream_error
+  retryable: true
+- status: 502
+  title: Bad Gateway
+  applies_to: all operations
+  declared: false
+  client_error_type: upstream_error
+  retryable: true
+- status: 503
+  title: Service Unavailable
+  applies_to: all operations
+  declared: false
+  client_error_type: upstream_error
+  retryable: true
+- status: 504
+  title: Gateway Timeout
+  applies_to: all operations
+  declared: false
+  client_error_type: upstream_error
+  retryable: true
+retry_policy:
+  retryable_statuses: [429, 500, 502, 503, 504]
+  source: https://github.com/DemandSphereDev/demandsphere-mcp (client.py `_RETRYABLE_STATUS`)
+  note: First-party client behaviour, not a published API contract.
+agent_error_taxonomy:
+  note: >-
+    The first-party MCP server normalizes API failures into a small error_type
+    vocabulary for agent consumption. It is not part of the REST contract but it
+    is the closest thing DemandSphere publishes to an error registry.
+  types:
+  - {type: validation_error, retry: false}
+  - {type: auth_error, retry: false}
+  - {type: not_found, retry: false}
+  - {type: rate_limited, retry: true}
+  - {type: timeout, retry: true}
+  - {type: upstream_error, retry: true}
+  - {type: network_error, retry: true}
+  - {type: internal_error, retry: true}
+cross_links:
+  conventions: conventions/demandsphere-conventions.yml
+  rate_limits: rate-limits/demandsphere-rate-limits.yml
+  authentication: authentication/demandsphere-authentication.yml

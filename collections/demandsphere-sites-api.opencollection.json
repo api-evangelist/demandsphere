@@ -1,0 +1,48 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "DemandSphere API v5.0 Documentation Keywords Sites API",
+    "version": "5.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "api_key",
+      "value": "{{api_key}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Sites",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a list of hierarchy properties",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.demandsphere.com/sites/hierarchy/list"
+          },
+          "docs": "Get a list of hierarchy properties"
+        },
+        {
+          "info": {
+            "name": "Get a list of properties",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.demandsphere.com/sites/properties/list"
+          },
+          "docs": "Get a list of properties"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
