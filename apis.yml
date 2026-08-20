@@ -51,6 +51,16 @@ tags:
 - LLM Visibility
 - Rank Tracking
 - Analytics
+- MCP
+tags_raw:
+- Company
+- SEO
+- Search Intelligence
+- SERP Analytics
+- AI Search
+- LLM Visibility
+- Rank Tracking
+- Analytics
 - API
 - MCP
 maintainers:
@@ -101,6 +111,8 @@ apis:
   humanURL: https://www.demandsphere.com/platform/apis/rest-apis/
   baseURL: https://api.demandsphere.com
   tags:
+  - Search Engines
+  tags_raw:
   - SearchEngines
   properties:
   - type: OpenAPI
