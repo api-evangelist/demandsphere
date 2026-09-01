@@ -123,7 +123,7 @@ apis:
   humanURL: https://www.demandsphere.com/platform/apis/rest-apis/
   baseURL: https://api.demandsphere.com
   tags:
-  - SearchEngines
+  - Search Engines
   tags_raw:
   - SearchEngines
   properties:
