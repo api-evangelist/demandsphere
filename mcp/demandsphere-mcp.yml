@@ -117,20 +117,10 @@ servers:
     tools_returned: 8
     checked: '2026-08-13'
 deployment:
-  mode: both
+  mode: remote
   endpoint: https://www.demandsphere.com/mcp
-  install: git clone https://github.com/DemandSphereDev/demandsphere-mcp.git && uv sync && uv run demandsphere-mcp
-  package: https://github.com/DemandSphereDev/demandsphere-mcp
-  auth: none
   verified: probed
-  checked: '2026-08-13'
-  note: >-
-    Two distinct surfaces. The hosted DemandSphere Radar server at
-    https://www.demandsphere.com/mcp is remote, anonymous, and answered a live
-    tools/list with 8 tools on 2026-08-13 (verbatim capture in
-    mcp/demandsphere-radar-tools.json). The 20-tool platform server
-    (DemandSphereDev/demandsphere-mcp, v0.3.1) is local-stdio or self-hosted
-    streamable-HTTP only — it is not published to PyPI and the vendor operates
-    no hosted endpoint for it; it requires a DEMANDSPHERE_API_KEY, so its tool
-    schemas could not be introspected anonymously and are recorded from the
-    first-party repository README and source.
+  probe: live
+  tools: 8
+  checked: '2026-08-12'
+  source: catalog MCP census

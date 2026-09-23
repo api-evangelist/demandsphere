@@ -1,0 +1,36 @@
+# Front Door AI Index — demandsphere — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: demandsphere
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: demandsphere.com
+  final_host: www.demandsphere.com
+  ownership: own
+  owner: demandsphere
+  shares_host_with: null
+  inherited_from: null
+  verdict: scored
+  score: 185
+  host_score: 185
+  density: 71.18
+  words: 2599
+  tiers:
+    agentic: 34
+    core: 128
+    model: 23
+  ambiguous: 36
+  top_terms:
+    AI: 99
+    intelligence: 21
+    LLMs: 20
+    prompts: 19
+    agent: 12
+    ChatGPT: 11
+    Gemini: 11
+    gen ai: 9
+    agentic: 6
+    copilot: 6
+    AI agent: 3
+    automation: 3

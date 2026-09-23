@@ -1,7 +1,7 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   version: 5.0.0
-  title: DemandSphere API v5.0 Documentation Keywords SearchEngines API
+  title: DemandSphere API v5.0 Documentation Search Engines API
   description: ''
 servers:
 - url: https://api.demandsphere.com
@@ -9,14 +9,14 @@ servers:
 security:
 - ApiKey: []
 tags:
-- name: SearchEngines
+- name: searchengines
 paths:
   /search_engines/summary/list:
     post:
       summary: Get a list of search engines summary
       operationId: SearchEngines_Summary
       tags:
-      - SearchEngines
+      - searchengines
       parameters:
       - $ref: '#/components/parameters/From'
       - $ref: '#/components/parameters/To'
@@ -30,22 +30,6 @@ paths:
           $ref: '#/components/responses/Response400'
 components:
   parameters:
-    SiteGlobalKey:
-      name: site_global_key
-      in: query
-      required: true
-      schema:
-        type: string
-        description: Your site ID
-      description: Your site ID
-    To:
-      name: to
-      in: query
-      required: true
-      schema:
-        type: string
-        description: YYYY-MM-DD
-      description: YYYY-MM-DD
     Granularity:
       name: granularity
       in: query
@@ -59,6 +43,22 @@ components:
         - monthly
     From:
       name: from
+      in: query
+      required: true
+      schema:
+        type: string
+        description: YYYY-MM-DD
+      description: YYYY-MM-DD
+    SiteGlobalKey:
+      name: site_global_key
+      in: query
+      required: true
+      schema:
+        type: string
+        description: Your site ID
+      description: Your site ID
+    To:
+      name: to
       in: query
       required: true
       schema:
@@ -340,12 +340,6 @@ components:
         - google_mx__galaxytab
         - google_mx__ipad
   responses:
-    Response400:
-      description: Error
-      content:
-        application/json:
-          schema:
-            type: object
     Response200Summary:
       description: success
       content:
@@ -471,6 +465,12 @@ components:
                                 type: integer
                               dataType:
                                 type: string
+    Response400:
+      description: Error
+      content:
+        application/json:
+          schema:
+            type: object
   securitySchemes:
     ApiKey:
       type: apiKey
