@@ -46,14 +46,6 @@ components:
         type: string
         description: YYYY-MM-DD
       description: YYYY-MM-DD
-    SiteGlobalKey:
-      name: site_global_key
-      in: query
-      required: true
-      schema:
-        type: string
-        description: Your site ID
-      description: Your site ID
     To:
       name: to
       in: query
@@ -62,6 +54,14 @@ components:
         type: string
         description: YYYY-MM-DD
       description: YYYY-MM-DD
+    SiteGlobalKey:
+      name: site_global_key
+      in: query
+      required: true
+      schema:
+        type: string
+        description: Your site ID
+      description: Your site ID
     SearchEngines:
       name: search_engines
       in: query
