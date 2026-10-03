@@ -30,38 +30,6 @@ paths:
           $ref: '#/components/responses/Response400'
 components:
   parameters:
-    KeywordID:
-      name: keyword_id
-      in: query
-      required: true
-      schema:
-        type: string
-        description: ID of keyword
-      description: ID of keyword
-    From:
-      name: from
-      in: query
-      required: true
-      schema:
-        type: string
-        description: YYYY-MM-DD
-      description: YYYY-MM-DD
-    To:
-      name: to
-      in: query
-      required: true
-      schema:
-        type: string
-        description: YYYY-MM-DD
-      description: YYYY-MM-DD
-    SiteGlobalKey:
-      name: site_global_key
-      in: query
-      required: true
-      schema:
-        type: string
-        description: Your site ID
-      description: Your site ID
     SearchEngines:
       name: search_engines
       in: query
@@ -336,6 +304,38 @@ components:
         - google_mx__nexus5
         - google_mx__galaxytab
         - google_mx__ipad
+    KeywordID:
+      name: keyword_id
+      in: query
+      required: true
+      schema:
+        type: string
+        description: ID of keyword
+      description: ID of keyword
+    To:
+      name: to
+      in: query
+      required: true
+      schema:
+        type: string
+        description: YYYY-MM-DD
+      description: YYYY-MM-DD
+    SiteGlobalKey:
+      name: site_global_key
+      in: query
+      required: true
+      schema:
+        type: string
+        description: Your site ID
+      description: Your site ID
+    From:
+      name: from
+      in: query
+      required: true
+      schema:
+        type: string
+        description: YYYY-MM-DD
+      description: YYYY-MM-DD
   responses:
     Response200LandingsHistory:
       description: success

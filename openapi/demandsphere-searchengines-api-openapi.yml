@@ -29,42 +29,139 @@ paths:
         '400':
           $ref: '#/components/responses/Response400'
 components:
+  responses:
+    Response200Summary:
+      description: success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              tabularData:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    site:
+                      type: string
+                    search_engines:
+                      type: array
+                      items:
+                        type: string
+                    from:
+                      type: string
+                    to:
+                      type: string
+                    sort_col:
+                      type: array
+                      items:
+                        type: string
+                    sort_dir:
+                      type: array
+                      items:
+                        type: string
+                    application_brand:
+                      type: string
+                    page_info:
+                      type: object
+                      properties:
+                        returned_count:
+                          type: integer
+                        total_count:
+                          type: integer
+                    results:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          search_engine:
+                            type: object
+                            properties:
+                              label:
+                                type: string
+                              value:
+                                type: string
+                              dataType:
+                                type: string
+                          rank:
+                            type: object
+                            properties:
+                              label:
+                                type: string
+                              value:
+                                type: integer
+                              dataType:
+                                type: string
+                          rank_change:
+                            type: object
+                            properties:
+                              label:
+                                type: string
+                              value:
+                                type: integer
+                              dataType:
+                                type: string
+                          tracked_visits:
+                            type: object
+                            properties:
+                              label:
+                                type: string
+                              value:
+                                type: integer
+                              dataType:
+                                type: string
+                          tracked_conversions:
+                            type: object
+                            properties:
+                              label:
+                                type: string
+                              value:
+                                type: integer
+                              dataType:
+                                type: string
+                          tracked_revenue:
+                            type: object
+                            properties:
+                              label:
+                                type: string
+                              value:
+                                type: integer
+                              dataType:
+                                type: string
+                          organic_visits:
+                            type: object
+                            properties:
+                              label:
+                                type: string
+                              value:
+                                type: integer
+                              dataType:
+                                type: string
+                          organic_conversions:
+                            type: object
+                            properties:
+                              label:
+                                type: string
+                              value:
+                                type: integer
+                              dataType:
+                                type: string
+                          organic_revenue:
+                            type: object
+                            properties:
+                              label:
+                                type: string
+                              value:
+                                type: integer
+                              dataType:
+                                type: string
+    Response400:
+      description: Error
+      content:
+        application/json:
+          schema:
+            type: object
   parameters:
-    From:
-      name: from
-      in: query
-      required: true
-      schema:
-        type: string
-        description: YYYY-MM-DD
-      description: YYYY-MM-DD
-    Granularity:
-      name: granularity
-      in: query
-      required: true
-      schema:
-        type: string
-        default: daily
-        enum:
-        - daily
-        - weekly
-        - monthly
-    To:
-      name: to
-      in: query
-      required: true
-      schema:
-        type: string
-        description: YYYY-MM-DD
-      description: YYYY-MM-DD
-    SiteGlobalKey:
-      name: site_global_key
-      in: query
-      required: true
-      schema:
-        type: string
-        description: Your site ID
-      description: Your site ID
     SearchEngines:
       name: search_engines
       in: query
@@ -339,138 +436,41 @@ components:
         - google_mx__nexus5
         - google_mx__galaxytab
         - google_mx__ipad
-  responses:
-    Response200Summary:
-      description: success
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              tabularData:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    site:
-                      type: string
-                    search_engines:
-                      type: array
-                      items:
-                        type: string
-                    from:
-                      type: string
-                    to:
-                      type: string
-                    sort_col:
-                      type: array
-                      items:
-                        type: string
-                    sort_dir:
-                      type: array
-                      items:
-                        type: string
-                    application_brand:
-                      type: string
-                    page_info:
-                      type: object
-                      properties:
-                        returned_count:
-                          type: integer
-                        total_count:
-                          type: integer
-                    results:
-                      type: array
-                      items:
-                        type: object
-                        properties:
-                          search_engine:
-                            type: object
-                            properties:
-                              label:
-                                type: string
-                              value:
-                                type: string
-                              dataType:
-                                type: string
-                          rank:
-                            type: object
-                            properties:
-                              label:
-                                type: string
-                              value:
-                                type: integer
-                              dataType:
-                                type: string
-                          rank_change:
-                            type: object
-                            properties:
-                              label:
-                                type: string
-                              value:
-                                type: integer
-                              dataType:
-                                type: string
-                          tracked_visits:
-                            type: object
-                            properties:
-                              label:
-                                type: string
-                              value:
-                                type: integer
-                              dataType:
-                                type: string
-                          tracked_conversions:
-                            type: object
-                            properties:
-                              label:
-                                type: string
-                              value:
-                                type: integer
-                              dataType:
-                                type: string
-                          tracked_revenue:
-                            type: object
-                            properties:
-                              label:
-                                type: string
-                              value:
-                                type: integer
-                              dataType:
-                                type: string
-                          organic_visits:
-                            type: object
-                            properties:
-                              label:
-                                type: string
-                              value:
-                                type: integer
-                              dataType:
-                                type: string
-                          organic_conversions:
-                            type: object
-                            properties:
-                              label:
-                                type: string
-                              value:
-                                type: integer
-                              dataType:
-                                type: string
-                          organic_revenue:
-                            type: object
-                            properties:
-                              label:
-                                type: string
-                              value:
-                                type: integer
-                              dataType:
-                                type: string
-    Response400:
-      description: Error
-      content:
-        application/json:
-          schema:
-            type: object
+    Granularity:
+      name: granularity
+      in: query
+      required: true
+      schema:
+        type: string
+        default: daily
+        enum:
+        - daily
+        - weekly
+        - monthly
+    To:
+      name: to
+      in: query
+      required: true
+      schema:
+        type: string
+        description: YYYY-MM-DD
+      description: YYYY-MM-DD
+    SiteGlobalKey:
+      name: site_global_key
+      in: query
+      required: true
+      schema:
+        type: string
+        description: Your site ID
+      description: Your site ID
+    From:
+      name: from
+      in: query
+      required: true
+      schema:
+        type: string
+        description: YYYY-MM-DD
+      description: YYYY-MM-DD
   securitySchemes:
     ApiKey:
       type: apiKey
