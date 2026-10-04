@@ -156,6 +156,9 @@ apis:
   - type: Conventions
     url: conventions/demandsphere-conventions.yml
 common:
+- type: CapabilityMap
+  url: capabilities/demandsphere-capability-edges.yml
+  name: DemandSphere Business Capability Map
 - type: Overlay
   url: overlays/demandsphere-openapi-overlay.yaml
 - type: TrustCenter
