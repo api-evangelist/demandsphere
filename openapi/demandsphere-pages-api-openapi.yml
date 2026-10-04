@@ -30,6 +30,22 @@ paths:
           $ref: '#/components/responses/Response400'
 components:
   parameters:
+    From:
+      name: from
+      in: query
+      required: true
+      schema:
+        type: string
+        description: YYYY-MM-DD
+      description: YYYY-MM-DD
+    KeywordID:
+      name: keyword_id
+      in: query
+      required: true
+      schema:
+        type: string
+        description: ID of keyword
+      description: ID of keyword
     SearchEngines:
       name: search_engines
       in: query
@@ -304,22 +320,6 @@ components:
         - google_mx__nexus5
         - google_mx__galaxytab
         - google_mx__ipad
-    KeywordID:
-      name: keyword_id
-      in: query
-      required: true
-      schema:
-        type: string
-        description: ID of keyword
-      description: ID of keyword
-    To:
-      name: to
-      in: query
-      required: true
-      schema:
-        type: string
-        description: YYYY-MM-DD
-      description: YYYY-MM-DD
     SiteGlobalKey:
       name: site_global_key
       in: query
@@ -328,8 +328,8 @@ components:
         type: string
         description: Your site ID
       description: Your site ID
-    From:
-      name: from
+    To:
+      name: to
       in: query
       required: true
       schema:

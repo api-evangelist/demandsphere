@@ -35,41 +35,6 @@ paths:
           $ref: '#/components/responses/Response400'
 components:
   responses:
-    Response200Hierarchy:
-      description: success
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              hierarchyList:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    id:
-                      type: string
-                    siteName:
-                      type: string
-                    organizationName:
-                      type: string
-                    accountName:
-                      type: string
-                    url:
-                      type: string
-                    numUsers:
-                      type: integer
-                    keywords:
-                      type: integer
-                    image:
-                      type: string
-                    ownership:
-                      type: string
-              meta:
-                type: object
-                properties:
-                  api_version:
-                    type: string
     Response400:
       description: Error
       content:
@@ -179,6 +144,41 @@ components:
                                 type: string
                               geoname:
                                 type: string
+              meta:
+                type: object
+                properties:
+                  api_version:
+                    type: string
+    Response200Hierarchy:
+      description: success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              hierarchyList:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    siteName:
+                      type: string
+                    organizationName:
+                      type: string
+                    accountName:
+                      type: string
+                    url:
+                      type: string
+                    numUsers:
+                      type: integer
+                    keywords:
+                      type: integer
+                    image:
+                      type: string
+                    ownership:
+                      type: string
               meta:
                 type: object
                 properties:
