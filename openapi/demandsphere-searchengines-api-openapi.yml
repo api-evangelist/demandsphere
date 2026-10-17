@@ -38,6 +38,25 @@ components:
         type: string
         description: YYYY-MM-DD
       description: YYYY-MM-DD
+    SiteGlobalKey:
+      name: site_global_key
+      in: query
+      required: true
+      schema:
+        type: string
+        description: Your site ID
+      description: Your site ID
+    Granularity:
+      name: granularity
+      in: query
+      required: true
+      schema:
+        type: string
+        default: daily
+        enum:
+        - daily
+        - weekly
+        - monthly
     SearchEngines:
       name: search_engines
       in: query
@@ -312,25 +331,6 @@ components:
         - google_mx__nexus5
         - google_mx__galaxytab
         - google_mx__ipad
-    SiteGlobalKey:
-      name: site_global_key
-      in: query
-      required: true
-      schema:
-        type: string
-        description: Your site ID
-      description: Your site ID
-    Granularity:
-      name: granularity
-      in: query
-      required: true
-      schema:
-        type: string
-        default: daily
-        enum:
-        - daily
-        - weekly
-        - monthly
     To:
       name: to
       in: query
@@ -340,6 +340,12 @@ components:
         description: YYYY-MM-DD
       description: YYYY-MM-DD
   responses:
+    Response400:
+      description: Error
+      content:
+        application/json:
+          schema:
+            type: object
     Response200Summary:
       description: success
       content:
@@ -465,12 +471,6 @@ components:
                                 type: integer
                               dataType:
                                 type: string
-    Response400:
-      description: Error
-      content:
-        application/json:
-          schema:
-            type: object
   securitySchemes:
     ApiKey:
       type: apiKey

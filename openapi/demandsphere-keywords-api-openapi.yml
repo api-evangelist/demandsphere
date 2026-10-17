@@ -162,6 +162,14 @@ paths:
           $ref: '#/components/responses/Response400'
 components:
   parameters:
+    Export:
+      name: export
+      in: query
+      required: false
+      schema:
+        type: boolean
+        description: Export data to file
+      description: Export data to file
     SortByRankingTrends_Grouped:
       name: sort_by
       in: query
@@ -180,6 +188,14 @@ components:
         - keywords_count
         description: 'When param: grouped == true - Required!'
       description: 'When param: grouped == true - Required!'
+    Offset:
+      name: offset
+      in: query
+      required: false
+      schema:
+        type: integer
+        description: Offset - starting record
+      description: Offset - starting record
     SortByGroupsDetail:
       name: sort_by
       in: query
@@ -205,99 +221,31 @@ components:
         - impressions
         - average_position
         - ctr
-    Limit:
-      name: limit
+    Grouped:
+      name: grouped
+      in: query
+      required: false
+      schema:
+        type: string
+        enum:
+        - 'true'
+        description: Group keywords
+      description: Group keywords
+    PageNum:
+      name: page_num
       in: query
       required: false
       schema:
         type: integer
-        default: 25
-        description: Limit for returned number of records
-      description: Limit for returned number of records
-    Order:
-      name: order
+        default: 1
+    SiteGlobalKey:
+      name: site_global_key
       in: query
       required: true
       schema:
         type: string
-        items:
-          type: String
-        default: asc
-        enum:
-        - asc
-        - desc
-    SortByLandingMatches:
-      name: sort_by
-      in: query
-      required: true
-      schema:
-        type: string
-        default: keyword_name
-        enum:
-        - keyword_name
-        - rank
-        - rank_change
-        - location_name
-        - search_volume
-        - landing_match
-    SortByRankingTrends_UnGrouped:
-      name: sort_by
-      in: query
-      required: false
-      schema:
-        type: string
-        default: keyword_name
-        enum:
-        - keyword_name
-        - rank
-        - location_name
-        - search_volume
-        - clicks
-        - impressions
-        - average_position
-        - ctr
-        description: 'When param: grouped == false - Required!'
-      description: 'When param: grouped == false - Required!'
-    SortBySearchEngines_UnGrouped:
-      name: sort_by
-      in: query
-      required: false
-      schema:
-        type: string
-        default: keyword_name
-        enum:
-        - keyword_name
-        - rank
-        - rank_change
-        - projected_mo_traffic
-        - pages_count
-        - location_name
-        - search_volume
-        - clicks
-        - impressions
-        - average_position
-        - ctr
-        description: 'When param: grouped == false - Required!'
-      description: 'When param: grouped == false - Required!'
-    Format:
-      name: kw_format
-      in: query
-      required: false
-      schema:
-        type: string
-        enum:
-        - csv
-        - xlsx
-        description: format of exported file - Required! if export == true
-      description: format of exported file - Required! if export == true
-    From:
-      name: from
-      in: query
-      required: true
-      schema:
-        type: string
-        description: YYYY-MM-DD
-      description: YYYY-MM-DD
+        description: Your site ID
+      description: Your site ID
     SearchEngines:
       name: search_engines
       in: query
@@ -572,6 +520,69 @@ components:
         - google_mx__nexus5
         - google_mx__galaxytab
         - google_mx__ipad
+    Order:
+      name: order
+      in: query
+      required: true
+      schema:
+        type: string
+        items:
+          type: String
+        default: asc
+        enum:
+        - asc
+        - desc
+    Format:
+      name: kw_format
+      in: query
+      required: false
+      schema:
+        type: string
+        enum:
+        - csv
+        - xlsx
+        description: format of exported file - Required! if export == true
+      description: format of exported file - Required! if export == true
+    SortByLandingMatches:
+      name: sort_by
+      in: query
+      required: true
+      schema:
+        type: string
+        default: keyword_name
+        enum:
+        - keyword_name
+        - rank
+        - rank_change
+        - location_name
+        - search_volume
+        - landing_match
+    To:
+      name: to
+      in: query
+      required: true
+      schema:
+        type: string
+        description: YYYY-MM-DD
+      description: YYYY-MM-DD
+    SortByRankingTrends_UnGrouped:
+      name: sort_by
+      in: query
+      required: false
+      schema:
+        type: string
+        default: keyword_name
+        enum:
+        - keyword_name
+        - rank
+        - location_name
+        - search_volume
+        - clicks
+        - impressions
+        - average_position
+        - ctr
+        description: 'When param: grouped == false - Required!'
+      description: 'When param: grouped == false - Required!'
     SortByLocalRankings_UnGrouped:
       name: sort_by
       in: query
@@ -583,48 +594,6 @@ components:
         - keyword_name
         description: 'When param: grouped == false - Required!'
       description: 'When param: grouped == false - Required!'
-    SiteGlobalKey:
-      name: site_global_key
-      in: query
-      required: true
-      schema:
-        type: string
-        description: Your site ID
-      description: Your site ID
-    Granularity:
-      name: granularity
-      in: query
-      required: true
-      schema:
-        type: string
-        default: daily
-        enum:
-        - daily
-        - weekly
-        - monthly
-    PageNum:
-      name: page_num
-      in: query
-      required: false
-      schema:
-        type: integer
-        default: 1
-    To:
-      name: to
-      in: query
-      required: true
-      schema:
-        type: string
-        description: YYYY-MM-DD
-      description: YYYY-MM-DD
-    Offset:
-      name: offset
-      in: query
-      required: false
-      schema:
-        type: integer
-        description: Offset - starting record
-      description: Offset - starting record
     SortBySearchEngines_Grouped:
       name: sort_by
       in: query
@@ -642,6 +611,44 @@ components:
         - ctr
         description: 'When param: grouped == true - Required!'
       description: 'When param: grouped == true - Required!'
+    From:
+      name: from
+      in: query
+      required: true
+      schema:
+        type: string
+        description: YYYY-MM-DD
+      description: YYYY-MM-DD
+    SortBySearchEngines_UnGrouped:
+      name: sort_by
+      in: query
+      required: false
+      schema:
+        type: string
+        default: keyword_name
+        enum:
+        - keyword_name
+        - rank
+        - rank_change
+        - projected_mo_traffic
+        - pages_count
+        - location_name
+        - search_volume
+        - clicks
+        - impressions
+        - average_position
+        - ctr
+        description: 'When param: grouped == false - Required!'
+      description: 'When param: grouped == false - Required!'
+    Limit:
+      name: limit
+      in: query
+      required: false
+      schema:
+        type: integer
+        default: 25
+        description: Limit for returned number of records
+      description: Limit for returned number of records
     SortByPerformanceDetail:
       name: sort_by
       in: query
@@ -663,408 +670,18 @@ components:
         - impressions
         - average_position
         - ctr
-    Grouped:
-      name: grouped
+    Granularity:
+      name: granularity
       in: query
-      required: false
+      required: true
       schema:
         type: string
+        default: daily
         enum:
-        - 'true'
-        description: Group keywords
-      description: Group keywords
-    Export:
-      name: export
-      in: query
-      required: false
-      schema:
-        type: boolean
-        description: Export data to file
-      description: Export data to file
+        - daily
+        - weekly
+        - monthly
   responses:
-    Response200LocalRankings_UnGrouped:
-      description: success
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              tabularData:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    site:
-                      type: string
-                    search_engines:
-                      type: array
-                      items:
-                        type: string
-                    from:
-                      type: string
-                    to:
-                      type: string
-                    sort_col:
-                      type: array
-                      items:
-                        type: string
-                    sort_dir:
-                      type: array
-                      items:
-                        type: string
-                    buckets:
-                      type: string
-                    device_ids:
-                      type: array
-                      items:
-                        type: integer
-                    keyword_tag_ids:
-                      type: array
-                      items:
-                        type: integer
-                    keyword_tag_ids_logics:
-                      type: array
-                      items:
-                        type: string
-                    location_ids:
-                      type: array
-                      items:
-                        type: integer
-                    serp_features_ids:
-                      type: array
-                      items:
-                        type: integer
-                    serp_features_ids_for_ranks:
-                      type: array
-                      items:
-                        type: integer
-                    search_string:
-                      type: string
-                    only_conversion_event_ids:
-                      type: array
-                      items:
-                        type: integer
-                    application_brand:
-                      type: string
-                    statement_timeout:
-                      type: integer
-                    set_cache:
-                      type: string
-                    page_info:
-                      type: object
-                      properties:
-                        returned_count:
-                          type: integer
-                        total_count:
-                          type: integer
-                    results:
-                      type: array
-                      items:
-                        type: object
-                        properties:
-                          keyword_name:
-                            type: object
-                            properties:
-                              label:
-                                type: string
-                              value:
-                                type: string
-                              dataType:
-                                type: string
-                          keyword_id:
-                            type: object
-                            properties:
-                              label:
-                                type: string
-                              value:
-                                type: integer
-                              dataType:
-                                type: string
-                          rankings_data:
-                            type: array
-                            items:
-                              type: object
-                              properties:
-                                rank:
-                                  type: object
-                                  properties:
-                                    label:
-                                      type: string
-                                    value:
-                                      type: integer
-                                    dataType:
-                                      type: string
-                                rank_change:
-                                  type: object
-                                  properties:
-                                    label:
-                                      type: string
-                                    value:
-                                      type: integer
-                                    dataType:
-                                      type: string
-    Response200GroupsDetail:
-      description: success
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              tabularData:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    site:
-                      type: string
-                    search_engines:
-                      type: array
-                      items:
-                        type: string
-                    from:
-                      type: string
-                    to:
-                      type: string
-                    sort_col:
-                      type: array
-                      items:
-                        type: string
-                    sort_dir:
-                      type: array
-                      items:
-                        type: string
-                    buckets:
-                      type: string
-                    device_ids:
-                      type: array
-                      items:
-                        type: integer
-                    keyword_tag_ids:
-                      type: array
-                      items:
-                        type: integer
-                    keyword_tag_ids_logics:
-                      type: array
-                      items:
-                        type: string
-                    location_ids:
-                      type: array
-                      items:
-                        type: integer
-                    serp_features_ids:
-                      type: array
-                      items:
-                        type: integer
-                    serp_features_ids_for_ranks:
-                      type: array
-                      items:
-                        type: integer
-                    search_string:
-                      type: string
-                    only_conversion_event_ids:
-                      type: array
-                      items:
-                        type: integer
-                    application_brand:
-                      type: string
-                    statement_timeout:
-                      type: integer
-                    set_cache:
-                      type: string
-                    page_info:
-                      type: object
-                      properties:
-                        returned_count:
-                          type: integer
-                        total_count:
-                          type: integer
-                    results:
-                      type: array
-                      items:
-                        type: object
-                        properties:
-                          keywords_count:
-                            type: object
-                            properties:
-                              label:
-                                type: string
-                              value:
-                                type: integer
-                              dataType:
-                                type: string
-                          bucket0:
-                            type: object
-                            properties:
-                              label:
-                                type: string
-                              value:
-                                type: integer
-                              dataType:
-                                type: string
-                          bucket1:
-                            type: object
-                            properties:
-                              label:
-                                type: string
-                              value:
-                                type: integer
-                              dataType:
-                                type: string
-                          bucket2:
-                            type: object
-                            properties:
-                              label:
-                                type: string
-                              value:
-                                type: integer
-                              dataType:
-                                type: string
-                          bucket3:
-                            type: object
-                            properties:
-                              label:
-                                type: string
-                              value:
-                                type: integer
-                              dataType:
-                                type: string
-                          bucket4:
-                            type: object
-                            properties:
-                              label:
-                                type: string
-                              value:
-                                type: integer
-                              dataType:
-                                type: string
-                          bucket5:
-                            type: object
-                            properties:
-                              label:
-                                type: string
-                              value:
-                                type: integer
-                              dataType:
-                                type: string
-                          bucket6:
-                            type: object
-                            properties:
-                              label:
-                                type: string
-                              value:
-                                type: integer
-                              dataType:
-                                type: string
-                          bucket7:
-                            type: object
-                            properties:
-                              label:
-                                type: string
-                              value:
-                                type: integer
-                              dataType:
-                                type: string
-                          bucket8:
-                            type: object
-                            properties:
-                              label:
-                                type: string
-                              value:
-                                type: integer
-                              dataType:
-                                type: string
-                          search_volume:
-                            type: object
-                            properties:
-                              label:
-                                type: string
-                              value:
-                                type: integer
-                              dataType:
-                                type: string
-                          projected_mo_traffic:
-                            type: object
-                            properties:
-                              label:
-                                type: string
-                              value:
-                                type: integer
-                              dataType:
-                                type: string
-                          impressions:
-                            type: object
-                            properties:
-                              label:
-                                type: string
-                              value:
-                                type: integer
-                              dataType:
-                                type: string
-                          clicks:
-                            type: object
-                            properties:
-                              label:
-                                type: string
-                              value:
-                                type: integer
-                              dataType:
-                                type: string
-                          average_position:
-                            type: object
-                            properties:
-                              label:
-                                type: string
-                              value:
-                                type: number
-                                format: float
-                              dataType:
-                                type: string
-                          ctr:
-                            type: object
-                            properties:
-                              label:
-                                type: string
-                              value:
-                                type: number
-                                format: float
-                              dataType:
-                                type: string
-                          tag_id:
-                            type: object
-                            properties:
-                              label:
-                                type: string
-                              value:
-                                type: integer
-                              dataType:
-                                type: string
-                          tag_name:
-                            type: object
-                            properties:
-                              label:
-                                type: string
-                              value:
-                                type: string
-                              dataType:
-                                type: string
-                          created_at:
-                            type: object
-                            properties:
-                              label:
-                                type: string
-                              value:
-                                type: string
-                              dataType:
-                                type: string
-                          updated_at:
-                            type: object
-                            properties:
-                              label:
-                                type: string
-                              value:
-                                type: string
-                              dataType:
-                                type: string
     Response200PerformanceDetail:
       description: success
       content:
@@ -1316,6 +933,310 @@ components:
                                   type: string
                                 dataType:
                                   type: string
+    Response200RankingTrends_UnGrouped:
+      description: success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              tabularData:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    site:
+                      type: string
+                    search_engines:
+                      type: array
+                      items:
+                        type: string
+                    from:
+                      type: string
+                    to:
+                      type: string
+                    sort_col:
+                      type: array
+                      items:
+                        type: string
+                    sort_dir:
+                      type: array
+                      items:
+                        type: string
+                    buckets:
+                      type: string
+                    device_ids:
+                      type: array
+                      items:
+                        type: integer
+                    keyword_tag_ids:
+                      type: array
+                      items:
+                        type: integer
+                    keyword_tag_ids_logics:
+                      type: array
+                      items:
+                        type: string
+                    location_ids:
+                      type: array
+                      items:
+                        type: integer
+                    serp_features_ids:
+                      type: array
+                      items:
+                        type: integer
+                    serp_features_ids_for_ranks:
+                      type: array
+                      items:
+                        type: integer
+                    search_string:
+                      type: string
+                    only_conversion_event_ids:
+                      type: array
+                      items:
+                        type: integer
+                    application_brand:
+                      type: string
+                    statement_timeout:
+                      type: integer
+                    set_cache:
+                      type: string
+                    page_info:
+                      type: object
+                      properties:
+                        returned_count:
+                          type: integer
+                        total_count:
+                          type: integer
+                    results:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          keyword_description:
+                            type: object
+                            properties:
+                              label:
+                                type: string
+                              value:
+                                type: string
+                              dataType:
+                                type: string
+                          location_name:
+                            type: object
+                            properties:
+                              label:
+                                type: string
+                              value:
+                                type: string
+                              dataType:
+                                type: string
+                          impressions:
+                            type: object
+                            properties:
+                              label:
+                                type: string
+                              value:
+                                type: integer
+                              dataType:
+                                type: string
+                          clicks:
+                            type: object
+                            properties:
+                              label:
+                                type: string
+                              value:
+                                type: integer
+                              dataType:
+                                type: string
+                          average_position:
+                            type: object
+                            properties:
+                              label:
+                                type: string
+                              value:
+                                type: number
+                                format: float
+                              dataType:
+                                type: string
+                          ctr:
+                            type: object
+                            properties:
+                              label:
+                                type: string
+                              value:
+                                type: number
+                                format: float
+                              dataType:
+                                type: string
+                          search_volume:
+                            type: object
+                            properties:
+                              label:
+                                type: string
+                              value:
+                                type: integer
+                              dataType:
+                                type: string
+                          keyword_id:
+                            type: object
+                            properties:
+                              label:
+                                type: string
+                              value:
+                                type: integer
+                              dataType:
+                                type: string
+                          keyword_name:
+                            type: object
+                            properties:
+                              label:
+                                type: string
+                              value:
+                                type: string
+                              dataType:
+                                type: string
+                          location_id:
+                            type: object
+                            properties:
+                              label:
+                                type: string
+                              value:
+                                type: integer
+                              dataType:
+                                type: string
+                          rankings_data:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                label:
+                                  type: string
+                                value:
+                                  type: integer
+                                dataType:
+                                  type: string
+    Response200LocalRankings_UnGrouped:
+      description: success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              tabularData:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    site:
+                      type: string
+                    search_engines:
+                      type: array
+                      items:
+                        type: string
+                    from:
+                      type: string
+                    to:
+                      type: string
+                    sort_col:
+                      type: array
+                      items:
+                        type: string
+                    sort_dir:
+                      type: array
+                      items:
+                        type: string
+                    buckets:
+                      type: string
+                    device_ids:
+                      type: array
+                      items:
+                        type: integer
+                    keyword_tag_ids:
+                      type: array
+                      items:
+                        type: integer
+                    keyword_tag_ids_logics:
+                      type: array
+                      items:
+                        type: string
+                    location_ids:
+                      type: array
+                      items:
+                        type: integer
+                    serp_features_ids:
+                      type: array
+                      items:
+                        type: integer
+                    serp_features_ids_for_ranks:
+                      type: array
+                      items:
+                        type: integer
+                    search_string:
+                      type: string
+                    only_conversion_event_ids:
+                      type: array
+                      items:
+                        type: integer
+                    application_brand:
+                      type: string
+                    statement_timeout:
+                      type: integer
+                    set_cache:
+                      type: string
+                    page_info:
+                      type: object
+                      properties:
+                        returned_count:
+                          type: integer
+                        total_count:
+                          type: integer
+                    results:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          keyword_name:
+                            type: object
+                            properties:
+                              label:
+                                type: string
+                              value:
+                                type: string
+                              dataType:
+                                type: string
+                          keyword_id:
+                            type: object
+                            properties:
+                              label:
+                                type: string
+                              value:
+                                type: integer
+                              dataType:
+                                type: string
+                          rankings_data:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                rank:
+                                  type: object
+                                  properties:
+                                    label:
+                                      type: string
+                                    value:
+                                      type: integer
+                                    dataType:
+                                      type: string
+                                rank_change:
+                                  type: object
+                                  properties:
+                                    label:
+                                      type: string
+                                    value:
+                                      type: integer
+                                    dataType:
+                                      type: string
     Response400:
       description: Error
       content:
@@ -1579,189 +1500,6 @@ components:
                                 type: string
                               dataType:
                                 type: string
-    Response200RankingTrends_UnGrouped:
-      description: success
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              tabularData:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    site:
-                      type: string
-                    search_engines:
-                      type: array
-                      items:
-                        type: string
-                    from:
-                      type: string
-                    to:
-                      type: string
-                    sort_col:
-                      type: array
-                      items:
-                        type: string
-                    sort_dir:
-                      type: array
-                      items:
-                        type: string
-                    buckets:
-                      type: string
-                    device_ids:
-                      type: array
-                      items:
-                        type: integer
-                    keyword_tag_ids:
-                      type: array
-                      items:
-                        type: integer
-                    keyword_tag_ids_logics:
-                      type: array
-                      items:
-                        type: string
-                    location_ids:
-                      type: array
-                      items:
-                        type: integer
-                    serp_features_ids:
-                      type: array
-                      items:
-                        type: integer
-                    serp_features_ids_for_ranks:
-                      type: array
-                      items:
-                        type: integer
-                    search_string:
-                      type: string
-                    only_conversion_event_ids:
-                      type: array
-                      items:
-                        type: integer
-                    application_brand:
-                      type: string
-                    statement_timeout:
-                      type: integer
-                    set_cache:
-                      type: string
-                    page_info:
-                      type: object
-                      properties:
-                        returned_count:
-                          type: integer
-                        total_count:
-                          type: integer
-                    results:
-                      type: array
-                      items:
-                        type: object
-                        properties:
-                          keyword_description:
-                            type: object
-                            properties:
-                              label:
-                                type: string
-                              value:
-                                type: string
-                              dataType:
-                                type: string
-                          location_name:
-                            type: object
-                            properties:
-                              label:
-                                type: string
-                              value:
-                                type: string
-                              dataType:
-                                type: string
-                          impressions:
-                            type: object
-                            properties:
-                              label:
-                                type: string
-                              value:
-                                type: integer
-                              dataType:
-                                type: string
-                          clicks:
-                            type: object
-                            properties:
-                              label:
-                                type: string
-                              value:
-                                type: integer
-                              dataType:
-                                type: string
-                          average_position:
-                            type: object
-                            properties:
-                              label:
-                                type: string
-                              value:
-                                type: number
-                                format: float
-                              dataType:
-                                type: string
-                          ctr:
-                            type: object
-                            properties:
-                              label:
-                                type: string
-                              value:
-                                type: number
-                                format: float
-                              dataType:
-                                type: string
-                          search_volume:
-                            type: object
-                            properties:
-                              label:
-                                type: string
-                              value:
-                                type: integer
-                              dataType:
-                                type: string
-                          keyword_id:
-                            type: object
-                            properties:
-                              label:
-                                type: string
-                              value:
-                                type: integer
-                              dataType:
-                                type: string
-                          keyword_name:
-                            type: object
-                            properties:
-                              label:
-                                type: string
-                              value:
-                                type: string
-                              dataType:
-                                type: string
-                          location_id:
-                            type: object
-                            properties:
-                              label:
-                                type: string
-                              value:
-                                type: integer
-                              dataType:
-                                type: string
-                          rankings_data:
-                            type: array
-                            items:
-                              type: object
-                              properties:
-                                label:
-                                  type: string
-                                value:
-                                  type: integer
-                                dataType:
-                                  type: string
     Response200SearchEngines_UnGrouped:
       description: success
       content:
@@ -1992,6 +1730,268 @@ components:
                                 type: string
                               value:
                                 type: integer
+                              dataType:
+                                type: string
+    Response200GroupsDetail:
+      description: success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              tabularData:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    site:
+                      type: string
+                    search_engines:
+                      type: array
+                      items:
+                        type: string
+                    from:
+                      type: string
+                    to:
+                      type: string
+                    sort_col:
+                      type: array
+                      items:
+                        type: string
+                    sort_dir:
+                      type: array
+                      items:
+                        type: string
+                    buckets:
+                      type: string
+                    device_ids:
+                      type: array
+                      items:
+                        type: integer
+                    keyword_tag_ids:
+                      type: array
+                      items:
+                        type: integer
+                    keyword_tag_ids_logics:
+                      type: array
+                      items:
+                        type: string
+                    location_ids:
+                      type: array
+                      items:
+                        type: integer
+                    serp_features_ids:
+                      type: array
+                      items:
+                        type: integer
+                    serp_features_ids_for_ranks:
+                      type: array
+                      items:
+                        type: integer
+                    search_string:
+                      type: string
+                    only_conversion_event_ids:
+                      type: array
+                      items:
+                        type: integer
+                    application_brand:
+                      type: string
+                    statement_timeout:
+                      type: integer
+                    set_cache:
+                      type: string
+                    page_info:
+                      type: object
+                      properties:
+                        returned_count:
+                          type: integer
+                        total_count:
+                          type: integer
+                    results:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          keywords_count:
+                            type: object
+                            properties:
+                              label:
+                                type: string
+                              value:
+                                type: integer
+                              dataType:
+                                type: string
+                          bucket0:
+                            type: object
+                            properties:
+                              label:
+                                type: string
+                              value:
+                                type: integer
+                              dataType:
+                                type: string
+                          bucket1:
+                            type: object
+                            properties:
+                              label:
+                                type: string
+                              value:
+                                type: integer
+                              dataType:
+                                type: string
+                          bucket2:
+                            type: object
+                            properties:
+                              label:
+                                type: string
+                              value:
+                                type: integer
+                              dataType:
+                                type: string
+                          bucket3:
+                            type: object
+                            properties:
+                              label:
+                                type: string
+                              value:
+                                type: integer
+                              dataType:
+                                type: string
+                          bucket4:
+                            type: object
+                            properties:
+                              label:
+                                type: string
+                              value:
+                                type: integer
+                              dataType:
+                                type: string
+                          bucket5:
+                            type: object
+                            properties:
+                              label:
+                                type: string
+                              value:
+                                type: integer
+                              dataType:
+                                type: string
+                          bucket6:
+                            type: object
+                            properties:
+                              label:
+                                type: string
+                              value:
+                                type: integer
+                              dataType:
+                                type: string
+                          bucket7:
+                            type: object
+                            properties:
+                              label:
+                                type: string
+                              value:
+                                type: integer
+                              dataType:
+                                type: string
+                          bucket8:
+                            type: object
+                            properties:
+                              label:
+                                type: string
+                              value:
+                                type: integer
+                              dataType:
+                                type: string
+                          search_volume:
+                            type: object
+                            properties:
+                              label:
+                                type: string
+                              value:
+                                type: integer
+                              dataType:
+                                type: string
+                          projected_mo_traffic:
+                            type: object
+                            properties:
+                              label:
+                                type: string
+                              value:
+                                type: integer
+                              dataType:
+                                type: string
+                          impressions:
+                            type: object
+                            properties:
+                              label:
+                                type: string
+                              value:
+                                type: integer
+                              dataType:
+                                type: string
+                          clicks:
+                            type: object
+                            properties:
+                              label:
+                                type: string
+                              value:
+                                type: integer
+                              dataType:
+                                type: string
+                          average_position:
+                            type: object
+                            properties:
+                              label:
+                                type: string
+                              value:
+                                type: number
+                                format: float
+                              dataType:
+                                type: string
+                          ctr:
+                            type: object
+                            properties:
+                              label:
+                                type: string
+                              value:
+                                type: number
+                                format: float
+                              dataType:
+                                type: string
+                          tag_id:
+                            type: object
+                            properties:
+                              label:
+                                type: string
+                              value:
+                                type: integer
+                              dataType:
+                                type: string
+                          tag_name:
+                            type: object
+                            properties:
+                              label:
+                                type: string
+                              value:
+                                type: string
+                              dataType:
+                                type: string
+                          created_at:
+                            type: object
+                            properties:
+                              label:
+                                type: string
+                              value:
+                                type: string
+                              dataType:
+                                type: string
+                          updated_at:
+                            type: object
+                            properties:
+                              label:
+                                type: string
+                              value:
+                                type: string
                               dataType:
                                 type: string
   securitySchemes:

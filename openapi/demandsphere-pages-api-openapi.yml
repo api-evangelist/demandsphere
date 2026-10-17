@@ -29,6 +29,105 @@ paths:
         '400':
           $ref: '#/components/responses/Response400'
 components:
+  responses:
+    Response200LandingsHistory:
+      description: success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              tabularData:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    site:
+                      type: string
+                    search_engines:
+                      type: array
+                      items:
+                        type: string
+                    from:
+                      type: string
+                    to:
+                      type: string
+                    sort_col:
+                      type: array
+                      items:
+                        type: string
+                    sort_dir:
+                      type: array
+                      items:
+                        type: string
+                    application_brand:
+                      type: string
+                    page_info:
+                      type: object
+                      properties:
+                        returned_count:
+                          type: integer
+                        total_count:
+                          type: integer
+                    keyword_name:
+                      type: string
+                    results:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          date:
+                            type: object
+                            properties:
+                              label:
+                                type: string
+                              value:
+                                type: string
+                              dataType:
+                                type: string
+                          rank:
+                            type: object
+                            properties:
+                              label:
+                                type: string
+                              value:
+                                type: integer
+                              dataType:
+                                type: string
+                          page:
+                            type: array
+                            items:
+                              oneOf:
+                              - label: String
+                                value: Integer
+                                dataType: String
+                              - label: String
+                                value: String
+                                dataType: String
+                          created_at:
+                            type: object
+                            properties:
+                              label:
+                                type: string
+                              value:
+                                type: string
+                              dataType:
+                                type: string
+                          updated_at:
+                            type: object
+                            properties:
+                              label:
+                                type: string
+                              value:
+                                type: string
+                              dataType:
+                                type: string
+    Response400:
+      description: Error
+      content:
+        application/json:
+          schema:
+            type: object
   parameters:
     From:
       name: from
@@ -38,6 +137,14 @@ components:
         type: string
         description: YYYY-MM-DD
       description: YYYY-MM-DD
+    SiteGlobalKey:
+      name: site_global_key
+      in: query
+      required: true
+      schema:
+        type: string
+        description: Your site ID
+      description: Your site ID
     KeywordID:
       name: keyword_id
       in: query
@@ -320,14 +427,6 @@ components:
         - google_mx__nexus5
         - google_mx__galaxytab
         - google_mx__ipad
-    SiteGlobalKey:
-      name: site_global_key
-      in: query
-      required: true
-      schema:
-        type: string
-        description: Your site ID
-      description: Your site ID
     To:
       name: to
       in: query
@@ -336,105 +435,6 @@ components:
         type: string
         description: YYYY-MM-DD
       description: YYYY-MM-DD
-  responses:
-    Response200LandingsHistory:
-      description: success
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              tabularData:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    site:
-                      type: string
-                    search_engines:
-                      type: array
-                      items:
-                        type: string
-                    from:
-                      type: string
-                    to:
-                      type: string
-                    sort_col:
-                      type: array
-                      items:
-                        type: string
-                    sort_dir:
-                      type: array
-                      items:
-                        type: string
-                    application_brand:
-                      type: string
-                    page_info:
-                      type: object
-                      properties:
-                        returned_count:
-                          type: integer
-                        total_count:
-                          type: integer
-                    keyword_name:
-                      type: string
-                    results:
-                      type: array
-                      items:
-                        type: object
-                        properties:
-                          date:
-                            type: object
-                            properties:
-                              label:
-                                type: string
-                              value:
-                                type: string
-                              dataType:
-                                type: string
-                          rank:
-                            type: object
-                            properties:
-                              label:
-                                type: string
-                              value:
-                                type: integer
-                              dataType:
-                                type: string
-                          page:
-                            type: array
-                            items:
-                              oneOf:
-                              - label: String
-                                value: Integer
-                                dataType: String
-                              - label: String
-                                value: String
-                                dataType: String
-                          created_at:
-                            type: object
-                            properties:
-                              label:
-                                type: string
-                              value:
-                                type: string
-                              dataType:
-                                type: string
-                          updated_at:
-                            type: object
-                            properties:
-                              label:
-                                type: string
-                              value:
-                                type: string
-                              dataType:
-                                type: string
-    Response400:
-      description: Error
-      content:
-        application/json:
-          schema:
-            type: object
   securitySchemes:
     ApiKey:
       type: apiKey
