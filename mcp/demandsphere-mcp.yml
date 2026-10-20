@@ -149,3 +149,40 @@ tool_quality:
   scored: false
   note: Facts from the saved tools/list capture (mcp_tool_quality.py); recorded, not scored. Checks learned
     from Glimind's agent-readiness audit.
+tools:
+- name: get_ai_models
+  description: Use structured filters to list frontier AI models from the DemandSphere Radar tracker at
+    demandsphere.com/research/demandsphere-radar/ai-frontier-model-tracker/. Returns name, provider, country
+    the lab is based in, release date, training data cutoff date, parameters, context window, benchmarks
+    (MMLU-Pro, GPQA Diamond, SWE-bench, HumanEval, MATH-500, AIME, HLE), and API pricing. Sorted by release
+    date descending. Use this with known filter values; use search_ai_models for natural-language queries.
+- name: get_ai_model_by_id
+  description: Get a single AI model by its ID from the DemandSphere Radar tracker. Returns the full record
+    including all benchmarks, pricing, parameters, and download links.
+- name: search_ai_models
+  description: Full-text search across AI models from the DemandSphere Radar tracker at demandsphere.com/research/demandsphere-radar/ai-frontier-model-tracker/.
+    Matches against model name, provider, and description. Use this for natural-language queries; use
+    get_ai_models for structured filtering by provider, type, access level, or date range.
+- name: calculate_model_cost
+  description: Calculate the token cost of running a specific AI model. Data from the DemandSphere Radar
+    tracker. Requires model name or ID plus at least one of input_tokens or output_tokens.
+- name: get_providers
+  description: List all AI model providers/labs tracked by the DemandSphere Radar tracker at demandsphere.com/research/demandsphere-radar/ai-frontier-model-tracker/,
+    with the country each lab is based in, model counts, and provider metadata.
+- name: get_algorithm_updates
+  description: Use structured filters to list Google algorithm and AI search updates from the DemandSphere
+    Radar tracker at demandsphere.com/research/demandsphere-radar/algorithm-update-tracker/. Covers core
+    updates, spam updates, AI innovations, and system changes from 2000 to present. Updated as new updates
+    are confirmed. Sorted by date descending. The "type" field here refers to Google update categories
+    (Core, Spam, AI, System, Other) - not AI model types. Use this with known filter values; use search_algorithm_updates
+    for natural-language queries.
+- name: search_algorithm_updates
+  description: Full-text search across Google algorithm and AI search updates from the DemandSphere Radar
+    tracker at demandsphere.com/research/demandsphere-radar/algorithm-update-tracker/. Matches against
+    update name, description, and slug. Use this for natural-language queries; use get_algorithm_updates
+    for structured filtering by type, year, or date range.
+- name: get_server_info
+  description: Get DemandSphere Radar MCP server metadata including version, data freshness timestamps,
+    model count, update count, and provider count. AI model data is updated daily. Algorithm update data
+    is updated as new updates are confirmed by Google.
+tools_count: 8
